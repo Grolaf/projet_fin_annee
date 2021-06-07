@@ -78,8 +78,6 @@ class MyDrawingPanel: public wxPanel
 {
 public:
 	MyDrawingPanel( wxWindow *parent ) ;
-	void OpenFile(wxString fileName) ;
-	void SaveFile(wxString fileName) ;
 
 private:
 	void OnMouseMove(wxMouseEvent &event) ;
@@ -256,34 +254,6 @@ void MyDrawingPanel::OnPaint(wxPaintEvent &event)
 	}
 }
 
-//------------------------------------------------------------------------
-void MyDrawingPanel::OpenFile(wxString fileName)
-//------------------------------------------------------------------------
-{
-	// just to open (and close) any file 
-	FILE* f = fopen(fileName, "r") ;
-	if (f)
-	{
-		wxMessageBox(wxT("The file was opened then closed")) ;
-		fclose(f) ;
-	}
-}
-
-//------------------------------------------------------------------------
-void MyDrawingPanel::SaveFile(wxString fileName)
-//------------------------------------------------------------------------
-{
-	// just to create a tiny file
-	FILE* f = fopen(fileName, "w") ;
-	if (!f)
-		wxMessageBox(wxT("Cannot save file"));
-	else
-	{
-		fprintf(f, "S1102 software can create and write a file") ;
-		wxMessageBox(wxT("The file was saved")) ;
-		fclose(f) ;
-	}
-}
 
 //************************************************************************
 //************************************************************************
