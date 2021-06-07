@@ -5,15 +5,15 @@
 
 class Message
 {
-
-    private :
-        MessagesTypes type;
+    protected :
+        MessagesTypes m_type;
 
     public : 
-        void setMessageType(MessagesTypes t)
-        {
-            type = t;
-        }
+        Message(MessagesTypes t);
+        virtual ~Message() = default;
+        
+        void setMessageType(MessagesTypes t);
+        MessagesTypes getType();
 };
 
 #endif

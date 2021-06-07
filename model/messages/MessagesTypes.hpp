@@ -3,7 +3,8 @@
 
 enum MessagesTypes
 {
-    ///// TODO
+    OPEN_FILE = 1,
+    SAVE_FILE
 };
 
 #endif
