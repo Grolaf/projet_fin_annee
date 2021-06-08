@@ -40,7 +40,7 @@ protected:
   void OnSize(wxSizeEvent &event) ;
   
   MyControlPanel *m_controlPanel; // the panel with controls
-  MyDrawingPanel *m_drawingPanel; // the panel in which we draw
+  MyDrawingPanel *m_drawingPanel; // the panel in which we Draw
 } ;
 
 

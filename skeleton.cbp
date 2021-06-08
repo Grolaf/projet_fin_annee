@@ -111,13 +111,16 @@
 		<Unit filename="/users/info/etu-as/barriean/S1102/projet_fin_annee/model/messages/MessageFile.hpp">
 			<Option target="skeleton"/>
 		</Unit>
+		<Unit filename="/users/info/etu-as/barriean/S1102/projet_fin_annee/model/shapes/Draw.cpp">
+			<Option target="skeleton"/>
+		</Unit>
 		<Unit filename="/users/info/etu-as/barriean/S1102/projet_fin_annee/model/shapes/Draw.hpp">
 			<Option target="skeleton"/>
 		</Unit>
-		<Unit filename="/users/info/etu-as/barriean/S1102/projet_fin_annee/model/shapes/cercle.cpp">
+		<Unit filename="/users/info/etu-as/barriean/S1102/projet_fin_annee/model/shapes/circle.cpp">
 			<Option target="skeleton"/>
 		</Unit>
-		<Unit filename="/users/info/etu-as/barriean/S1102/projet_fin_annee/model/shapes/cercle.hpp">
+		<Unit filename="/users/info/etu-as/barriean/S1102/projet_fin_annee/model/shapes/circle.hpp">
 			<Option target="skeleton"/>
 		</Unit>
 		<Unit filename="/users/info/etu-as/barriean/S1102/projet_fin_annee/model/shapes/point.cpp">
@@ -130,6 +133,12 @@
 			<Option target="skeleton"/>
 		</Unit>
 		<Unit filename="/users/info/etu-as/barriean/S1102/projet_fin_annee/model/shapes/rectangle.hpp">
+			<Option target="skeleton"/>
+		</Unit>
+		<Unit filename="/users/info/etu-as/barriean/S1102/projet_fin_annee/model/shapes/shape.cpp">
+			<Option target="skeleton"/>
+		</Unit>
+		<Unit filename="/users/info/etu-as/barriean/S1102/projet_fin_annee/model/shapes/shape.hpp">
 			<Option target="skeleton"/>
 		</Unit>
 		<Unit filename="/users/info/etu-as/barriean/S1102/projet_fin_annee/model/shapes/triangle.cpp">
