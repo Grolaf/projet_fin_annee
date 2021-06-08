@@ -1,18 +1,14 @@
-#include "myFrame.hpp"
+#include "MyFrame.hpp"
 #ifndef WX_PRECOMP
 #include "wx/wx.h"
+#include "../model/messages/MessageFile.hpp"
+#include "MyMenu.hpp"
+
 #endif
 
-
+#include "../constants.hpp"
 
 // Define constant of app
-
-#define APPLICATION_WIDTH	700
-#define APPLICATION_HEIGHT	600
-#define WIDGET_PANEL_WIDTH	150
-#define WIDGET_Y0			30
-#define WIDGET_Y_STEP		50
-#define APP_NAME "Svex Editors v1.0"
 
 enum
 {
@@ -30,15 +26,11 @@ MyFrame::MyFrame(const wxString& title, const wxPoint& pos, const wxSize& size)
 
   // The constructor of the main frame that creates the menu stuffs and the 2 panels
 {
-  wxMenu *fileMenu = new wxMenu();
-  fileMenu->Append(ID_LOAD, wxT("&Open file..."));
-  fileMenu->Append(ID_SAVE, wxT("&Save file..."));
-  fileMenu->Append(ID_ABOUT, wxT("&About..."));
-  fileMenu->AppendSeparator();
-  fileMenu->Append(ID_QUIT, wxT("&Exit"));
-  
+    // create menu that will contain menu itemsfilemenu = new MyMenu();
+    filemenu = new MyMenu();
+
   wxMenuBar *menuBar = new wxMenuBar();
-  menuBar->Append(fileMenu, wxT("&File"));
+  menuBar->Append(filemenu, wxT("&File"));
   
   Bind(wxEVT_MENU, &MyFrame::OnOpenFile, this, ID_LOAD);
   Bind(wxEVT_MENU, &MyFrame::OnSaveFile, this, ID_SAVE);
@@ -79,7 +71,7 @@ void MyFrame::OnAbout(wxCommandEvent& WXUNUSED(event))
   //------------------------------------------------------------------------
 {
   wxMessageBox(wxT("How to .. \n\n- use 2 panels (one for controls, one for drawings)\n- manage basic events (so that controls impact drawings)\n\n... with wxWidgets (3.0.2)\n\nPascal Bertolino UGA - GIPSA-lab, Grenoble - France\npascal.bertolino@gipsa-lab.fr"),
-               wxT(APP_NAME), wxOK | wxICON_INFORMATION ) ;
+               APP_NAME, wxOK | wxICON_INFORMATION ) ;
 }
 
 //------------------------------------------------------------------------

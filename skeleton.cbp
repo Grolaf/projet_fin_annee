@@ -78,6 +78,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/constants.hpp">
+			<Option target="skeleton"/>
+		</Unit>
 		<Unit filename="/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/controler/Observer.cpp">
 			<Option target="skeleton"/>
 		</Unit>
@@ -108,37 +111,76 @@
 		<Unit filename="/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/model/messages/MessageFile.hpp">
 			<Option target="skeleton"/>
 		</Unit>
+		<Unit filename="/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/model/shapes/Draw.hpp">
+			<Option target="skeleton"/>
+		</Unit>
+		<Unit filename="/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/model/shapes/circle.cpp">
+			<Option target="skeleton"/>
+		</Unit>
+		<Unit filename="/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/model/shapes/circle.hpp">
+			<Option target="skeleton"/>
+		</Unit>
+		<Unit filename="/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/model/shapes/point.cpp">
+			<Option target="skeleton"/>
+		</Unit>
+		<Unit filename="/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/model/shapes/point.hpp">
+			<Option target="skeleton"/>
+		</Unit>
+		<Unit filename="/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/model/shapes/rectangle.cpp">
+			<Option target="skeleton"/>
+		</Unit>
+		<Unit filename="/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/model/shapes/rectangle.hpp">
+			<Option target="skeleton"/>
+		</Unit>
+		<Unit filename="/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/model/shapes/shape.cpp">
+			<Option target="skeleton"/>
+		</Unit>
+		<Unit filename="/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/model/shapes/shape.hpp">
+			<Option target="skeleton"/>
+		</Unit>
+		<Unit filename="/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/model/shapes/triangle.cpp">
+			<Option target="skeleton"/>
+		</Unit>
+		<Unit filename="/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/model/shapes/triangle.hpp">
+			<Option target="skeleton"/>
+		</Unit>
 		<Unit filename="/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/skeleton.cpp">
+			<Option target="skeleton"/>
+		</Unit>
+		<Unit filename="/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/view/MyApp.cpp">
+			<Option target="skeleton"/>
+		</Unit>
+		<Unit filename="/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/view/MyApp.hpp">
+			<Option target="skeleton"/>
+		</Unit>
+		<Unit filename="/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/view/MyControlPanel.cpp">
+			<Option target="skeleton"/>
+		</Unit>
+		<Unit filename="/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/view/MyControlPanel.hpp">
+			<Option target="skeleton"/>
+		</Unit>
+		<Unit filename="/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/view/MyDrawingPanel.cpp">
+			<Option target="skeleton"/>
+		</Unit>
+		<Unit filename="/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/view/MyDrawingPanel.hpp">
+			<Option target="skeleton"/>
+		</Unit>
+		<Unit filename="/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/view/MyFrame.cpp">
+			<Option target="skeleton"/>
+		</Unit>
+		<Unit filename="/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/view/MyFrame.hpp">
+			<Option target="skeleton"/>
+		</Unit>
+		<Unit filename="/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/view/MyMenu.cpp">
+			<Option target="skeleton"/>
+		</Unit>
+		<Unit filename="/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/view/MyMenu.hpp">
 			<Option target="skeleton"/>
 		</Unit>
 		<Unit filename="/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/view/Observed.cpp">
 			<Option target="skeleton"/>
 		</Unit>
 		<Unit filename="/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/view/Observed.hpp">
-			<Option target="skeleton"/>
-		</Unit>
-		<Unit filename="/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/view/myApp.cpp">
-			<Option target="skeleton"/>
-		</Unit>
-		<Unit filename="/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/view/myApp.hpp">
-			<Option target="skeleton"/>
-		</Unit>
-		<Unit filename="/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/view/myControlPanel.cpp">
-			<Option target="skeleton"/>
-		</Unit>
-		<Unit filename="/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/view/myControlPanel.hpp">
-			<Option target="skeleton"/>
-		</Unit>
-		<Unit filename="/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/view/myDrawingPanel.cpp">
-			<Option target="skeleton"/>
-		</Unit>
-		<Unit filename="/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/view/myDrawingPanel.hpp">
-			<Option target="skeleton"/>
-		</Unit>
-		<Unit filename="/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/view/myFrame.cpp">
-			<Option target="skeleton"/>
-		</Unit>
-		<Unit filename="/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/view/myFrame.hpp">
 			<Option target="skeleton"/>
 		</Unit>
 		<Unit filename="/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/CMakeLists.txt">

@@ -1,7 +1,7 @@
 #include "MessageFile.hpp"
 #include "Message.hpp"
 #include "MessagesTypes.hpp"
-#include <wx/string.h>
+#include <string.h>
 
 using namespace std;
 

@@ -1,6 +1,6 @@
 
-#include "myDrawingPanel.hpp"
-#include "myFrame.hpp"
+#include "MyDrawingPanel.hpp"
+#include "MyFrame.hpp"
 
 
 // inclusion of wx
@@ -15,6 +15,8 @@
 #include <wx/image.h>
 #include <wx/file.h>
 #include <wx/bitmap.h>
+
+#include "../constants.hpp"
 
 //------------------------------------------------------------------------
 MyDrawingPanel::MyDrawingPanel(wxWindow *parent) : wxPanel(parent)

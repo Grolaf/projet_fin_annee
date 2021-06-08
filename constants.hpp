@@ -1,0 +1,17 @@
+//
+// Created by barriean on 08/06/2021.
+//
+
+#ifndef SKELETON_CONSTANTS_HPP
+#define SKELETON_CONSTANTS_HPP
+
+
+#define APPLICATION_WIDTH	700
+#define APPLICATION_HEIGHT	600
+#define WIDGET_PANEL_WIDTH	150
+#define WIDGET_Y0			30
+#define WIDGET_Y_STEP		50
+
+#define APP_NAME "Svex Editors v1.0"
+
+#endif //SKELETON_CONSTANTS_HPP
