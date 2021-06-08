@@ -6,34 +6,29 @@ using namespace std;
 /***************************************************************************************/
 /*      Builders and Destructors        */
 
-Forme::Forme(string label)
+Shape::Shape(string label)
 {
-    printf("Forme (défini)\n");
     m_label = new string(label);
 }
 
-Forme::Forme()
+Shape::Shape()
 {
-    printf("Forme (defaut)\n");
     m_label = new string();
 }
 
-Forme::Forme(const Forme& f)
+Shape::Shape(const Shape& f)
 {
-    printf("Forme (copie)\n");
     SetLabel(f.GetLabel());
 }
 
-Forme& Forme::operator=(const Forme &f)
+Shape& Shape::operator=(const Shape &f)
 {
-    printf("Forme (affectation)\n" );
     SetLabel(f.GetLabel());
     return (*this);
 }
 
-Forme::~Forme()
+Shape::~Shape()
 {
-    printf("~Forme()\n");
     if(m_label != NULL)
     {
         delete m_label;
@@ -43,7 +38,7 @@ Forme::~Forme()
 /***************************************************************************************/
 /*      getters        */
 
-string Forme::GetLabel() const
+string Shape::GetLabel() const
 {
     return *m_label;
 }
@@ -51,7 +46,7 @@ string Forme::GetLabel() const
 /***************************************************************************************/
 /*      setters        */
 
-void Forme::SetLabel(const string &str)
+void Shape::SetLabel(const string &str)
 {
     if(m_label != nullptr)
     {
@@ -63,7 +58,7 @@ void Forme::SetLabel(const string &str)
 /***************************************************************************************/
 /*      methods        */
 
-void Forme::display()const
+void Shape::display()const
 {
-    cout << "Forme " << *m_label << endl;
+    cout << "Shape " << *m_label << endl;
 }

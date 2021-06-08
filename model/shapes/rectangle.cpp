@@ -7,17 +7,13 @@ using namespace std;
 /***************************************************************************************/
 /*      Builders and Destructors        */
 
-Rectangle::Rectangle(int xLeftCorner, int yLeftCorner, int width, int height, string label): m_w(width), m_h(height), m_corner(xLeftCorner, yLeftCorner), Forme(label)
-{   
-    cout << __func__ << " utilisee pour " << this << endl;
-
+Rectangle::Rectangle(int xLeftCorner, int yLeftCorner, int width, int height, string label): m_w(width), m_h(height), m_corner(xLeftCorner, yLeftCorner), Shape(label)
+{
     m_rectCount++;
 }
  
-Rectangle::Rectangle(Point& p, int width, int height): m_w(width), m_h(height), m_corner(p), Forme()
-{   
-    cout << __func__ << " utilisee pour " << this << endl;
-
+Rectangle::Rectangle(Point& p, int width, int height): m_w(width), m_h(height), m_corner(p), Shape()
+{
     m_rectCount++;
 }
 
@@ -25,7 +21,6 @@ Rectangle::Rectangle(Point& p, int width, int height): m_w(width), m_h(height), 
 Rectangle::~Rectangle()
 {
     m_rectCount--;
-    cout << __func__ << " utilisee pour " << this << endl;
 }
 
 /***************************************************************************************/
@@ -93,7 +88,7 @@ int Rectangle::Surface() const
 
 void Rectangle::display() const
 {
-    Forme::display();
+    Shape::display();
     cout << "  Corner = ";
     m_corner.Display();
     cout << ". w = " << m_w << " , h = " << m_h;

@@ -5,24 +5,20 @@
 
 using namespace std;
 
-Triangle::Triangle(const Point& p1, const Point& p2, const Point& p3, const string& label): Forme(label), m_p1(p1),m_p2(p2),m_p3(p3)
+Triangle::Triangle(const Point& p1, const Point& p2, const Point& p3, const string& label): Shape(label), m_p1(p1), m_p2(p2), m_p3(p3)
 {
-    printf("Triangle (défini)\n");
 }
 
-Triangle::Triangle(): Forme(), m_p1(0,0),m_p2(0,0),m_p3(0,0)
+Triangle::Triangle(): Shape(), m_p1(0, 0), m_p2(0, 0), m_p3(0, 0)
 {
-    printf("Triangle (defaut)\n");
 }
 
-Triangle::Triangle(const Triangle& c): Forme(c.GetLabel()), m_p1(c.m_p1), m_p2(c.m_p2), m_p3(c.m_p3)
+Triangle::Triangle(const Triangle& c): Shape(c.GetLabel()), m_p1(c.m_p1), m_p2(c.m_p2), m_p3(c.m_p3)
 {
-    printf("Triangle (copie)\n");
 }
 
 Triangle::~Triangle()
 {
-    printf("~Triangle\n");
 }
 
 

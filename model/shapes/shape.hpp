@@ -7,11 +7,11 @@ class Shape
 {
     public :
 
-        Forme(std::string label);
-        Forme();
-        virtual ~Forme();
-        Forme(const Forme& f);
-        Forme& operator=(const Forme& f);
+        Shape(std::string label);
+        Shape();
+        virtual ~Shape();
+        Shape(const Shape& f);
+        Shape& operator=(const Shape& f);
 
         void SetLabel(const std::string& str);
         std::string GetLabel() const;

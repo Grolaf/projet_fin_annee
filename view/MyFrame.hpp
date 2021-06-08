@@ -1,7 +1,5 @@
-#ifndef __MYAPP__
-#define __MYAPP__
-
-
+#ifndef __MYFRAME__
+#define __MYFRAME__
 
 // inclusion of wx
 #ifndef WX_PRECOMP
@@ -17,29 +15,11 @@
 #include <wx/chartype.h>
 #include <wx/bitmap.h>
 
-// inclusion of Message mod
-#include "../model/messages/MessageFile.hpp"
-#include "../model/messages/MessagesTypes.hpp"
-#include "../model/messages/MessageFile.hpp"
-#include "../model/Dao.hpp"
+#include "MyDrawingPanel.hpp"
+#include "MyControlPanel.hpp"
 
-// inclusion of views
 
 #include "../view/Observed.hpp"
-
-// inclusion of controller
-#include "../controler/Observer.hpp"
-#include "../controler/controler.hpp"
-
-#include "myDrawingPanel.hpp"
-#include "myControlPanel.hpp"
-
-#define APPLICATION_WIDTH	700
-#define APPLICATION_HEIGHT	600
-#define WIDGET_PANEL_WIDTH	150
-#define WIDGET_Y0			30
-#define WIDGET_Y_STEP		50
-
 
 
 

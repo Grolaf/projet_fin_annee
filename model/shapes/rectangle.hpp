@@ -4,7 +4,7 @@
 #include "shape.hpp"
 #include "point.hpp"
 
-class Rectangle: public Forme
+class Rectangle: public Shape
 {
     private :
 

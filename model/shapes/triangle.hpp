@@ -4,7 +4,7 @@
 #include "shape.hpp"
 #include "point.hpp"
 
-class Triangle : public Forme
+class Triangle : public Shape
 {
     private : 
         Point m_p1;

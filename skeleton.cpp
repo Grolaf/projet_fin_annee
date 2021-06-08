@@ -10,10 +10,10 @@
 #include <wx/file.h>
 #include <wx/bitmap.h>
 
-#include "view/myApp.hpp"
-#include "view/myFrame.hpp"
-#include "view/myDrawingPanel.hpp"
-#include "view/myControlPanel.hpp"
+#include "view/MyApp.hpp"
+#include "view/MyFrame.hpp"
+#include "view/MyDrawingPanel.hpp"
+#include "view/MyControlPanel.hpp"
 
 #include "model/Dao.hpp"
 #include "model/messages/MessageFile.hpp"

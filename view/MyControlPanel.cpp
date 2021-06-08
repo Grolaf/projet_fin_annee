@@ -5,8 +5,8 @@
 #define WIDGET_Y0			30
 #define WIDGET_Y_STEP		50
 
-#include "myControlPanel.hpp"
-#include "myFrame.hpp"
+#include "MyControlPanel.hpp"
+#include "MyFrame.hpp"
 
 enum
 {

@@ -1,18 +1,13 @@
-#include "myFrame.hpp"
+#include "MyFrame.hpp"
 #ifndef WX_PRECOMP
 #include "wx/wx.h"
+#include "../model/messages/MessageFile.hpp"
+
 #endif
 
-
+#include "../constants.hpp"
 
 // Define constant of app
-
-#define APPLICATION_WIDTH	700
-#define APPLICATION_HEIGHT	600
-#define WIDGET_PANEL_WIDTH	150
-#define WIDGET_Y0			30
-#define WIDGET_Y_STEP		50
-#define APP_NAME "Svex Editors v1.0"
 
 enum
 {
@@ -79,7 +74,7 @@ void MyFrame::OnAbout(wxCommandEvent& WXUNUSED(event))
   //------------------------------------------------------------------------
 {
   wxMessageBox(wxT("How to .. \n\n- use 2 panels (one for controls, one for drawings)\n- manage basic events (so that controls impact drawings)\n\n... with wxWidgets (3.0.2)\n\nPascal Bertolino UGA - GIPSA-lab, Grenoble - France\npascal.bertolino@gipsa-lab.fr"),
-               wxT(APP_NAME), wxOK | wxICON_INFORMATION ) ;
+               APP_NAME, wxOK | wxICON_INFORMATION ) ;
 }
 
 //------------------------------------------------------------------------

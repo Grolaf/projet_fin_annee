@@ -4,7 +4,7 @@
 #include "shape.hpp"
 #include "point.hpp"
 
-class Cercle : public Forme
+class Circle : public Shape
 {
     private : 
         Point m_center;
@@ -12,11 +12,11 @@ class Cercle : public Forme
 
     public : 
 
-        Cercle(int x, int y, int radius, std::string label);
-        Cercle();
-        virtual ~Cercle();
-        Cercle(const Cercle& c);
-        Cercle& operator=(const Cercle& c);
+        Circle(int x, int y, int radius, std::string label);
+        Circle();
+        virtual ~Circle();
+        Circle(const Circle& c);
+        Circle& operator=(const Circle& c);
 
         virtual void display()const;
         virtual float perimeter()const;

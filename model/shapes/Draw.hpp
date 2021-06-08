@@ -7,12 +7,26 @@
 
 #include "shape.hpp"
 #include <vector>
+#include "circle.hpp"
+#include "rectangle.hpp"
+#include "triangle.hpp"
 
 class Draw
 {
-private:
+    private:
+        std::vector<Rectangle> rectangles;
+        std::vector<Triangle> triangles;
+        std::vector<Circle> cercles;
 
+    public:
 
+        Draw();
+        ~Draw() = default;
+
+        void addRectangle(Rectangle r);
+        void addTriangle(Triangle t);
+        void addCircle(Circle c);
+        
 };
 
 #endif //SKELETON_DRAW_HPP

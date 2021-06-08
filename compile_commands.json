@@ -6,6 +6,26 @@
 },
 {
   "directory": "/users/info/etu-as/barriean/S1102/projet_fin_annee",
+  "command": "/usr/bin/c++  -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXGTK__ -isystem /usr/lib/x86_64-linux-gnu/wx/include/gtk2-unicode-3.0 -isystem /usr/include/wx-3.0   -pthread -g   -std=gnu++11 -o CMakeFiles/skeleton.dir/view/MyApp.cpp.o -c /users/info/etu-as/barriean/S1102/projet_fin_annee/view/MyApp.cpp",
+  "file": "/users/info/etu-as/barriean/S1102/projet_fin_annee/view/MyApp.cpp"
+},
+{
+  "directory": "/users/info/etu-as/barriean/S1102/projet_fin_annee",
+  "command": "/usr/bin/c++  -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXGTK__ -isystem /usr/lib/x86_64-linux-gnu/wx/include/gtk2-unicode-3.0 -isystem /usr/include/wx-3.0   -pthread -g   -std=gnu++11 -o CMakeFiles/skeleton.dir/view/MyDrawingPanel.cpp.o -c /users/info/etu-as/barriean/S1102/projet_fin_annee/view/MyDrawingPanel.cpp",
+  "file": "/users/info/etu-as/barriean/S1102/projet_fin_annee/view/MyDrawingPanel.cpp"
+},
+{
+  "directory": "/users/info/etu-as/barriean/S1102/projet_fin_annee",
+  "command": "/usr/bin/c++  -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXGTK__ -isystem /usr/lib/x86_64-linux-gnu/wx/include/gtk2-unicode-3.0 -isystem /usr/include/wx-3.0   -pthread -g   -std=gnu++11 -o CMakeFiles/skeleton.dir/view/MyControlPanel.cpp.o -c /users/info/etu-as/barriean/S1102/projet_fin_annee/view/MyControlPanel.cpp",
+  "file": "/users/info/etu-as/barriean/S1102/projet_fin_annee/view/MyControlPanel.cpp"
+},
+{
+  "directory": "/users/info/etu-as/barriean/S1102/projet_fin_annee",
+  "command": "/usr/bin/c++  -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXGTK__ -isystem /usr/lib/x86_64-linux-gnu/wx/include/gtk2-unicode-3.0 -isystem /usr/include/wx-3.0   -pthread -g   -std=gnu++11 -o CMakeFiles/skeleton.dir/view/MyFrame.cpp.o -c /users/info/etu-as/barriean/S1102/projet_fin_annee/view/MyFrame.cpp",
+  "file": "/users/info/etu-as/barriean/S1102/projet_fin_annee/view/MyFrame.cpp"
+},
+{
+  "directory": "/users/info/etu-as/barriean/S1102/projet_fin_annee",
   "command": "/usr/bin/c++  -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXGTK__ -isystem /usr/lib/x86_64-linux-gnu/wx/include/gtk2-unicode-3.0 -isystem /usr/include/wx-3.0   -pthread -g   -std=gnu++11 -o CMakeFiles/skeleton.dir/model/messages/Message.cpp.o -c /users/info/etu-as/barriean/S1102/projet_fin_annee/model/messages/Message.cpp",
   "file": "/users/info/etu-as/barriean/S1102/projet_fin_annee/model/messages/Message.cpp"
 },
@@ -53,5 +73,10 @@
   "directory": "/users/info/etu-as/barriean/S1102/projet_fin_annee",
   "command": "/usr/bin/c++  -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXGTK__ -isystem /usr/lib/x86_64-linux-gnu/wx/include/gtk2-unicode-3.0 -isystem /usr/include/wx-3.0   -pthread -g   -std=gnu++11 -o CMakeFiles/skeleton.dir/model/shapes/point.cpp.o -c /users/info/etu-as/barriean/S1102/projet_fin_annee/model/shapes/point.cpp",
   "file": "/users/info/etu-as/barriean/S1102/projet_fin_annee/model/shapes/point.cpp"
+},
+{
+  "directory": "/users/info/etu-as/barriean/S1102/projet_fin_annee",
+  "command": "/usr/bin/c++  -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXGTK__ -isystem /usr/lib/x86_64-linux-gnu/wx/include/gtk2-unicode-3.0 -isystem /usr/include/wx-3.0   -pthread -g   -std=gnu++11 -o CMakeFiles/skeleton.dir/model/shapes/shape.cpp.o -c /users/info/etu-as/barriean/S1102/projet_fin_annee/model/shapes/shape.cpp",
+  "file": "/users/info/etu-as/barriean/S1102/projet_fin_annee/model/shapes/shape.cpp"
 }
 ]
