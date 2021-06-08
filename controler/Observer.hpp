@@ -6,7 +6,9 @@
 class Observer
 {
     public :
-        virtual void treatMessage(Message &m);
+        Observer();
+        virtual void treatMessage(Message *m);
+        ~Observer() = default;
 };
 
 #endif

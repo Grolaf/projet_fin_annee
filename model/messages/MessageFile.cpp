@@ -1,11 +1,21 @@
 #include "MessageFile.hpp"
 #include "Message.hpp"
 #include "MessagesTypes.hpp"
+#include <wx/string.h>
 
-MessageFile::MessageFile(MessagesTypes t, wxString &fileName): Message(t), m_fileName(fileName)
+using namespace std;
+
+MessageFile::MessageFile(MessagesTypes t, string fileName): Message(t), m_fileName(fileName)
 {}
 
-void MessageFile::setFileName(wxString &filename)
+void MessageFile::setFileName(string fileName)
 {
-    m_fileName = filename;
+    m_fileName = fileName;
 }
+
+string MessageFile::getFileName() const
+{
+    return m_fileName;
+}
+
+MessageFile::~MessageFile(){}

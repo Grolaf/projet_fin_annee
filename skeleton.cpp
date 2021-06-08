@@ -25,6 +25,7 @@
 //************************************************************************
 
 // For compilers that support precompilation, includes "wx/wx.h".
+#include "model/messages/MessageFile.hpp"
 #include "model/messages/MessagesTypes.hpp"
 #include "wx/wxprec.h"
 
@@ -330,11 +331,12 @@ void MyFrame::OnAbout(wxCommandEvent& WXUNUSED(event))
 void MyFrame::OnOpenFile(wxCommandEvent& WXUNUSED(event) )
     //------------------------------------------------------------------------
 {
-    wxString filename = wxFileSelector(wxT("Select file"));
+    std::string filename = std::string(wxFileSelector("Select file").c_str());
     if ( !filename.empty() )
     {
-        MessageFile m(OPEN_FILE, filename);
+        MessageFile* m = new MessageFile(OPEN_FILE, filename);
         notifyObserver(m);
+        delete(m);
     }
 }
 
@@ -342,11 +344,12 @@ void MyFrame::OnOpenFile(wxCommandEvent& WXUNUSED(event) )
 void MyFrame::OnSaveFile(wxCommandEvent & WXUNUSED(event))
 //------------------------------------------------------------------------
 {
-	wxString filename = wxSaveFileSelector(wxT("Save file as"), wxT("*.txt"), wxT("data"));
+    std::string filename = std::string(wxSaveFileSelector("Save file as", "*.txt", "data").c_str());
 	if ( !filename.empty() )
   {
-      MessageFile m(SAVE_FILE, filename);
+      MessageFile* m = new MessageFile(SAVE_FILE, filename);
       notifyObserver(m);
+      delete(m);
   }
 }
 
@@ -374,10 +377,12 @@ bool MyApp::OnInit()
 //------------------------------------------------------------------------
 {
 	MyFrame *frame = new MyFrame(wxT(APP_NAME), wxDefaultPosition, wxSize(APPLICATION_WIDTH,APPLICATION_HEIGHT)) ;
-  Controler controler;
+  Controler* controler = new Controler();
   frame->setObserver(controler);
 
-	frame->Show(true) ;
-	SetTopWindow(frame) ;
+	frame->Show(true); 
+	SetTopWindow(frame);
+
 	return true ;
 }
+

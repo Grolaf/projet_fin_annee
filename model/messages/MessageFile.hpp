@@ -1,7 +1,9 @@
 #ifndef __MESSAGEFILE_HPP_INCLUDED__
 #define __MESSAGEFILE_HPP_INCLUDED__
 
+#include "MessagesTypes.hpp"
 #include "wx/wxprec.h"
+#include <wx/chartype.h>
 
 #ifndef WX_PRECOMP
     #include "wx/wx.h"
@@ -13,20 +15,22 @@
 #include <wx/bitmap.h>
 
 #include "Message.hpp"
-#include "MessagesTypes.hpp"
 
 class MessageFile : public Message
 {
-    
     private :
-        wxString m_fileName;
+        std::string m_fileName ;
 
-    public : 
+    public: 
+        MessageFile(MessagesTypes t, std::string fileName);
+        ~MessageFile();
 
-        MessageFile(MessagesTypes t, wxString &fileName);
-        virtual ~MessageFile() = default;
+        // Setters
+        void setFileName(std::string fileName);
 
-        void setFileName(wxString &fileName);
+        // Getters
+        std::string getFileName() const;
 };
+
 
 #endif

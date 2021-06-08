@@ -8,7 +8,9 @@ class Controler: public Observer
 {
     public :
         Controler();
-        void treatMessage(Message &m);
+        ~Controler();
+        virtual void treatMessage(Message *m);
+
 };
 
 #endif

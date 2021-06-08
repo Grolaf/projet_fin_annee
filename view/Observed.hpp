@@ -7,11 +7,12 @@
 class Observed
 {
     private :
-        Observer m_observer;
+        Observer* m_observer;
 
     public :
-        void setObserver(Observer &o);
-        void notifyObserver(Message &m);
+        void setObserver(Observer *o);
+        void notifyObserver(Message *m);
+        ~Observed();
 
 };
 

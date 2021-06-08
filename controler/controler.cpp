@@ -1,24 +1,32 @@
+#include "../model/Dao.hpp"
 #include "controler.hpp"
 #include "Observer.hpp"
 #include <iostream>
+#include "../model/messages/MessageFile.hpp"
 
 Controler::Controler(): Observer()
 {
 }
 
-void Controler::treatMessage(Message &m)
+void Controler::treatMessage(Message *m)
 {
-    switch (m.getType())
+    std::cout << "Controleur" << std::endl;
+    MessageFile* message = nullptr;
+
+    switch (m->getType())
     {
         case OPEN_FILE:
-            std::cout << "File open" << std::endl;
+            message = dynamic_cast<MessageFile*>(m);
+            Dao::OpenFile(message->getFileName());
             break;
         case SAVE_FILE:
             std::cout << "File saved" << std::endl;
             break;
 
         default:
-
+            std::cout << "Test" << std::endl;
             break;
     }
 }
+
+Controler::~Controler(){}

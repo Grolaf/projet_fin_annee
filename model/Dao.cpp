@@ -1,29 +1,35 @@
 #include "Dao.hpp"
+#include <cstdio>
 
-FILE* Dao::OpenFile(wxString fileName)
+using namespace std;
+
+FILE* Dao::OpenFile(string fileName)
 {
-    try{
-        FILE* f = fopen(fileName, "r");
-    }catch(exception e)
-    {
-        throw "Error : file not found";
-    }
-    
-    return f;    
+    cout << "Opening file" << endl;
+ //   FILE* f;
+ //   try{
+ //       f = fopen(fileName, "r");
+ //   }catch(...)
+ //   {
+ //       throw "Error : file not found";
+ //   }
+ //   
+ //   return f;    
+    return nullptr;
 }
 
-bool Dao::SaveFile(wxString fileName)
+bool Dao::SaveFile(string fileName)
 {
-    try{
-        FILE* f = 
-    }catch(exception e)
-    {
-        throw "Error : unable to write file";
-    }
-
-    ///// TODO : write in file
-    
-    fclose(f);
+    cout << "Saving file" << endl;
+   // FILE* f;
+   // try{
+   //     f = fopen(fileName, "r");
+   // }catch(...)
+   // {
+   //     throw "Error : unable to write file";
+   // }
+   // 
+   // fclose(f);
 
     return true;
 }
