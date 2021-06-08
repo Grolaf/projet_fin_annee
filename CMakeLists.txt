@@ -3,12 +3,16 @@ cmake_minimum_required(VERSION 3.10)
 project(skeleton VERSION 1.0)
 
 # specify the C++ standard
+set(CMAKE_BUILD_TYPE Debug)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON CACHE INTERNAL "")
 
 find_package(wxWidgets REQUIRED COMPONENTS net core base)
 include(${wxWidgets_USE_FILE})
 
 # add the executable
-add_executable(skeleton skeleton.cpp)
+
+add_executable(skeleton skeleton.cpp view/myApp.cpp view/myDrawingPanel.cpp view/myControlPanel.cpp view/myFrame.cpp model/messages/Message.cpp model/messages/MessageFile.cpp model/Dao.cpp controler/controler.cpp  controler/Observer.cpp view/Observed.cpp )
+
 target_link_libraries(skeleton ${wxWidgets_LIBRARIES})

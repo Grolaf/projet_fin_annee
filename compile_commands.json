@@ -1,0 +1,57 @@
+[
+{
+  "directory": "/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee",
+  "command": "/usr/bin/c++  -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXGTK__ -isystem /usr/lib/x86_64-linux-gnu/wx/include/gtk2-unicode-3.0 -isystem /usr/include/wx-3.0   -pthread -g   -std=gnu++11 -o CMakeFiles/skeleton.dir/skeleton.cpp.o -c /users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/skeleton.cpp",
+  "file": "/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/skeleton.cpp"
+},
+{
+  "directory": "/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee",
+  "command": "/usr/bin/c++  -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXGTK__ -isystem /usr/lib/x86_64-linux-gnu/wx/include/gtk2-unicode-3.0 -isystem /usr/include/wx-3.0   -pthread -g   -std=gnu++11 -o CMakeFiles/skeleton.dir/view/myApp.cpp.o -c /users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/view/myApp.cpp",
+  "file": "/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/view/myApp.cpp"
+},
+{
+  "directory": "/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee",
+  "command": "/usr/bin/c++  -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXGTK__ -isystem /usr/lib/x86_64-linux-gnu/wx/include/gtk2-unicode-3.0 -isystem /usr/include/wx-3.0   -pthread -g   -std=gnu++11 -o CMakeFiles/skeleton.dir/view/myDrawingPanel.cpp.o -c /users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/view/myDrawingPanel.cpp",
+  "file": "/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/view/myDrawingPanel.cpp"
+},
+{
+  "directory": "/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee",
+  "command": "/usr/bin/c++  -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXGTK__ -isystem /usr/lib/x86_64-linux-gnu/wx/include/gtk2-unicode-3.0 -isystem /usr/include/wx-3.0   -pthread -g   -std=gnu++11 -o CMakeFiles/skeleton.dir/view/myControlPanel.cpp.o -c /users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/view/myControlPanel.cpp",
+  "file": "/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/view/myControlPanel.cpp"
+},
+{
+  "directory": "/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee",
+  "command": "/usr/bin/c++  -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXGTK__ -isystem /usr/lib/x86_64-linux-gnu/wx/include/gtk2-unicode-3.0 -isystem /usr/include/wx-3.0   -pthread -g   -std=gnu++11 -o CMakeFiles/skeleton.dir/view/myFrame.cpp.o -c /users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/view/myFrame.cpp",
+  "file": "/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/view/myFrame.cpp"
+},
+{
+  "directory": "/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee",
+  "command": "/usr/bin/c++  -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXGTK__ -isystem /usr/lib/x86_64-linux-gnu/wx/include/gtk2-unicode-3.0 -isystem /usr/include/wx-3.0   -pthread -g   -std=gnu++11 -o CMakeFiles/skeleton.dir/model/messages/Message.cpp.o -c /users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/model/messages/Message.cpp",
+  "file": "/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/model/messages/Message.cpp"
+},
+{
+  "directory": "/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee",
+  "command": "/usr/bin/c++  -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXGTK__ -isystem /usr/lib/x86_64-linux-gnu/wx/include/gtk2-unicode-3.0 -isystem /usr/include/wx-3.0   -pthread -g   -std=gnu++11 -o CMakeFiles/skeleton.dir/model/messages/MessageFile.cpp.o -c /users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/model/messages/MessageFile.cpp",
+  "file": "/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/model/messages/MessageFile.cpp"
+},
+{
+  "directory": "/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee",
+  "command": "/usr/bin/c++  -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXGTK__ -isystem /usr/lib/x86_64-linux-gnu/wx/include/gtk2-unicode-3.0 -isystem /usr/include/wx-3.0   -pthread -g   -std=gnu++11 -o CMakeFiles/skeleton.dir/model/Dao.cpp.o -c /users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/model/Dao.cpp",
+  "file": "/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/model/Dao.cpp"
+},
+{
+  "directory": "/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee",
+  "command": "/usr/bin/c++  -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXGTK__ -isystem /usr/lib/x86_64-linux-gnu/wx/include/gtk2-unicode-3.0 -isystem /usr/include/wx-3.0   -pthread -g   -std=gnu++11 -o CMakeFiles/skeleton.dir/controler/controler.cpp.o -c /users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/controler/controler.cpp",
+  "file": "/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/controler/controler.cpp"
+},
+{
+  "directory": "/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee",
+  "command": "/usr/bin/c++  -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXGTK__ -isystem /usr/lib/x86_64-linux-gnu/wx/include/gtk2-unicode-3.0 -isystem /usr/include/wx-3.0   -pthread -g   -std=gnu++11 -o CMakeFiles/skeleton.dir/controler/Observer.cpp.o -c /users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/controler/Observer.cpp",
+  "file": "/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/controler/Observer.cpp"
+},
+{
+  "directory": "/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee",
+  "command": "/usr/bin/c++  -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXGTK__ -isystem /usr/lib/x86_64-linux-gnu/wx/include/gtk2-unicode-3.0 -isystem /usr/include/wx-3.0   -pthread -g   -std=gnu++11 -o CMakeFiles/skeleton.dir/view/Observed.cpp.o -c /users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/view/Observed.cpp",
+  "file": "/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/view/Observed.cpp"
+}
+]

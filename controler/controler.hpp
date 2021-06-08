@@ -1,0 +1,16 @@
+#ifndef __CONTROLER_HPP_INCLUDED__
+#define __CONTROLER_HPP_INCLUDED__
+
+#include "Observer.hpp"
+#include "../model/messages/Message.hpp"
+
+class Controler: public Observer
+{
+    public :
+        Controler();
+        ~Controler();
+        virtual void treatMessage(Message *m);
+
+};
+
+#endif
