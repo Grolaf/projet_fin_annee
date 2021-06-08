@@ -24,9 +24,6 @@
 
 #include "../view/Observed.hpp"
 
-// inclusion of controller
-#include "../controler/Observer.hpp"
-#include "../controler/controler.hpp"
 
 #include "myDrawingPanel.hpp"
 #include "myControlPanel.hpp"
@@ -36,7 +33,9 @@
 #define WIDGET_PANEL_WIDTH	150
 #define WIDGET_Y0			30
 #define WIDGET_Y_STEP		50
+#define APP_NAME "Svex Editors v1.0"
 //
+
 #include "myApp.hpp"
 #include "myFrame.hpp"
 
@@ -49,6 +48,6 @@ bool MyApp::OnInit()
   
   frame->Show(true); 
   SetTopWindow(frame);
-  
+
   return true ;
 }
