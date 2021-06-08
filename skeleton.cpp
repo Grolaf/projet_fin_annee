@@ -28,13 +28,14 @@
 #include "wx/wxprec.h"
 
 #ifndef WX_PRECOMP
-    #include "wx/wx.h"
+#include "wx/wx.h"
 #endif
 
 #include<wx/filedlg.h>
 #include <wx/image.h>
 #include <wx/file.h>
 #include <wx/bitmap.h>
+
 
 //------------------------------------------------------------------------
 // Some constants
@@ -51,13 +52,13 @@
 //------------------------------------------------------------------------
 enum
 {
-	ID_QUIT = 1,
-	ID_ABOUT,
-	ID_LOAD,
-	ID_SAVE,
-	ID_BUTTON1,
-	ID_SLIDER1,
-	ID_CHECKBOX1
+  ID_QUIT = 1,
+  ID_ABOUT,
+  ID_LOAD,
+  ID_SAVE,
+  ID_BUTTON1,
+  ID_SLIDER1,
+  ID_CHECKBOX1
 };
 
 //------------------------------------------------------------------------
@@ -67,66 +68,76 @@ class MyControlPanel ;
 
 //------------------------------------------------------------------------
 class MyApp: public wxApp
-//------------------------------------------------------------------------
+           //------------------------------------------------------------------------
 {
-    virtual bool OnInit() ;
+  virtual bool OnInit() ;
 };
 
 //------------------------------------------------------------------------
 class MyDrawingPanel: public wxPanel
-//------------------------------------------------------------------------
+                    //------------------------------------------------------------------------
 {
 public:
-	MyDrawingPanel( wxWindow *parent ) ;
-	void OpenFile(wxString fileName) ;
-	void SaveFile(wxString fileName) ;
-
+  MyDrawingPanel( wxWindow *parent ) ;
+  void OpenFile(wxString fileName) ;
+  void SaveFile(wxString fileName) ;
+  
 private:
-	void OnMouseMove(wxMouseEvent &event) ;
-	void OnMouseLeftDown(wxMouseEvent &event) ;
-	void OnPaint(wxPaintEvent &event) ;
-	wxPoint m_mousePoint ;
-	wxPoint m_onePoint ;
+  void OnMouseMove(wxMouseEvent &event) ;
+  void OnMouseLeftDown(wxMouseEvent &event) ;
+  void OnPaint(wxPaintEvent &event) ;
+  wxPoint m_mousePoint ;
+  wxPoint m_onePoint ;
 };
 
 //------------------------------------------------------------------------
 class MyControlPanel: public wxPanel
-//------------------------------------------------------------------------
+                    //------------------------------------------------------------------------
 {
 public:
-	MyControlPanel( wxWindow *parent ) ;
-	int GetSliderValue() {return m_slider->GetValue() ;} ;
-	bool GetCheckBoxValue() {return m_checkBox->GetValue() ;} ;
-
+  MyControlPanel( wxWindow *parent ) ;
+  int GetSliderValue() {return m_slider->GetValue() ;} ;
+  bool GetCheckBoxValue() {return m_checkBox->GetValue() ;} ;
+  
 private:
-	void OnButton(wxCommandEvent &event) ;
-	void OnSlider(wxScrollEvent &event) ;
-	void OnCheckBox(wxCommandEvent &event) ;
-	wxButton* m_button ;
-	wxSlider* m_slider ;
-	wxCheckBox* m_checkBox ;
+  void OnButton(wxCommandEvent &event) ;
+  void OnSlider(wxScrollEvent &event) ;
+  void OnCheckBox(wxCommandEvent &event) ;
+  wxButton* m_button ;
+  wxSlider* m_slider ;
+  wxCheckBox* m_checkBox ;
 };
+
+class MyMenu : public wxMenu{
+public : 
+  MyMenu();
+};
+
 
 //------------------------------------------------------------------------
 class MyFrame: public wxFrame
-//------------------------------------------------------------------------
+             //------------------------------------------------------------------------
 {
 public:
-	MyFrame(const wxString& title, const wxPoint& pos, const wxSize& size);
-	MyControlPanel* GetControlPanel(){return m_controlPanel ;} ;
-	void RefreshDrawing(){m_drawingPanel->Refresh() ;} ;
-
+  MyFrame(const wxString& title, const wxPoint& pos, const wxSize& size);
+  MyControlPanel* GetControlPanel(){return m_controlPanel ;} ;
+  void RefreshDrawing(){m_drawingPanel->Refresh() ;} ;
+  
 protected:
-	void OnQuit(wxCommandEvent& event);
-	void OnAbout(wxCommandEvent& event);
-	void OnOpenFile(wxCommandEvent& WXUNUSED(event) ) ;
-	void OnSaveFile(wxCommandEvent & WXUNUSED(event)) ;
-	void OnClose(wxCloseEvent& event) ;
-	void OnSize(wxSizeEvent &event) ;
-
-	MyControlPanel *m_controlPanel; // the panel with controls
-	MyDrawingPanel *m_drawingPanel; // the panel in which we draw
+  void OnQuit(wxCommandEvent& event);
+  void OnAbout(wxCommandEvent& event);
+  void OnOpenFile(wxCommandEvent& WXUNUSED(event) ) ;
+  void OnSaveFile(wxCommandEvent & WXUNUSED(event)) ;
+  void OnClose(wxCloseEvent& event) ;
+  void OnSize(wxSizeEvent &event) ;
+  
+  MyControlPanel *m_controlPanel; // the panel with controls
+  MyDrawingPanel *m_drawingPanel; // the panel in which we draw
+  
+   MyMenu *filemenu;
 } ;
+
+
 
 //************************************************************************
 //************************************************************************
@@ -136,54 +147,57 @@ protected:
 
 //------------------------------------------------------------------------
 MyControlPanel::MyControlPanel(wxWindow *parent) : wxPanel(parent)
-//------------------------------------------------------------------------
-// In this constructor, create the controls and associate each of them (bind) a method
+  //------------------------------------------------------------------------
+  // In this constructor, create the controls and associate each of them (bind) a method
 {
-	int w, h, y ;
-	GetParent()->GetSize(&w,&h) ;
-	SetSize(wxRect(wxPoint(0,0), wxPoint(WIDGET_PANEL_WIDTH, h))) ;
-	SetBackgroundColour(*wxLIGHT_GREY) ;
-
-	y = WIDGET_Y0 ;
-	m_button = new wxButton(this, ID_BUTTON1, wxT("Click me"), wxPoint(10, y)) ;
-	Bind(wxEVT_BUTTON, &MyControlPanel::OnButton, this, ID_BUTTON1) ;
-	
-	y+= WIDGET_Y_STEP ;
-	wxStaticText* text1 = new wxStaticText(this, wxID_ANY, wxT("Radius"), wxPoint(10, y)) ;
-	
-	y+= 15 ;
-	m_slider = new wxSlider(this, ID_SLIDER1, 10, 2, 100, wxPoint(10, y), wxSize(100,20)) ;
-	Bind(wxEVT_SCROLL_THUMBTRACK, &MyControlPanel::OnSlider, this, ID_SLIDER1) ;	
-	
-	y+= WIDGET_Y_STEP ;
-	m_checkBox = new wxCheckBox(this, ID_CHECKBOX1, "Show (x,y)", wxPoint(10, y), wxSize(100,20)) ;
-	Bind(wxEVT_CHECKBOX, &MyControlPanel::OnCheckBox, this, ID_CHECKBOX1) ;	
+  int w, h, y ;
+  GetParent()->GetSize(&w,&h) ;
+  SetSize(wxRect(wxPoint(0,0), wxPoint(WIDGET_PANEL_WIDTH, h))) ;
+  SetBackgroundColour(*wxLIGHT_GREY) ;
+  
+  
+  y = WIDGET_Y0 ;
+  m_button = new wxButton(this, ID_BUTTON1, wxT("Click me"), wxPoint(10, y)) ;
+  Bind(wxEVT_BUTTON, &MyControlPanel::OnButton, this, ID_BUTTON1) ;
+  
+  y+= WIDGET_Y_STEP ;
+  wxStaticText* text1 = new wxStaticText(this, wxID_ANY, wxT("Radius"), wxPoint(10, y)) ;
+  
+  
+  y+= 15 ;
+  m_slider = new wxSlider(this, ID_SLIDER1, 10, 2, 100, wxPoint(10, y), wxSize(100,20)) ;
+  Bind(wxEVT_SCROLL_THUMBTRACK, &MyControlPanel::OnSlider, this, ID_SLIDER1) ;	
+  
+  y+= WIDGET_Y_STEP ;
+  m_checkBox = new wxCheckBox(this, ID_CHECKBOX1, "Show (x,y)", wxPoint(10, y), wxSize(100,20)) ;
+  Bind(wxEVT_CHECKBOX, &MyControlPanel::OnCheckBox, this, ID_CHECKBOX1) ;	
 }
 
+//-------------------------------------------------------------------------------------------------------
 //------------------------------------------------------------------------
 void MyControlPanel::OnButton(wxCommandEvent &event)
-//------------------------------------------------------------------------
+  //------------------------------------------------------------------------
 {
-//	char* s = GetCString() ;
-//	wxMessageBox(wxString::FromAscii(s)) ; // call a C function located in the sample.cp module
-//	free(s) ;
-	wxMessageBox(wxT("You just pressed the button!")) ;
+  //	char* s = GetCString() ;
+  //	wxMessageBox(wxString::FromAscii(s)) ; // call a C function located in the sample.cp module
+  //	free(s) ;
+  wxMessageBox(wxT("You just pressed the button!")) ;
 }
 
 //------------------------------------------------------------------------
 void MyControlPanel::OnSlider(wxScrollEvent &event)
-//------------------------------------------------------------------------
+  //------------------------------------------------------------------------
 {
-	MyFrame* frame = (MyFrame*)GetParent() ;
-	frame->RefreshDrawing() ;	// update the drawing panel
+  MyFrame* frame = (MyFrame*)GetParent() ;
+  frame->RefreshDrawing() ;	// update the drawing panel
 }
 
 //------------------------------------------------------------------------
 void MyControlPanel::OnCheckBox(wxCommandEvent &event)
-//------------------------------------------------------------------------
+  //------------------------------------------------------------------------
 {
-	MyFrame* frame = (MyFrame*)GetParent() ;
-	frame->RefreshDrawing() ;	// update the drawing panel
+  MyFrame* frame = (MyFrame*)GetParent() ;
+  frame->RefreshDrawing() ;	// update the drawing panel
 }
 
 //************************************************************************
@@ -194,95 +208,103 @@ void MyControlPanel::OnCheckBox(wxCommandEvent &event)
 
 //------------------------------------------------------------------------
 MyDrawingPanel::MyDrawingPanel(wxWindow *parent) : wxPanel(parent)
-//------------------------------------------------------------------------
-// In this constructor, bind some mouse events and the paint event with the appropriate methods
+  //------------------------------------------------------------------------
+  // In this constructor, bind some mouse events and the paint event with the appropriate methods
 {
-	int w, h ;
-	GetParent()->GetClientSize(&w,&h) ;
-	SetSize(wxRect(wxPoint(WIDGET_PANEL_WIDTH,0), wxPoint(w, h))) ;
-	SetBackgroundColour(wxColour(0xFF,0xFF,0xFF)) ;
-	Bind(wxEVT_MOTION, &MyDrawingPanel::OnMouseMove, this);
-	Bind(wxEVT_LEFT_DOWN, &MyDrawingPanel::OnMouseLeftDown, this);
-	Bind(wxEVT_PAINT, &MyDrawingPanel::OnPaint, this) ;
-	m_onePoint.x = (w-WIDGET_PANEL_WIDTH)/2 ;
-	m_onePoint.y = h/2 ;
-	m_mousePoint = m_onePoint ;
+  int w, h ;
+  GetParent()->GetClientSize(&w,&h) ;
+  SetSize(wxRect(wxPoint(WIDGET_PANEL_WIDTH,0), wxPoint(w, h))) ;
+  SetBackgroundColour(wxColour(0xFF,0xFF,0xFF)) ;
+  Bind(wxEVT_MOTION, &MyDrawingPanel::OnMouseMove, this);
+  Bind(wxEVT_LEFT_DOWN, &MyDrawingPanel::OnMouseLeftDown, this);
+  Bind(wxEVT_PAINT, &MyDrawingPanel::OnPaint, this) ;
+  m_onePoint.x = (w-WIDGET_PANEL_WIDTH)/2 ;
+  m_onePoint.y = h/2 ;
+  m_mousePoint = m_onePoint ;
 }
 
 //------------------------------------------------------------------------
 void MyDrawingPanel::OnMouseMove(wxMouseEvent &event)
-//------------------------------------------------------------------------
-// called when the mouse is moved
+  //------------------------------------------------------------------------
+  // called when the mouse is moved
 {
-	m_mousePoint.x = event.m_x ;
-	m_mousePoint.y = event.m_y ;
-	Refresh() ;	// send an event that calls the OnPaint method
+  m_mousePoint.x = event.m_x ;
+  m_mousePoint.y = event.m_y ;
+  Refresh() ;	// send an event that calls the OnPaint method
 }
 
 //------------------------------------------------------------------------
 void MyDrawingPanel::OnMouseLeftDown(wxMouseEvent &event)
-//------------------------------------------------------------------------
-// called when the mouse left button is pressed
+  //------------------------------------------------------------------------
+  // called when the mouse left button is pressed
 {
-	m_onePoint.x = event.m_x ;
-	m_onePoint.y = event.m_y ;
-	Refresh() ; // send an event that calls the OnPaint method
+  m_onePoint.x = event.m_x ;
+  m_onePoint.y = event.m_y ;
+  Refresh() ; // send an event that calls the OnPaint method
 }
 
 //------------------------------------------------------------------------
 void MyDrawingPanel::OnPaint(wxPaintEvent &event)
-//------------------------------------------------------------------------
-// called automatically when the panel is shown for the first time or
-// when the panel is resized
-// You have to call OnPaint with Refresh() when you need to update the panel content
+  //------------------------------------------------------------------------
+  // called automatically when the panel is shown for the first time or
+  // when the panel is resized
+  // You have to call OnPaint with Refresh() when you need to update the panel content
 {
-	// read the control values
-	MyFrame* frame =  (MyFrame*)GetParent() ;
-	int radius = frame->GetControlPanel()->GetSliderValue() ;
-	bool check = frame->GetControlPanel()->GetCheckBoxValue() ;
-
-	// then paint
-	wxPaintDC dc(this);	
-		
-	dc.DrawLine(m_mousePoint, m_onePoint) ;
-	dc.DrawRectangle(wxPoint(m_onePoint.x-radius/2, m_onePoint.y-radius/2), wxSize(radius,radius)) ;
-	dc.DrawCircle(wxPoint(m_mousePoint), radius/2) ;
-	
-	if (check)
-	{
-		wxString coordinates ;
-		coordinates.sprintf(wxT("(%d,%d)"), m_mousePoint.x, m_mousePoint.y) ;
-		dc.DrawText(coordinates, wxPoint(m_mousePoint.x, m_mousePoint.y+20)) ;
-	}
+  // read the control values
+  MyFrame* frame =  (MyFrame*)GetParent() ;
+  int radius = frame->GetControlPanel()->GetSliderValue() ;
+  bool check = frame->GetControlPanel()->GetCheckBoxValue() ;
+  
+  // then paint
+  wxPaintDC dc(this);	
+  dc.SetPen(*wxRED);
+  
+  
+  int r = 20;
+  
+  dc.DrawRectangle(wxPoint(m_onePoint.x-radius/2, m_onePoint.y-radius/2), wxSize(radius,radius)) ;
+  
+  dc.DrawCircle(wxPoint(m_mousePoint), radius/2) ;
+  
+  if (check)
+  {
+    dc.SetPen(*wxRED);
+    dc.SetTextForeground(*wxRED);
+    wxString coordinates ;
+    wxString cafeo;
+    cafeo.sprintf(wxT("N*QUE SES MORT"), m_mousePoint.x, m_mousePoint.y) ;
+    coordinates.sprintf(wxT("(%d,%d)"), m_mousePoint.x, m_mousePoint.y) ;
+    dc.SetFont( *wxSWISS_FONT );
+    dc.DrawLine( 10,60,12,60 );
+    
+    dc.DrawEllipticArc(m_mousePoint.x - r, m_mousePoint.y, 2*r, r, 0, 90);
+    dc.DrawRotatedText( "That is text", 20, 10, -45 );
+    dc.DrawText(coordinates, wxPoint(m_mousePoint.x, m_mousePoint.y+20)) ;
+    dc.DrawText(cafeo, wxPoint(m_mousePoint.x, m_mousePoint.y+45)) ;
+  }
 }
 
 //------------------------------------------------------------------------
 void MyDrawingPanel::OpenFile(wxString fileName)
-//------------------------------------------------------------------------
+  //------------------------------------------------------------------------
 {
-	// just to open (and close) any file 
-	FILE* f = fopen(fileName, "r") ;
-	if (f)
-	{
-		wxMessageBox(wxT("The file was opened then closed")) ;
-		fclose(f) ;
-	}
+  // just to open (and close) any file 
+  FILE* f = fopen(fileName, "r") ;
+  if (f)
+  {
+    wxMessageBox(wxT("The file was opened then closed")) ;
+    fclose(f) ;
+  }
 }
 
 //------------------------------------------------------------------------
 void MyDrawingPanel::SaveFile(wxString fileName)
-//------------------------------------------------------------------------
+  //------------------------------------------------------------------------
 {
-	// just to create a tiny file
-	FILE* f = fopen(fileName, "w") ;
-	if (!f)
-		wxMessageBox(wxT("Cannot save file"));
-	else
-	{
-		fprintf(f, "S1102 software can create and write a file") ;
-		wxMessageBox(wxT("The file was saved")) ;
-		fclose(f) ;
-	}
+  // just to create a tiny file
+  FILE* f = fopen(fileName, "w") ;
+  if (!f)
+    wxMessageBox(wxT("Cannot save file"));
 }
 
 //************************************************************************
@@ -291,21 +313,31 @@ void MyDrawingPanel::SaveFile(wxString fileName)
 //************************************************************************
 //************************************************************************
 
+MyMenu::MyMenu() : wxMenu()
+{
+  
+  this->Append(ID_LOAD, wxT("&Open file..."));
+  this->Append(ID_SAVE, wxT("&Save file..."));
+  this->Append(ID_ABOUT, wxT("&About..."));
+  this->AppendSeparator();
+  this->Append(ID_QUIT, wxT("&Exit"));
+}
+
+ 
+ 
 //------------------------------------------------------------------------
 MyFrame::MyFrame(const wxString& title, const wxPoint& pos, const wxSize& size)
-       : wxFrame((wxFrame *)NULL, -1, title, pos, size)
-//------------------------------------------------------------------------
-// The constructor of the main frame that creates the menu stuffs and the 2 panels
+  : wxFrame((wxFrame *)NULL, -1, title, pos, size)
+  //------------------------------------------------------------------------
+  // The constructor of the main frame that creates the menu stuffs and the 2 panels
 {
-	wxMenu *fileMenu = new wxMenu();
-	fileMenu->Append(ID_LOAD, wxT("&Open file..."));
-	fileMenu->Append(ID_SAVE, wxT("&Save file..."));
-	fileMenu->Append(ID_ABOUT, wxT("&About..."));
-	fileMenu->AppendSeparator();
-	fileMenu->Append(ID_QUIT, wxT("&Exit"));
-
-	wxMenuBar *menuBar = new wxMenuBar();
-	menuBar->Append(fileMenu, wxT("&File"));
+  
+  // create menu that will contain menu items
+ filemenu = new MyMenu();
+  
+  // create the menu bar that will contain Menu 
+  	wxMenuBar *menuBar = new wxMenuBar();
+	menuBar->Append(filemenu, wxT("&File"));
 
 	Bind(wxEVT_MENU, &MyFrame::OnOpenFile, this, ID_LOAD);
 	Bind(wxEVT_MENU, &MyFrame::OnSaveFile, this, ID_SAVE);
@@ -313,69 +345,74 @@ MyFrame::MyFrame(const wxString& title, const wxPoint& pos, const wxSize& size)
 	Bind(wxEVT_MENU, &MyFrame::OnAbout, this, ID_ABOUT);
 	Bind(wxEVT_CLOSE_WINDOW, &MyFrame::OnClose, this);
 	Bind(wxEVT_SIZE, &MyFrame::OnSize, this);
-
-	SetMenuBar( menuBar );
-
-// create the panel that will contain the controls
-	m_controlPanel = new MyControlPanel(this);
-// create the panel that will display the graphics
-	m_drawingPanel = new MyDrawingPanel(this);
-	CreateStatusBar() ;
-	SetStatusText(wxT("click in the right panel and tune the controls of the left panel. Visit the File menu!")) ;
-	Centre() ; // Guess what it does ;-)
+  SetMenuBar( menuBar );
+  
+  // create the panel that will contain the controls
+  m_controlPanel = new MyControlPanel(this);
+  // create the panel that will display the graphics
+  m_drawingPanel = new MyDrawingPanel(this);
+  CreateStatusBar() ;
+  SetStatusText(wxT("click in the right panel and tune the controls of the left panel. Visit the File menu!")) ;
+  Centre() ; // Guess what it does ;-)
+  
+  wxBoxSizer *sizer = new wxBoxSizer(wxVERTICAL);
+  sizer->Add(m_controlPanel,1,wxEXPAND | wxALL | wxTOP | wxRIGHT,10);
+  sizer->Add(m_drawingPanel,1,wxEXPAND | wxALL| wxTOP | wxRIGHT,10);
+  
+  this->SetSizerAndFit(sizer);
 }
 
 //------------------------------------------------------------------------
 void MyFrame::OnQuit(wxCommandEvent& WXUNUSED(event))
-//------------------------------------------------------------------------
+  //------------------------------------------------------------------------
 {
-	Close(true) ;
+  Close(true) ;
 }
 
 //------------------------------------------------------------------------
 void MyFrame::OnClose(wxCloseEvent& event)
-//------------------------------------------------------------------------
+  //------------------------------------------------------------------------
 {
-	delete m_controlPanel ;
-	delete m_drawingPanel ;
-	event.Skip() ;
+  delete m_controlPanel ;
+  delete m_drawingPanel ;
+  event.Skip() ;
 }
 
 //------------------------------------------------------------------------
 void MyFrame::OnAbout(wxCommandEvent& WXUNUSED(event))
-//------------------------------------------------------------------------
+  //------------------------------------------------------------------------
 {
-	wxMessageBox(wxT("How to .. \n\n- use 2 panels (one for controls, one for drawings)\n- manage basic events (so that controls impact drawings)\n\n... with wxWidgets (3.0.2)\n\nPascal Bertolino UGA - GIPSA-lab, Grenoble - France\npascal.bertolino@gipsa-lab.fr"),
-                  wxT(APP_NAME), wxOK | wxICON_INFORMATION ) ;
+  wxMessageBox(wxT("How to .. \n\n- use 2 panels (one for controls, one for drawings)\n- manage basic events (so that controls impact drawings)\n\n... with wxWidgets (3.0.2)\n\nPascal Bertolino UGA - GIPSA-lab, Grenoble - France\npascal.bertolino@gipsa-lab.fr"),
+               wxT(APP_NAME), wxOK | wxICON_INFORMATION ) ;
 }
 
 //------------------------------------------------------------------------
 void MyFrame::OnOpenFile(wxCommandEvent& WXUNUSED(event) )
-//------------------------------------------------------------------------
+  //------------------------------------------------------------------------
 {
-	wxString filename = wxFileSelector(wxT("Select file"));
-	if ( !filename.empty() )
-		m_drawingPanel->OpenFile(filename) ;
+  wxString filename = wxFileSelector(wxT("Select file"));
+  if ( !filename.empty() )
+    m_drawingPanel->OpenFile(filename) ;
 }
 
 //------------------------------------------------------------------------
 void MyFrame::OnSaveFile(wxCommandEvent & WXUNUSED(event))
-//------------------------------------------------------------------------
+  //------------------------------------------------------------------------
 {
-	wxString filename = wxSaveFileSelector(wxT("Save file as"), wxT("*.txt"), wxT("data"));
-	if ( !filename.empty() )
-		m_drawingPanel->SaveFile(filename) ;
+  wxString filename = wxSaveFileSelector(wxT("Save file as"), wxT("*.txt"), wxT("data"));
+  if ( !filename.empty() )
+    m_drawingPanel->SaveFile(filename) ;
 }
 
 //------------------------------------------------------------------------
 void MyFrame::OnSize(wxSizeEvent &event)
-//------------------------------------------------------------------------
-// Called when you resize the frame
+  //------------------------------------------------------------------------
+  // Called when you resize the frame
 {
-	int w, h ;
-	GetSize(&w,&h) ;	
-	m_controlPanel->SetSize(wxRect(wxPoint(0,0), wxPoint(WIDGET_PANEL_WIDTH, h))) ;
-	m_drawingPanel->SetSize(wxRect(wxPoint(WIDGET_PANEL_WIDTH,0), wxPoint(w, h))) ;
+  int w, h ;
+  GetSize(&w,&h) ;	
+  m_controlPanel->SetSize(wxRect(wxPoint(0,0), wxPoint(WIDGET_PANEL_WIDTH, h))) ;
+  m_drawingPanel->SetSize(wxRect(wxPoint(WIDGET_PANEL_WIDTH,0), wxPoint(w, h))) ;
 }
 
 //************************************************************************
@@ -385,13 +422,13 @@ void MyFrame::OnSize(wxSizeEvent &event)
 //************************************************************************
 
 IMPLEMENT_APP(MyApp) // macro that contains the main() function
-
-//------------------------------------------------------------------------
-bool MyApp::OnInit()
-//------------------------------------------------------------------------
-{
-	MyFrame *frame = new MyFrame(wxT(APP_NAME), wxDefaultPosition, wxSize(APPLICATION_WIDTH,APPLICATION_HEIGHT)) ;
-	frame->Show(true) ;
-	SetTopWindow(frame) ;
-	return true ;
-}
+  
+  //------------------------------------------------------------------------
+  bool MyApp::OnInit()
+  //------------------------------------------------------------------------
+  {
+    MyFrame *frame = new MyFrame(wxT(APP_NAME), wxDefaultPosition, wxSize(APPLICATION_WIDTH,APPLICATION_HEIGHT)) ;
+    frame->Show(true) ;
+    SetTopWindow(frame) ;
+    return true ;
+  }
