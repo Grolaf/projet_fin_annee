@@ -2,12 +2,7 @@
 #define __MESSAGEFILE_HPP_INCLUDED__
 
 #include "MessagesTypes.hpp"
-#include "wx/wxprec.h"
-#include <wx/chartype.h>
 
-#ifndef WX_PRECOMP
-    #include "wx/wx.h"
-#endif
 
 #include <wx/filedlg.h>
 #include <wx/image.h>

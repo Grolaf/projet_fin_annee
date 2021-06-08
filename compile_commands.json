@@ -33,5 +33,25 @@
   "directory": "/users/info/etu-as/barriean/S1102/projet_fin_annee",
   "command": "/usr/bin/c++  -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXGTK__ -isystem /usr/lib/x86_64-linux-gnu/wx/include/gtk2-unicode-3.0 -isystem /usr/include/wx-3.0   -pthread -g   -std=gnu++11 -o CMakeFiles/skeleton.dir/view/Observed.cpp.o -c /users/info/etu-as/barriean/S1102/projet_fin_annee/view/Observed.cpp",
   "file": "/users/info/etu-as/barriean/S1102/projet_fin_annee/view/Observed.cpp"
+},
+{
+  "directory": "/users/info/etu-as/barriean/S1102/projet_fin_annee",
+  "command": "/usr/bin/c++  -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXGTK__ -isystem /usr/lib/x86_64-linux-gnu/wx/include/gtk2-unicode-3.0 -isystem /usr/include/wx-3.0   -pthread -g   -std=gnu++11 -o CMakeFiles/skeleton.dir/model/shapes/cercle.cpp.o -c /users/info/etu-as/barriean/S1102/projet_fin_annee/model/shapes/cercle.cpp",
+  "file": "/users/info/etu-as/barriean/S1102/projet_fin_annee/model/shapes/cercle.cpp"
+},
+{
+  "directory": "/users/info/etu-as/barriean/S1102/projet_fin_annee",
+  "command": "/usr/bin/c++  -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXGTK__ -isystem /usr/lib/x86_64-linux-gnu/wx/include/gtk2-unicode-3.0 -isystem /usr/include/wx-3.0   -pthread -g   -std=gnu++11 -o CMakeFiles/skeleton.dir/model/shapes/triangle.cpp.o -c /users/info/etu-as/barriean/S1102/projet_fin_annee/model/shapes/triangle.cpp",
+  "file": "/users/info/etu-as/barriean/S1102/projet_fin_annee/model/shapes/triangle.cpp"
+},
+{
+  "directory": "/users/info/etu-as/barriean/S1102/projet_fin_annee",
+  "command": "/usr/bin/c++  -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXGTK__ -isystem /usr/lib/x86_64-linux-gnu/wx/include/gtk2-unicode-3.0 -isystem /usr/include/wx-3.0   -pthread -g   -std=gnu++11 -o CMakeFiles/skeleton.dir/model/shapes/rectangle.cpp.o -c /users/info/etu-as/barriean/S1102/projet_fin_annee/model/shapes/rectangle.cpp",
+  "file": "/users/info/etu-as/barriean/S1102/projet_fin_annee/model/shapes/rectangle.cpp"
+},
+{
+  "directory": "/users/info/etu-as/barriean/S1102/projet_fin_annee",
+  "command": "/usr/bin/c++  -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXGTK__ -isystem /usr/lib/x86_64-linux-gnu/wx/include/gtk2-unicode-3.0 -isystem /usr/include/wx-3.0   -pthread -g   -std=gnu++11 -o CMakeFiles/skeleton.dir/model/shapes/point.cpp.o -c /users/info/etu-as/barriean/S1102/projet_fin_annee/model/shapes/point.cpp",
+  "file": "/users/info/etu-as/barriean/S1102/projet_fin_annee/model/shapes/point.cpp"
 }
 ]
