@@ -16,23 +16,25 @@ enum
     ID_SAVE,
     ID_BUTTON1,
     ID_SLIDER1,
-    ID_CHECKBOX1
+    ID_CHECKBOX1,
+    ID_CLPICKER1
 };
 MyControlPanel::MyControlPanel(wxWindow *parent) : wxPanel(parent)
   //------------------------------------------------------------------------
   // In this constructor, create the controls and associate each of them (bind) a method
 {
-  int w, h, y ;
+  int w, h, y ,xx;
   GetParent()->GetSize(&w,&h) ;
   SetSize(wxRect(wxPoint(0,0), wxPoint(WIDGET_PANEL_WIDTH, h))) ;
   SetBackgroundColour(*wxLIGHT_GREY) ;
-  
+
+
   y = WIDGET_Y0 ;
   m_button = new wxButton(this, ID_BUTTON1, wxT("Click me"), wxPoint(10, y)) ;
   Bind(wxEVT_BUTTON, &MyControlPanel::OnButton, this, ID_BUTTON1) ;
   
   y+= WIDGET_Y_STEP ;
-  wxStaticText* text1 = new wxStaticText(this, wxID_ANY, wxT("Radius"), wxPoint(10, y)) ;
+  text1 = new wxStaticText(this, wxID_ANY, wxT("Radius"), wxPoint(10, y)) ;
   
   y+= 15 ;
   m_slider = new wxSlider(this, ID_SLIDER1, 10, 2, 100, wxPoint(10, y), wxSize(100,20)) ;
@@ -40,9 +42,31 @@ MyControlPanel::MyControlPanel(wxWindow *parent) : wxPanel(parent)
   
   y+= WIDGET_Y_STEP ;
   m_checkBox = new wxCheckBox(this, ID_CHECKBOX1, "Show (x,y)", wxPoint(10, y), wxSize(100,20)) ;
-  Bind(wxEVT_CHECKBOX, &MyControlPanel::OnCheckBox, this, ID_CHECKBOX1) ;	
+  Bind(wxEVT_CHECKBOX, &MyControlPanel::OnCheckBox, this, ID_CHECKBOX1) ;
+
+
+
+  y+= WIDGET_Y_STEP;
+
+    // Create a wxTextCtrl to have some text we can select the color of
+    m_textCtrl = new wxTextCtrl(this, wxID_ANY, "im a color.",wxPoint(10, y), wxSize(100, 20));
+
+    y+= 70;
+    // Create a wxColourPickerCtrl control
+    wxColourPickerCtrl* colourPickerCtrl = new wxColourPickerCtrl(this,ID_CLPICKER1 , wxColour(255,0,0), wxPoint(10, y), wxSize(100,45) );
+    //Bind(wxEVT_CHECKBOX, &MyControlPanel::OnColourChanged, this, ID_CHECKBOX1) ;
+
 }
 
+
+//------------------------------------------------------------------------
+    void MyControlPanel::OnColourChanged(wxColourPickerEvent &evt)
+//------------------------------------------------------------------------
+{
+     m_textCtrl->SetForegroundColour(evt.GetColour());
+    m_textCtrl->Refresh();
+
+    }
 
 //------------------------------------------------------------------------
 void MyControlPanel::OnButton(wxCommandEvent &event)

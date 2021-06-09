@@ -8,6 +8,7 @@
 
 #include "../constants.hpp"
 
+
 // Define constant of app
 
 enum
@@ -30,23 +31,37 @@ MyFrame::MyFrame(const wxString& title, const wxPoint& pos, const wxSize& size)
     filemenu = new MyMenu();
 
   wxMenuBar *menuBar = new wxMenuBar();
-  menuBar->Append(filemenu, wxT("&File"));
+    menuBar->SetBackgroundColour(wxColor(221, 223, 231));
+
+    menuBar->Append(filemenu, wxT("&File"));
   
-  Bind(wxEVT_MENU, &MyFrame::OnOpenFile, this, ID_LOAD);
-  Bind(wxEVT_MENU, &MyFrame::OnSaveFile, this, ID_SAVE);
-  Bind(wxEVT_MENU, &MyFrame::OnQuit, this, ID_QUIT);
-  Bind(wxEVT_MENU, &MyFrame::OnAbout, this, ID_ABOUT);
-  Bind(wxEVT_CLOSE_WINDOW, &MyFrame::OnClose, this);
-  Bind(wxEVT_SIZE, &MyFrame::OnSize, this);
+    Bind(wxEVT_MENU, &MyFrame::OnOpenFile, this, ID_LOAD);
+    Bind(wxEVT_MENU, &MyFrame::OnSaveFile, this, ID_SAVE);
+    Bind(wxEVT_MENU, &MyFrame::OnQuit, this, ID_QUIT);
+    Bind(wxEVT_MENU, &MyFrame::OnAbout, this, ID_ABOUT);
+     Bind(wxEVT_CLOSE_WINDOW, &MyFrame::OnClose, this);
+    Bind(wxEVT_SIZE, &MyFrame::OnSize, this);
   
-  SetMenuBar( menuBar );
+     SetMenuBar( menuBar );
 
   // ---------------------
-  
+
+
+
   // create the panel that will contain the controls
-  m_controlPanel = new MyControlPanel(this);
-  // create the panel that will display the graphics
-  m_drawingPanel = new MyDrawingPanel(this);
+    m_controlPanel = new MyControlPanel(this);
+
+    m_controlPanel->SetBackgroundColour(wxColor(105,117,157));
+
+    // create the panel that will display the graphics
+    m_drawingPanel = new MyDrawingPanel(this);
+
+
+
+
+
+
+
   CreateStatusBar() ;
   SetStatusText(wxT("click in the right panel and tune the controls of the left panel. Visit the File menu!")) ;
   Centre() ; // Guess what it does ;-)
