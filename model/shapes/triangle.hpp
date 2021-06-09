@@ -13,7 +13,7 @@ class Triangle : public Shape
 
     public : 
 
-        Triangle(const Point& p1, const Point& p2, const Point& p3, const std::string& label);
+        Triangle(const Point& p1, const Point& p2, const Point& p3, const std::string& label, MyRGB color = MyRGB(0, 0, 0), bool filled = false);
         Triangle();
         virtual ~Triangle();
         Triangle(const Triangle& c);

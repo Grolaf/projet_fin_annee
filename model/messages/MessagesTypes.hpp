@@ -5,7 +5,8 @@ enum MessagesTypes
 {
     OPEN_FILE = 1,
     SAVE_FILE,
-    PAINT
+    PAINT,
+    REFRESH
 };
 
 #endif

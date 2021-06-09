@@ -5,11 +5,11 @@
 #ifndef SKELETON_DRAW_HPP
 #define SKELETON_DRAW_HPP
 
-#include "shape.hpp"
+#include "shapes/shape.hpp"
 #include <vector>
-#include "circle.hpp"
-#include "rectangle.hpp"
-#include "triangle.hpp"
+#include "shapes/circle.hpp"
+#include "shapes/rectangle.hpp"
+#include "shapes/triangle.hpp"
 
 class Draw
 {

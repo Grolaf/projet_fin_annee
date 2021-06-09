@@ -81,12 +81,22 @@
 },
 {
   "directory": "/users/info/etu-as/barriean/S1102/projet_fin_annee",
-  "command": "/usr/bin/c++  -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXGTK__ -isystem /usr/lib/x86_64-linux-gnu/wx/include/gtk2-unicode-3.0 -isystem /usr/include/wx-3.0   -pthread -g   -std=gnu++11 -o CMakeFiles/skeleton.dir/model/shapes/draw.cpp.o -c /users/info/etu-as/barriean/S1102/projet_fin_annee/model/shapes/draw.cpp",
-  "file": "/users/info/etu-as/barriean/S1102/projet_fin_annee/model/shapes/draw.cpp"
+  "command": "/usr/bin/c++  -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXGTK__ -isystem /usr/lib/x86_64-linux-gnu/wx/include/gtk2-unicode-3.0 -isystem /usr/include/wx-3.0   -pthread -g   -std=gnu++11 -o CMakeFiles/skeleton.dir/model/draw.cpp.o -c /users/info/etu-as/barriean/S1102/projet_fin_annee/model/draw.cpp",
+  "file": "/users/info/etu-as/barriean/S1102/projet_fin_annee/model/draw.cpp"
 },
 {
   "directory": "/users/info/etu-as/barriean/S1102/projet_fin_annee",
   "command": "/usr/bin/c++  -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXGTK__ -isystem /usr/lib/x86_64-linux-gnu/wx/include/gtk2-unicode-3.0 -isystem /usr/include/wx-3.0   -pthread -g   -std=gnu++11 -o CMakeFiles/skeleton.dir/model/MyModel.cpp.o -c /users/info/etu-as/barriean/S1102/projet_fin_annee/model/MyModel.cpp",
   "file": "/users/info/etu-as/barriean/S1102/projet_fin_annee/model/MyModel.cpp"
+},
+{
+  "directory": "/users/info/etu-as/barriean/S1102/projet_fin_annee",
+  "command": "/usr/bin/c++  -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXGTK__ -isystem /usr/lib/x86_64-linux-gnu/wx/include/gtk2-unicode-3.0 -isystem /usr/include/wx-3.0   -pthread -g   -std=gnu++11 -o CMakeFiles/skeleton.dir/model/messages/MessagePaint.cpp.o -c /users/info/etu-as/barriean/S1102/projet_fin_annee/model/messages/MessagePaint.cpp",
+  "file": "/users/info/etu-as/barriean/S1102/projet_fin_annee/model/messages/MessagePaint.cpp"
+},
+{
+  "directory": "/users/info/etu-as/barriean/S1102/projet_fin_annee",
+  "command": "/usr/bin/c++  -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXGTK__ -isystem /usr/lib/x86_64-linux-gnu/wx/include/gtk2-unicode-3.0 -isystem /usr/include/wx-3.0   -pthread -g   -std=gnu++11 -o CMakeFiles/skeleton.dir/model/MyRGB.cpp.o -c /users/info/etu-as/barriean/S1102/projet_fin_annee/model/MyRGB.cpp",
+  "file": "/users/info/etu-as/barriean/S1102/projet_fin_annee/model/MyRGB.cpp"
 }
 ]

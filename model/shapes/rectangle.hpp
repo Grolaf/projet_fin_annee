@@ -18,7 +18,7 @@ class Rectangle: public Shape
     public :
 
 
-        Rectangle(int xLeftCorner, int yLeftCorner, int width, int height, std::string label);
+        Rectangle(int xLeftCorner, int yLeftCorner, int width, int height, std::string label, MyRGB color = MyRGB(0, 0, 0), bool filled = false);
         Rectangle(Point& p, int width, int height);
         virtual ~Rectangle();
 

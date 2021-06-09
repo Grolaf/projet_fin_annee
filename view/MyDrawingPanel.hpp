@@ -10,6 +10,7 @@
 #include "../model/shapes/triangle.hpp"
 #include "../model/shapes/circle.hpp"
 #include "Observed.hpp"
+#include "../model/draw.hpp"
 
 #endif
 

@@ -59,7 +59,9 @@ void MyControlPanel::OnSlider(wxScrollEvent &event)
   //------------------------------------------------------------------------
 {
   MyFrame* frame = (MyFrame*)GetParent() ;
-  frame->RefreshDrawing() ;	// update the drawing panel
+  Message* m  = new Message(REFRESH);
+  notifyObserver(m);
+  delete m;
 }
 
 //------------------------------------------------------------------------

@@ -5,7 +5,7 @@
 #ifndef SKELETON_MYMODEL_HPP
 #define SKELETON_MYMODEL_HPP
 
-#include "shapes/draw.hpp"
+#include "draw.hpp"
 
 class MyModel
 {

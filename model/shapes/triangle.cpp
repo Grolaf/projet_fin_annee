@@ -5,7 +5,7 @@
 
 using namespace std;
 
-Triangle::Triangle(const Point& p1, const Point& p2, const Point& p3, const string& label): Shape(label), m_p1(p1), m_p2(p2), m_p3(p3)
+Triangle::Triangle(const Point& p1, const Point& p2, const Point& p3, const string& label, MyRGB color, bool filled): Shape(label, color, filled), m_p1(p1), m_p2(p2), m_p3(p3)
 {
 }
 

@@ -7,7 +7,7 @@ using namespace std;
 /***************************************************************************************/
 /*      Builders and Destructors        */
 
-Rectangle::Rectangle(int xLeftCorner, int yLeftCorner, int width, int height, string label): m_w(width), m_h(height), m_corner(xLeftCorner, yLeftCorner), Shape(label)
+Rectangle::Rectangle(int xLeftCorner, int yLeftCorner, int width, int height, string label, MyRGB color, bool filled): m_w(width), m_h(height), m_corner(xLeftCorner, yLeftCorner), Shape(label, color, filled)
 {
     m_rectCount++;
 }

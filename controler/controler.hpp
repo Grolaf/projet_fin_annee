@@ -19,7 +19,8 @@ private :
         virtual void treatMessage(Message *m);
 
 private:
-    void paintBoard();
+    void paintBoard(int x, int y, int size);
+    void refreshBoard();
 
 };
 

@@ -105,6 +105,18 @@
 		<Unit filename="/users/info/etu-as/barriean/S1102/projet_fin_annee/model/MyModel.hpp">
 			<Option target="skeleton"/>
 		</Unit>
+		<Unit filename="/users/info/etu-as/barriean/S1102/projet_fin_annee/model/MyRGB.cpp">
+			<Option target="skeleton"/>
+		</Unit>
+		<Unit filename="/users/info/etu-as/barriean/S1102/projet_fin_annee/model/MyRGB.hpp">
+			<Option target="skeleton"/>
+		</Unit>
+		<Unit filename="/users/info/etu-as/barriean/S1102/projet_fin_annee/model/draw.cpp">
+			<Option target="skeleton"/>
+		</Unit>
+		<Unit filename="/users/info/etu-as/barriean/S1102/projet_fin_annee/model/draw.hpp">
+			<Option target="skeleton"/>
+		</Unit>
 		<Unit filename="/users/info/etu-as/barriean/S1102/projet_fin_annee/model/messages/Message.cpp">
 			<Option target="skeleton"/>
 		</Unit>
@@ -117,16 +129,16 @@
 		<Unit filename="/users/info/etu-as/barriean/S1102/projet_fin_annee/model/messages/MessageFile.hpp">
 			<Option target="skeleton"/>
 		</Unit>
+		<Unit filename="/users/info/etu-as/barriean/S1102/projet_fin_annee/model/messages/MessagePaint.cpp">
+			<Option target="skeleton"/>
+		</Unit>
+		<Unit filename="/users/info/etu-as/barriean/S1102/projet_fin_annee/model/messages/MessagePaint.hpp">
+			<Option target="skeleton"/>
+		</Unit>
 		<Unit filename="/users/info/etu-as/barriean/S1102/projet_fin_annee/model/shapes/circle.cpp">
 			<Option target="skeleton"/>
 		</Unit>
 		<Unit filename="/users/info/etu-as/barriean/S1102/projet_fin_annee/model/shapes/circle.hpp">
-			<Option target="skeleton"/>
-		</Unit>
-		<Unit filename="/users/info/etu-as/barriean/S1102/projet_fin_annee/model/shapes/draw.cpp">
-			<Option target="skeleton"/>
-		</Unit>
-		<Unit filename="/users/info/etu-as/barriean/S1102/projet_fin_annee/model/shapes/draw.hpp">
 			<Option target="skeleton"/>
 		</Unit>
 		<Unit filename="/users/info/etu-as/barriean/S1102/projet_fin_annee/model/shapes/point.cpp">

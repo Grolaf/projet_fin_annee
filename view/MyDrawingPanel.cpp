@@ -17,6 +17,7 @@
 #include <wx/bitmap.h>
 
 #include "../constants.hpp"
+#include "../model/messages/MessagePaint.hpp"
 
 using namespace std;
 //------------------------------------------------------------------------
@@ -36,25 +37,13 @@ MyDrawingPanel::MyDrawingPanel(wxWindow *parent) : wxPanel(parent), Observed()
   m_mousePoint = m_onePoint ;
 }
 
-void MyDrawingPanel::PaintRect(std::vector<Rectangle> rectangles) {
-    wxPaintDC dc(this);
-    vector<Rectangle>::iterator it;
-
-    for(it = rectangles.begin(); it < rectangles.end(); it++)
-    {
-        dc.SetPen(wxColor(255, 0, 0));
-        dc.DrawRectangle(wxPoint(it->getCorner().GetX(), it->getCorner().GetY()), wxSize(it->getWidth(),it->getHeight())) ;
-    }
-}
-
-
-
 //------------------------------------------------------------------------
 void MyDrawingPanel::OnMouseMove(wxMouseEvent &event)
   //------------------------------------------------------------------------
   // called when the mouse is moved
 {
-	// send an event that calls the OnPaint method
+    m_mousePoint.x = event.m_x;
+    m_mousePoint.y = event.m_y;
 }
 
 //------------------------------------------------------------------------
@@ -62,7 +51,9 @@ void MyDrawingPanel::OnMouseLeftDown(wxMouseEvent &event)
   //------------------------------------------------------------------------
   // called when the mouse left button is pressed
 {
-    Message* m = new Message(PAINT);
+    MyFrame* frame =  (MyFrame*)GetParent() ;
+    int size = frame->GetControlPanel()->GetSliderValue();
+    MessagePaint* m = new MessagePaint(PAINT,m_mousePoint.x - size / 2, m_mousePoint.y - size / 2,size);
     notifyObserver(m);
     delete m;
 }
@@ -92,4 +83,51 @@ void MyDrawingPanel::OnPaint(wxPaintEvent &event)
     coordinates.sprintf(wxT("(%d,%d)"), m_mousePoint.x, m_mousePoint.y) ;
     dc.DrawText(coordinates, wxPoint(m_mousePoint.x, m_mousePoint.y+20)) ;
   }
+
+
+}
+
+void MyDrawingPanel::PaintRect(std::vector<Rectangle> rectangles) {
+
+    wxPaintDC dc(this);
+    vector<Rectangle>::iterator it;
+    for(it = rectangles.begin(); it < rectangles.end(); it++) {
+        dc.SetPen(wxColor(it->GetColor().red, it->GetColor().green, it->GetColor().blue));
+
+        if (it->isFilled()) {
+            dc.SetBrush(wxColor(it->GetColor().red, it->GetColor().green, it->GetColor().blue));
+            dc.DrawRectangle(wxPoint(it->getCorner().GetX(), it->getCorner().GetY()),
+                             wxSize(it->getWidth(), it->getHeight()));
+        }
+        else
+        {
+            dc.DrawLine(it->getCorner().GetX(), it->getCorner().GetY(), it->getCorner().GetX(),it->getCorner().GetY() + it->getHeight());
+            dc.DrawLine(it->getCorner().GetX(), it->getCorner().GetY() + it->getHeight(), it->getCorner().GetX() + it->getWidth(), it->getCorner().GetY() + it->getHeight());
+            dc.DrawLine(it->getCorner().GetX() + it->getWidth(), it->getCorner().GetY() + it->getHeight(), it->getCorner().GetX() + it->getWidth(),it->getCorner().GetY());
+            dc.DrawLine(it->getCorner().GetX() + it->getWidth(),it->getCorner().GetY(), it->getCorner().GetX(),it->getCorner().GetY());
+        }
+    }
+
+}
+void MyDrawingPanel::PaintTriangle(std::vector<Triangle> triangles) {
+
+    wxPaintDC dc(this);
+    vector<Triangle>::iterator it;
+   // for(it = triangles.begin(); it < triangles.end(); it++)
+   // {
+   //     dc.SetPen(wxColor(it->GetColor().red, it->GetColor().green, it->GetColor().blue));
+   //     dc.DrawRectangle(wxPoint(it->getCorner().GetX(), it->getCorner().GetY()), wxSize(it->getWidth(),it->getHeight())) ;
+   // }
+
+}
+void MyDrawingPanel::PaintCircle(std::vector<Circle> circles) {
+
+    wxPaintDC dc(this);
+    vector<Circle>::iterator it;
+    for(it = circles.begin(); it < circles.end(); it++)
+    {
+        dc.SetPen(wxColor(it->GetColor().red, it->GetColor().green, it->GetColor().blue));
+        dc.DrawCircle(wxPoint(it->getCenter().GetX(), it->getCenter().GetY()), it->getRadius()) ;
+    }
+
 }

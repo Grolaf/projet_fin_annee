@@ -5,7 +5,10 @@
 
 using namespace std;
 
-Circle::Circle(int x, int y, int radius, string label): Shape(label), m_center(x, y), m_radius(radius)
+/***************************************************************************************/
+/*      Builders and Destructors        */
+
+Circle::Circle(int x, int y, int radius, string label, MyRGB color, bool filled): Shape(label ,color, filled), m_center(x, y), m_radius(radius)
 {
 }
 
@@ -31,6 +34,9 @@ Circle& Circle::operator=(const Circle& c)
     return (*this);
 }
 
+/***************************************************************************************/
+/*      Usual Methods        */
+
 void Circle::display()const
 {
     cout << "Circle " << m_label << " : ";
@@ -46,4 +52,29 @@ float Circle::perimeter()const
 float Circle::surface()const
 {
     return M_PI * pow(m_radius, 2);
+}
+
+/***************************************************************************************/
+/*      Getters        */
+
+Point Circle::getCenter() const
+{
+    return m_center;
+}
+
+int Circle::getRadius() const {
+    return m_radius;
+}
+
+/***************************************************************************************/
+/*      Setters        */
+
+void Circle::setCenter(int x, int y)
+{
+    m_center.SetX(x);
+    m_center.SetY(y);
+}
+
+void Circle::setRadius(int r) {
+    m_radius = r;
 }
