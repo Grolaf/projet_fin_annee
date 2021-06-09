@@ -18,7 +18,7 @@ enum
     ID_SLIDER1,
     ID_CHECKBOX1
 };
-MyControlPanel::MyControlPanel(wxWindow *parent) : wxPanel(parent)
+MyControlPanel::MyControlPanel(wxWindow *parent) : wxPanel(parent), Observed()
   //------------------------------------------------------------------------
   // In this constructor, create the controls and associate each of them (bind) a method
 {

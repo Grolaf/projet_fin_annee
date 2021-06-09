@@ -1,16 +1,17 @@
 #include "../model/Dao.hpp"
 #include "controler.hpp"
-#include "Observer.hpp"
 #include <iostream>
 #include "../model/messages/MessageFile.hpp"
+#include "../model/shapes/draw.hpp"
 
-Controler::Controler(): Observer()
+
+Controler::Controler(MyFrame* frame): Observer(), m_frame(frame)
 {
+    m_model = new MyModel();
 }
 
 void Controler::treatMessage(Message *m)
 {
-    std::cout << "Controleur" << std::endl;
     MessageFile* message = nullptr;
 
     switch (m->getType())
@@ -23,10 +24,26 @@ void Controler::treatMessage(Message *m)
             std::cout << "File saved" << std::endl;
             break;
 
+        case PAINT :
+              paintBoard();
+            break;
+
         default:
             std::cout << "Test" << std::endl;
             break;
     }
 }
 
-Controler::~Controler(){}
+Controler::~Controler(){
+    delete m_model;
+}
+
+void Controler::paintBoard()
+{
+    Draw* draw = m_model->GetDraw();
+    m_frame->GetDrawingPanel()->Update();
+
+    // Ajout d'un rectangle pour le test
+    m_model->AddRect();
+    m_frame->GetDrawingPanel()->PaintRect(draw->getRectangles());
+}

@@ -5,6 +5,8 @@
 
 #ifndef WX_PRECOMP
 #include "wx/wx.h"
+#include "Observed.hpp"
+
 #endif
 
 #include<wx/filedlg.h>
@@ -13,7 +15,7 @@
 #include <wx/bitmap.h>
 
 //------------------------------------------------------------------------
-class MyControlPanel: public wxPanel
+class MyControlPanel: public wxPanel, public Observed
                     //------------------------------------------------------------------------
 {
 public:

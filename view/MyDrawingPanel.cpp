@@ -18,8 +18,9 @@
 
 #include "../constants.hpp"
 
+using namespace std;
 //------------------------------------------------------------------------
-MyDrawingPanel::MyDrawingPanel(wxWindow *parent) : wxPanel(parent)
+MyDrawingPanel::MyDrawingPanel(wxWindow *parent) : wxPanel(parent), Observed()
   //------------------------------------------------------------------------
   // In this constructor, bind some mouse events and the paint event with the appropriate methods
 {
@@ -35,15 +36,25 @@ MyDrawingPanel::MyDrawingPanel(wxWindow *parent) : wxPanel(parent)
   m_mousePoint = m_onePoint ;
 }
 
+void MyDrawingPanel::PaintRect(std::vector<Rectangle> rectangles) {
+    wxPaintDC dc(this);
+    vector<Rectangle>::iterator it;
+
+    for(it = rectangles.begin(); it < rectangles.end(); it++)
+    {
+        dc.SetPen(wxColor(255, 0, 0));
+        dc.DrawRectangle(wxPoint(it->getCorner().GetX(), it->getCorner().GetY()), wxSize(it->getWidth(),it->getHeight())) ;
+    }
+}
+
+
 
 //------------------------------------------------------------------------
 void MyDrawingPanel::OnMouseMove(wxMouseEvent &event)
   //------------------------------------------------------------------------
   // called when the mouse is moved
 {
-  m_mousePoint.x = event.m_x ;
-  m_mousePoint.y = event.m_y ;
-  Refresh() ;	// send an event that calls the OnPaint method
+	// send an event that calls the OnPaint method
 }
 
 //------------------------------------------------------------------------
@@ -51,9 +62,9 @@ void MyDrawingPanel::OnMouseLeftDown(wxMouseEvent &event)
   //------------------------------------------------------------------------
   // called when the mouse left button is pressed
 {
-  m_onePoint.x = event.m_x ;
-  m_onePoint.y = event.m_y ;
-  Refresh() ; // send an event that calls the OnPaint method
+    Message* m = new Message(PAINT);
+    notifyObserver(m);
+    delete m;
 }
 
 //------------------------------------------------------------------------

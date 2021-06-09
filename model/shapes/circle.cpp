@@ -24,12 +24,7 @@ Circle::~Circle()
 
 Circle& Circle::operator=(const Circle& c)
 {
-    if(m_label != nullptr)
-    {
-        delete m_label;
-    }
-
-    m_label = new string(c.GetLabel());
+    m_label = c.GetLabel();
     m_center = c.m_center;
     m_radius = c.m_radius;
 
@@ -38,7 +33,7 @@ Circle& Circle::operator=(const Circle& c)
 
 void Circle::display()const
 {
-    cout << "Circle " << *m_label << " : ";
+    cout << "Circle " << m_label << " : ";
     m_center.Display();
     cout << " radius = " << m_radius << " Perimeter = " << perimeter() << " Surface = " << surface() << endl; 
 }

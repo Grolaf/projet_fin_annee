@@ -24,12 +24,7 @@ Triangle::~Triangle()
 
 Triangle& Triangle::operator=(const Triangle& c)
 {
-    if(m_label != nullptr)
-    {
-        delete m_label;
-    }
-
-    m_label = new string(c.GetLabel());
+    m_label = c.GetLabel();
     m_p1 = c.m_p1;
     m_p2 = c.m_p2;
     m_p3 = c.m_p3;
@@ -39,7 +34,7 @@ Triangle& Triangle::operator=(const Triangle& c)
 
 void Triangle::display()const
 {
-    cout << "Triangle " << *m_label << " : ";
+    cout << "Triangle " << m_label << " : ";
     cout << " p1 = ";
     m_p1.Display();
     cout << ", p2 = ";

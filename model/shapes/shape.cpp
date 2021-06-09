@@ -8,12 +8,12 @@ using namespace std;
 
 Shape::Shape(string label)
 {
-    m_label = new string(label);
+    m_label = label;
 }
 
 Shape::Shape()
 {
-    m_label = new string();
+    m_label = "";
 }
 
 Shape::Shape(const Shape& f)
@@ -29,10 +29,6 @@ Shape& Shape::operator=(const Shape &f)
 
 Shape::~Shape()
 {
-    if(m_label != NULL)
-    {
-        delete m_label;
-    }
 }
 
 /***************************************************************************************/
@@ -40,19 +36,15 @@ Shape::~Shape()
 
 string Shape::GetLabel() const
 {
-    return *m_label;
+    return m_label;
 }
 
 /***************************************************************************************/
 /*      setters        */
 
-void Shape::SetLabel(const string &str)
+void Shape::SetLabel(const string str)
 {
-    if(m_label != nullptr)
-    {
-        delete m_label;
-    }
-    m_label = new string(str);
+    m_label = str;
 }
 
 /***************************************************************************************/
@@ -60,5 +52,5 @@ void Shape::SetLabel(const string &str)
 
 void Shape::display()const
 {
-    cout << "Shape " << *m_label << endl;
+    cout << "Shape " << m_label << endl;
 }

@@ -42,6 +42,7 @@ int* Rectangle::getDimensions() const
 
     return tab;
 }
+
 Point& Rectangle::getCorner()
 {
     return m_corner;
