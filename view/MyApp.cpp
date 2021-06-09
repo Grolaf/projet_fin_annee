@@ -22,11 +22,14 @@
 #include "MyFrame.hpp"
 
 #include "../constants.hpp"
+#include "MyGridSizer.hpp"
 
 bool MyApp::OnInit()
 
 {
   MyFrame *frame = new MyFrame(wxT(APP_NAME), wxDefaultPosition, wxSize(APPLICATION_WIDTH,APPLICATION_HEIGHT)) ;
+    GridSizer *gs = new GridSizer(wxT("GridSizer"));
+    gs->Show(true);
   Controler* controler = new Controler();
   frame->setObserver(controler);
   

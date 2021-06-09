@@ -40,6 +40,8 @@ MyFrame::MyFrame(const wxString& title, const wxPoint& pos, const wxSize& size)
   Bind(wxEVT_SIZE, &MyFrame::OnSize, this);
   
   SetMenuBar( menuBar );
+
+  // ---------------------
   
   // create the panel that will contain the controls
   m_controlPanel = new MyControlPanel(this);
