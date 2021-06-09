@@ -2,10 +2,12 @@
 #ifndef WX_PRECOMP
 #include "wx/wx.h"
 #include "../model/messages/MessageFile.hpp"
+#include "MyMenu.hpp"
 
 #endif
 
 #include "../constants.hpp"
+
 
 // Define constant of app
 
@@ -25,29 +27,41 @@ MyFrame::MyFrame(const wxString& title, const wxPoint& pos, const wxSize& size)
 
   // The constructor of the main frame that creates the menu stuffs and the 2 panels
 {
-  wxMenu *fileMenu = new wxMenu();
-  fileMenu->Append(ID_LOAD, wxT("&Open file..."));
-  fileMenu->Append(ID_SAVE, wxT("&Save file..."));
-  fileMenu->Append(ID_ABOUT, wxT("&About..."));
-  fileMenu->AppendSeparator();
-  fileMenu->Append(ID_QUIT, wxT("&Exit"));
-  
+    // create menu that will contain menu itemsfilemenu = new MyMenu();
+    filemenu = new MyMenu();
+
   wxMenuBar *menuBar = new wxMenuBar();
-  menuBar->Append(fileMenu, wxT("&File"));
+    menuBar->SetBackgroundColour(wxColor(221, 223, 231));
+
+    menuBar->Append(filemenu, wxT("&File"));
   
-  Bind(wxEVT_MENU, &MyFrame::OnOpenFile, this, ID_LOAD);
-  Bind(wxEVT_MENU, &MyFrame::OnSaveFile, this, ID_SAVE);
-  Bind(wxEVT_MENU, &MyFrame::OnQuit, this, ID_QUIT);
-  Bind(wxEVT_MENU, &MyFrame::OnAbout, this, ID_ABOUT);
-  Bind(wxEVT_CLOSE_WINDOW, &MyFrame::OnClose, this);
-  Bind(wxEVT_SIZE, &MyFrame::OnSize, this);
+    Bind(wxEVT_MENU, &MyFrame::OnOpenFile, this, ID_LOAD);
+    Bind(wxEVT_MENU, &MyFrame::OnSaveFile, this, ID_SAVE);
+    Bind(wxEVT_MENU, &MyFrame::OnQuit, this, ID_QUIT);
+    Bind(wxEVT_MENU, &MyFrame::OnAbout, this, ID_ABOUT);
+     Bind(wxEVT_CLOSE_WINDOW, &MyFrame::OnClose, this);
+    Bind(wxEVT_SIZE, &MyFrame::OnSize, this);
   
-  SetMenuBar( menuBar );
-  
+     SetMenuBar( menuBar );
+
+  // ---------------------
+
+
+
   // create the panel that will contain the controls
-  m_controlPanel = new MyControlPanel(this);
-  // create the panel that will display the graphics
-  m_drawingPanel = new MyDrawingPanel(this);
+    m_controlPanel = new MyControlPanel(this);
+
+    m_controlPanel->SetBackgroundColour(wxColor(105,117,157));
+
+    // create the panel that will display the graphics
+    m_drawingPanel = new MyDrawingPanel(this);
+
+
+
+
+
+
+
   CreateStatusBar() ;
   SetStatusText(wxT("click in the right panel and tune the controls of the left panel. Visit the File menu!")) ;
   Centre() ; // Guess what it does ;-)

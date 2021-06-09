@@ -31,7 +31,7 @@ bool MyApp::OnInit()
   frame->setObserver(controler);
   frame->GetDrawingPanel()->setObserver(controler);
   frame->GetControlPanel()->setObserver(controler);
-  
+
   frame->Show(true); 
   SetTopWindow(frame);
   

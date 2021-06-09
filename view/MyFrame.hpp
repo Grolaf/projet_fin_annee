@@ -15,11 +15,14 @@
 #include <wx/chartype.h>
 #include <wx/bitmap.h>
 
+
 #include "MyDrawingPanel.hpp"
 #include "MyControlPanel.hpp"
 
 
 #include "../view/Observed.hpp"
+#include "MyMenu.hpp"
+
 
 
 
@@ -39,10 +42,19 @@ protected:
   void OnSaveFile(wxCommandEvent & WXUNUSED(event)) ;
   void OnClose(wxCloseEvent& event) ;
   void OnSize(wxSizeEvent &event) ;
-  
+
+  //wxBoxSizer *sizer;
   MyControlPanel *m_controlPanel; // the panel with controls
   MyDrawingPanel *m_drawingPanel; // the panel in which we Draw
+  MyDrawingPanel *m_drawingPanel; // the panel in which we draw
+  MyMenu *filemenu;
+
+
+
+
+
 } ;
+
 
 
 
