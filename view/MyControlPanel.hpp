@@ -22,6 +22,7 @@ public:
   MyControlPanel( wxWindow *parent ) ;
   int GetSliderValue() {return m_slider->GetValue() ;} ;
   bool GetCheckBoxValue() {return m_checkBox->GetValue() ;} ;
+  wxColour GetColour() {return m_colourPicker->GetColour();};
 
     void OnSlider(wxScrollEvent &event) ;
 
@@ -36,13 +37,24 @@ public:
 private:
 
     //wxBoxSizer *sizer1;
+
+    // Option Default ----------------------
+
     wxSlider* m_slider ;
     wxCheckBox* m_checkBox ;
     wxStaticText* text1;
     wxButton *m_button ;
-    wxColourPickerCtrl* m_colourPicker;
 
+    // Option Color picker  ----------------------
+    wxColourPickerCtrl* m_colourPicker;
     wxTextCtrl *m_textCtrl;
+
+
+    // Option DrawTools:
+    wxRadioBox *drawTools;
+
+
+
 };
 
 #endif

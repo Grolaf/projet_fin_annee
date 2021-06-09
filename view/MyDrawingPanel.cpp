@@ -17,6 +17,7 @@
 #include <wx/bitmap.h>
 
 #include "../constants.hpp"
+#include "MyControlPanel.hpp"
 
 //------------------------------------------------------------------------
 MyDrawingPanel::MyDrawingPanel(wxWindow *parent) : wxPanel(parent)
@@ -67,6 +68,7 @@ void MyDrawingPanel::OnPaint(wxPaintEvent &event)
   MyFrame* frame =  (MyFrame*)GetParent() ;
   int radius = frame->GetControlPanel()->GetSliderValue() ;
   bool check = frame->GetControlPanel()->GetCheckBoxValue() ;
+    wxColor m_color = frame->GetControlPanel()->GetColour();
   
   // then paint
   wxPaintDC dc(this);
