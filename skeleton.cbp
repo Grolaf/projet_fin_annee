@@ -8,28 +8,28 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee"/>
+				<Option working_dir="/users/info/etu-as/barriean/S1102/projet_fin_annee"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -f &quot;/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -f &quot;/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -f &quot;/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -f &quot;/users/info/etu-as/barriean/S1102/projet_fin_annee/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -f &quot;/users/info/etu-as/barriean/S1102/projet_fin_annee/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/users/info/etu-as/barriean/S1102/projet_fin_annee/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/users/info/etu-as/barriean/S1102/projet_fin_annee/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee"/>
+				<Option working_dir="/users/info/etu-as/barriean/S1102/projet_fin_annee"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -f &quot;/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -f &quot;/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -f &quot;/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -f &quot;/users/info/etu-as/barriean/S1102/projet_fin_annee/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -f &quot;/users/info/etu-as/barriean/S1102/projet_fin_annee/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/users/info/etu-as/barriean/S1102/projet_fin_annee/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/users/info/etu-as/barriean/S1102/projet_fin_annee/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="skeleton">
-				<Option output="/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/skeleton" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee"/>
+				<Option output="/users/info/etu-as/barriean/S1102/projet_fin_annee/skeleton" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/users/info/etu-as/barriean/S1102/projet_fin_annee"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -41,15 +41,15 @@
 					<Add directory="/usr/include/wx-3.0"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/Makefile&quot;  VERBOSE=1 skeleton"/>
-					<CompileFile command="/usr/bin/make -f &quot;/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -f &quot;/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -f &quot;/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -f &quot;/users/info/etu-as/barriean/S1102/projet_fin_annee/Makefile&quot;  VERBOSE=1 skeleton"/>
+					<CompileFile command="/usr/bin/make -f &quot;/users/info/etu-as/barriean/S1102/projet_fin_annee/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/users/info/etu-as/barriean/S1102/projet_fin_annee/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/users/info/etu-as/barriean/S1102/projet_fin_annee/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="skeleton/fast">
-				<Option output="/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/skeleton" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee"/>
+				<Option output="/users/info/etu-as/barriean/S1102/projet_fin_annee/skeleton" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/users/info/etu-as/barriean/S1102/projet_fin_annee"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -61,54 +61,42 @@
 					<Add directory="/usr/include/wx-3.0"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/Makefile&quot;  VERBOSE=1 skeleton/fast"/>
-					<CompileFile command="/usr/bin/make -f &quot;/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -f &quot;/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -f &quot;/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -f &quot;/users/info/etu-as/barriean/S1102/projet_fin_annee/Makefile&quot;  VERBOSE=1 skeleton/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/users/info/etu-as/barriean/S1102/projet_fin_annee/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/users/info/etu-as/barriean/S1102/projet_fin_annee/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/users/info/etu-as/barriean/S1102/projet_fin_annee/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee"/>
+				<Option working_dir="/users/info/etu-as/barriean/S1102/projet_fin_annee"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -f &quot;/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -f &quot;/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -f &quot;/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -f &quot;/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -f &quot;/users/info/etu-as/barriean/S1102/projet_fin_annee/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -f &quot;/users/info/etu-as/barriean/S1102/projet_fin_annee/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/users/info/etu-as/barriean/S1102/projet_fin_annee/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/users/info/etu-as/barriean/S1102/projet_fin_annee/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/constants.hpp">
+		<Unit filename="/users/info/etu-as/barriean/S1102/projet_fin_annee/constants.hpp">
 			<Option target="skeleton"/>
 		</Unit>
-		<Unit filename="/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/controler/Observer.cpp">
+		<Unit filename="/users/info/etu-as/barriean/S1102/projet_fin_annee/controler/Observer.cpp">
 			<Option target="skeleton"/>
 		</Unit>
-		<Unit filename="/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/controler/Observer.hpp">
+		<Unit filename="/users/info/etu-as/barriean/S1102/projet_fin_annee/controler/Observer.hpp">
 			<Option target="skeleton"/>
 		</Unit>
-		<Unit filename="/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/controler/controler.cpp">
+		<Unit filename="/users/info/etu-as/barriean/S1102/projet_fin_annee/controler/controler.cpp">
 			<Option target="skeleton"/>
 		</Unit>
-		<Unit filename="/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/controler/controler.hpp">
+		<Unit filename="/users/info/etu-as/barriean/S1102/projet_fin_annee/controler/controler.hpp">
 			<Option target="skeleton"/>
 		</Unit>
-		<Unit filename="/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/model/Dao.cpp">
+		<Unit filename="/users/info/etu-as/barriean/S1102/projet_fin_annee/model/Dao.cpp">
 			<Option target="skeleton"/>
 		</Unit>
-		<Unit filename="/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/model/Dao.hpp">
-			<Option target="skeleton"/>
-		</Unit>
-		<Unit filename="/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/model/messages/Message.cpp">
-			<Option target="skeleton"/>
-		</Unit>
-		<Unit filename="/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/model/messages/Message.hpp">
-			<Option target="skeleton"/>
-		</Unit>
-		<Unit filename="/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/model/messages/MessageFile.cpp">
-			<Option target="skeleton"/>
-		</Unit>
-		<Unit filename="/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/model/messages/MessageFile.hpp">
+		<Unit filename="/users/info/etu-as/barriean/S1102/projet_fin_annee/model/Dao.hpp">
 			<Option target="skeleton"/>
 		</Unit>
 		<Unit filename="/users/info/etu-as/barriean/S1102/projet_fin_annee/model/MyModel.cpp">
@@ -141,13 +129,16 @@
 		<Unit filename="/users/info/etu-as/barriean/S1102/projet_fin_annee/model/messages/MessageFile.hpp">
 			<Option target="skeleton"/>
 		</Unit>
-		<Unit filename="/users/info/etu-as/barriean/S1102/projet_fin_annee/model/shapes/Draw.hpp">
+		<Unit filename="/users/info/etu-as/barriean/S1102/projet_fin_annee/model/messages/MessagePaint.cpp">
 			<Option target="skeleton"/>
 		</Unit>
-		<Unit filename="/users/info/etu-as/barriean/S1102/projet_fin_annee/model/shapes/cercle.cpp">
+		<Unit filename="/users/info/etu-as/barriean/S1102/projet_fin_annee/model/messages/MessagePaint.hpp">
 			<Option target="skeleton"/>
 		</Unit>
-		<Unit filename="/users/info/etu-as/barriean/S1102/projet_fin_annee/model/shapes/cercle.hpp">
+		<Unit filename="/users/info/etu-as/barriean/S1102/projet_fin_annee/model/shapes/circle.cpp">
+			<Option target="skeleton"/>
+		</Unit>
+		<Unit filename="/users/info/etu-as/barriean/S1102/projet_fin_annee/model/shapes/circle.hpp">
 			<Option target="skeleton"/>
 		</Unit>
 		<Unit filename="/users/info/etu-as/barriean/S1102/projet_fin_annee/model/shapes/point.cpp">
@@ -160,6 +151,12 @@
 			<Option target="skeleton"/>
 		</Unit>
 		<Unit filename="/users/info/etu-as/barriean/S1102/projet_fin_annee/model/shapes/rectangle.hpp">
+			<Option target="skeleton"/>
+		</Unit>
+		<Unit filename="/users/info/etu-as/barriean/S1102/projet_fin_annee/model/shapes/shape.cpp">
+			<Option target="skeleton"/>
+		</Unit>
+		<Unit filename="/users/info/etu-as/barriean/S1102/projet_fin_annee/model/shapes/shape.hpp">
 			<Option target="skeleton"/>
 		</Unit>
 		<Unit filename="/users/info/etu-as/barriean/S1102/projet_fin_annee/model/shapes/triangle.cpp">
@@ -193,6 +190,12 @@
 			<Option target="skeleton"/>
 		</Unit>
 		<Unit filename="/users/info/etu-as/barriean/S1102/projet_fin_annee/view/MyFrame.hpp">
+			<Option target="skeleton"/>
+		</Unit>
+		<Unit filename="/users/info/etu-as/barriean/S1102/projet_fin_annee/view/MyMenu.cpp">
+			<Option target="skeleton"/>
+		</Unit>
+		<Unit filename="/users/info/etu-as/barriean/S1102/projet_fin_annee/view/MyMenu.hpp">
 			<Option target="skeleton"/>
 		</Unit>
 		<Unit filename="/users/info/etu-as/barriean/S1102/projet_fin_annee/view/Observed.cpp">

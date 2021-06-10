@@ -1,55 +1,28 @@
 #include "draw.hpp"
 
 Draw::Draw(){
-    m_rectangles;
-    m_triangles;
-    m_circles;
+    m_shapes;
 }
 
 /*************************************************/
 /*      getters    */
 
-std::vector<Rectangle> Draw::getRectangles() const
+std::vector<Shape*> Draw::getShapes() const
 {
-    return m_rectangles;
-}
-
-std::vector<Triangle> Draw::getTriangles() const
-{
-    return m_triangles;
-}
-std::vector<Circle> Draw::getCircles() const
-{
-    return m_circles;
+    return m_shapes;
 }
 
 /*************************************************/
 /*      setters    */
 
-void Draw::addRectangle(Rectangle &r)
+void Draw::addShape(Shape *s)
 {
-    m_rectangles.push_back(r);
-}
-void Draw::addTriangle(Triangle &t)
-{
-    m_triangles.push_back(t);
-}
-void Draw::addCircle(Circle &c)
-{
-    m_circles.push_back(c);
+    m_shapes.push_back(s);
 }
 
-void Draw::deleteRectangle(std::string label)
-{
-}
-void Draw::deleteTriangle(std::string label)
-{
+void Draw::deleteShape() {}
 
-}
-void Draw::deleteCircle(std::string label)
-{
 
-}
 
 /*************************************************/
 /*      Usual Methods    */

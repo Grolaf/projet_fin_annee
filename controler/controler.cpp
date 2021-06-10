@@ -26,14 +26,24 @@ void Controler::treatMessage(Message *m)
             std::cout << "File saved" << std::endl;
             break;
 
-        case PAINT :
+        case PAINT_RECT :
             messagePaint = dynamic_cast<MessagePaint*>(m);
-            paintBoard(messagePaint->getX(), messagePaint->getY(), messagePaint->getSize());
+            AddRect(messagePaint->getX(), messagePaint->getY(), messagePaint->getWidth(), messagePaint->getHeight(), messagePaint->getColor(), messagePaint->getFilled());
+            refreshBoard();
+            break;
+
+        case PAINT_CIRCLE :
+            messagePaint = dynamic_cast<MessagePaint*>(m);
+            AddCircle(messagePaint->getX(), messagePaint->getY(),  messagePaint->getRadius(), messagePaint->getColor(), messagePaint->getFilled());
             refreshBoard();
             break;
 
         case REFRESH:
             refreshBoard();
+            break;
+
+        case PREVISUALIZE:
+            switchPrevisualize();
             break;
 
         default:
@@ -46,19 +56,28 @@ Controler::~Controler(){
     delete m_model;
 }
 
-void Controler::paintBoard(int x, int y, int size)
+void Controler::AddRect(int x, int y, int width, int height, MyRGB color, bool filled)
 {
     // Ajout d'un rectangle pour le test
-    m_model->AddRect(x, y , size, size);
+    m_model->AddRect(x, y , width, height, color, filled);
 }
 
+void Controler::AddCircle(int x, int y, int radius, MyRGB color, bool filled)
+{
+    // Ajout d'un rectangle pour le test
+    m_model->AddCircle(x, y , radius, color, filled);
+}
 void Controler::refreshBoard()
 {
     Draw* draw = m_model->GetDraw();
-    m_frame->RefreshDrawing();
+    m_frame->GetDrawingPanel()->Refresh();
     m_frame->GetDrawingPanel()->Update();
 
-    m_frame->GetDrawingPanel()->PaintRect(draw->getRectangles());
-    m_frame->GetDrawingPanel()->PaintTriangle(draw->getTriangles());
-    m_frame->GetDrawingPanel()->PaintCircle(draw->getCircles());
+    m_frame->GetDrawingPanel()->PaintShapes(draw->getShapes());
+    m_frame->GetDrawingPanel()->Previsualize();
+}
+
+void Controler::switchPrevisualize() {
+    m_frame->GetDrawingPanel()->switchPevisualize();
+    refreshBoard();
 }

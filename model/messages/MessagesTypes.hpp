@@ -5,8 +5,12 @@ enum MessagesTypes
 {
     OPEN_FILE = 1,
     SAVE_FILE,
-    PAINT,
-    REFRESH
+    PAINT_RECT,
+    PAINT_CIRCLE,
+    PAINT_LINE,
+    PAINT_POLYGON,
+    REFRESH,
+    PREVISUALIZE
 };
 
 #endif

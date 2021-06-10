@@ -14,9 +14,14 @@ Draw* MyModel::GetDraw()
     return m_draw;
 }
 
-void MyModel::AddRect(int x, int y , int width, int height)
+void MyModel::AddRect(int x, int y , int width, int height, MyRGB color, bool filled)
 {
-    Rectangle r(x, y, width, height, "");
-    m_draw->addRectangle(r);
+    Rectangle* r = new Rectangle(x, y, width, height, "", color, filled);
+    m_draw->addShape(r);
+}
+void MyModel::AddCircle(int x, int y, int radius, MyRGB color, bool filled)
+{
+    Circle* c = new Circle(x, y, radius, "", color, filled);
+    m_draw->addShape(c);
 }
 

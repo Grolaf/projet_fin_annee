@@ -22,18 +22,21 @@ class MyControlPanel: public wxPanel, public Observed
 {
 public:
   MyControlPanel( wxWindow *parent ) ;
-  int GetSliderValue() {return m_slider->GetValue() ;} ;
-  bool GetCheckBoxValue() {return m_checkBox->GetValue() ;} ;
-  wxColour GetColour() {return m_colourPicker->GetColour();};
+  int GetSliderValue() const{return m_slider->GetValue() ;} ;
+  bool GetCheckBoxTextValue()const {return m_checkBox->GetValue() ;} ;
+  bool GetCheckBoxFillShapeValue()const {return m_fillShape->GetValue() ;} ;
+  bool GetCheckBoxPrevisualizeValue()const {return m_previsualizeShape->GetValue() ;} ;
+  wxString GetSelectedShape() const{ return m_drawTools->GetStringSelection();};
+  wxColour GetColour()const {return m_colourPicker->GetColour();};
 
     void OnSlider(wxScrollEvent &event) ;
 
     void OnCheckBox(wxCommandEvent &event) ;
+    void OnCheckBoxPrevisualize(wxCommandEvent &event) ;
 
     void OnButton(wxCommandEvent &event) ;
 
     void OnColourChanged(wxColourPickerEvent& evt);
-
 
 
 private:
@@ -44,6 +47,8 @@ private:
 
     wxSlider* m_slider ;
     wxCheckBox* m_checkBox ;
+    wxCheckBox* m_fillShape ;
+    wxCheckBox* m_previsualizeShape ;
     wxStaticText* text1;
     wxButton *m_button ;
 
@@ -53,10 +58,7 @@ private:
 
 
     // Option DrawTools:
-    wxRadioBox *drawTools;
-
-
-
+    wxRadioBox *m_drawTools;
 };
 
 #endif

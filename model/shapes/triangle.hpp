@@ -19,6 +19,17 @@ class Triangle : public Shape
         Triangle(const Triangle& c);
         Triangle& operator=(const Triangle& c);
 
+    /*************************************************/
+    /*      getters     */
+
+    bool isTriangle(){return true;};
+
+
+    /*************************************************/
+    /*      setters     */
+
+    /*************************************************/
+    /*      Usual Methods */
         virtual void display()const;
         virtual float perimeter()const;
         virtual float surface()const;

@@ -33,7 +33,7 @@ class MyFrame: public wxFrame, public Observed
     MyFrame(const wxString& title, const wxPoint& pos, const wxSize& size);
     MyControlPanel* GetControlPanel(){return m_controlPanel ;} ;
     MyDrawingPanel* GetDrawingPanel(){return m_drawingPanel;};
-    void RefreshDrawing(){m_drawingPanel->Refresh() ;} ;
+    void RefreshDrawing();
   
 protected:
   void OnQuit(wxCommandEvent& event);
@@ -46,13 +46,7 @@ protected:
   //wxBoxSizer *sizer;
   MyControlPanel *m_controlPanel; // the panel with controls
   MyDrawingPanel *m_drawingPanel; // the panel in which we Draw
-  MyDrawingPanel *m_drawingPanel; // the panel in which we draw
   MyMenu *filemenu;
-
-
-
-
-
 } ;
 
 

@@ -20,7 +20,8 @@ public:
     Draw* GetDraw();
 
     /******   Draw Functions *******/
-    void AddRect(int x, int y , int witdh, int height);
+    void AddRect(int x, int y , int witdh, int height, MyRGB color, bool filled);
+    void AddCircle(int x, int y ,  int radius, MyRGB color, bool filled);
 
 };
 

@@ -127,3 +127,10 @@ void MyFrame::OnSize(wxSizeEvent &event)
   m_controlPanel->SetSize(wxRect(wxPoint(0,0), wxPoint(WIDGET_PANEL_WIDTH, h))) ;
   m_drawingPanel->SetSize(wxRect(wxPoint(WIDGET_PANEL_WIDTH,0), wxPoint(w, h))) ;
 }
+
+void MyFrame::RefreshDrawing()
+{
+    Message* m = new Message(REFRESH);
+    notifyObserver(m);
+    delete m;
+}

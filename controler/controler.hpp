@@ -19,8 +19,10 @@ private :
         virtual void treatMessage(Message *m);
 
 private:
-    void paintBoard(int x, int y, int size);
+    void AddRect(int x, int y, int width, int height, MyRGB color, bool filled);
+    void AddCircle(int x, int y,  int radius, MyRGB color, bool filled);
     void refreshBoard();
+    void switchPrevisualize();
 
 };
 

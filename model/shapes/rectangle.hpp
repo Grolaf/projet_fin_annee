@@ -29,6 +29,7 @@ class Rectangle: public Shape
         int getHeight() const;
         int* getDimensions()const;
         Point& getCorner();
+        bool isRectangle(){return true;};
 
 
         /*************************************************/

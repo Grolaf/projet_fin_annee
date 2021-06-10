@@ -18,15 +18,25 @@ class Circle : public Shape
         Circle(const Circle& c);
         Circle& operator=(const Circle& c);
 
+
+    /*************************************************/
+    /*      getters    */
+        Point getCenter() const;
+        int getRadius() const;
+        bool isCircle(){return true;};
+
+    /*************************************************/
+    /*      setters    */
+        void setCenter(int x, int y);
+        void setRadius(int r);
+
+    /*************************************************/
+    /*      Usual Methods    */
+
         virtual void display()const;
         virtual float perimeter()const;
         virtual float surface()const;
 
-        Point getCenter() const;
-        int getRadius() const;
-
-        void setCenter(int x, int y);
-        void setRadius(int r);
 };
 
 

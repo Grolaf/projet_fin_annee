@@ -22,6 +22,11 @@ class Shape
         virtual void display()const;
         virtual float perimeter()const = 0;
         virtual float surface()const = 0;
+
+        virtual bool isRectangle() {return false;};
+        virtual bool isCircle() {return false;};
+        virtual bool isTriangle() {return false;};
+
     protected:
 
         std::string m_label;

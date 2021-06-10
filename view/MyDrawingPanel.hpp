@@ -27,9 +27,12 @@ class MyDrawingPanel: public wxPanel, public Observed
 public:
   MyDrawingPanel( wxWindow *parent ) ;
 
-  void PaintRect(std::vector<Rectangle> rectangles);
-  void PaintTriangle(std::vector<Triangle> triangles);
-  void PaintCircle(std::vector<Circle> circles);
+  void PaintShapes(std::vector<Shape*> shapes);
+  void PaintRect(wxPaintDC &dc, Rectangle *r);
+  void PaintTriangle(wxPaintDC &dc, Triangle *t);
+  void PaintCircle(wxPaintDC &dc, Circle *c);
+  void switchPevisualize(){m_previsualize = !m_previsualize;};
+  void Previsualize();
 
 private:
 
@@ -41,6 +44,8 @@ private:
   /****** Attributes *****/
   wxPoint m_mousePoint ;
   wxPoint m_onePoint ;
+
+  bool m_previsualize;
 };
 
 #endif
