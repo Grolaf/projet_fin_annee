@@ -9,6 +9,9 @@
 Controler::Controler(MyFrame* frame): Observer(), m_frame(frame)
 {
     m_model = new MyModel();
+
+    // Setting du Draw dans la vue
+    m_frame->GetDrawingPanel()->setDraw(m_model->GetDraw());
 }
 
 void Controler::treatMessage(Message *m)
@@ -87,12 +90,7 @@ void Controler::AddCircle(int x, int y, int radius, MyRGB color, MyRGB borderCol
 
 void Controler::refreshBoard()
 {
-    Draw* draw = m_model->GetDraw();
     m_frame->GetDrawingPanel()->Refresh();
-    m_frame->GetDrawingPanel()->Update();
-
-    m_frame->GetDrawingPanel()->PaintShapes(draw->getShapes());
-    m_frame->GetDrawingPanel()->Previsualize();
 }
 
 void Controler::switchPrevisualize() {

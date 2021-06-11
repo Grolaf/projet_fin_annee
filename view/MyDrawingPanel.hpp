@@ -22,13 +22,12 @@
 
 //------------------------------------------------------------------------
 class MyDrawingPanel: public wxPanel, public Observed
-           
+
 {
 public:
   MyDrawingPanel( wxWindow *parent ) ;
 
   /*****  Draw functions ******/
-  void PaintShapes(std::vector<Shape*> shapes);
   void PaintRect(wxPaintDC &dc, Rectangle *r);
   void PaintTriangle(wxPaintDC &dc, Triangle *t);
   void PaintCircle(wxPaintDC &dc, Circle *c);
@@ -38,6 +37,7 @@ public:
   void switchPevisualize(){m_previsualize = !m_previsualize;};
   void switchSelection(){m_selection = !m_selection;};
   void setSelectedShape(Shape* shape) { m_selectedElement = shape;};
+  void setDraw(Draw* draw) {m_draw = draw;};
 
 
   /*****  Methods ******/
@@ -59,6 +59,7 @@ private:
   wxPoint m_onePoint ;
 
   Shape* m_selectedElement;
+  Draw* m_draw;
 
   bool m_previsualize;
   bool m_selection;
