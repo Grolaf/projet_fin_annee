@@ -24,6 +24,7 @@ class Point
         bool XEqualsY() const;
 
         float Distance(Point const& p) const;
+        float Distance(int x, int y) const;
 
         /***************************************************************************************************/
         /*      Getters     */

@@ -1,5 +1,5 @@
-#define APPLICATION_WIDTH	700
-#define APPLICATION_HEIGHT	600
+#define APPLICATION_WIDTH	600
+#define APPLICATION_HEIGHT	500
 #define APP_NAME "Svex Editors v1.0"
 #define WIDGET_PANEL_WIDTH	250
 #define WIDGET_Y0			30
@@ -19,13 +19,16 @@ enum
     ID_SAVE,
     ID_BUTTON1,
     ID_SLIDER1,
+    ID_SLIDER2,
     ID_CHECKBOX1,
+    ID_CHECKBOX2,
+    ID_CHECKBOX3,
     ID_RADIOBOX,
-    ID_CLPICKER1
+    ID_CLPICKER1,
+    ID_CLPICKER2,
+    ID_CHECKBOX4
 };
-
-
-MyControlPanel::MyControlPanel(wxWindow *parent) : wxPanel(parent)
+MyControlPanel::MyControlPanel(wxWindow *parent) : wxPanel(parent), Observed()
   //------------------------------------------------------------------------
   // In this constructor, create the controls and associate each of them (bind) a method
 {
@@ -45,37 +48,69 @@ MyControlPanel::MyControlPanel(wxWindow *parent) : wxPanel(parent)
   // View DrawTools ::
 
     y = WIDGET_Y0 ;
-    wxString tabChoix[6] = {"carre","rectangle","cercle","ellipse","ligne","polygone"};
-    drawTools = new wxRadioBox(this, ID_RADIOBOX, labelradio, wxPoint(10,y), wxDefaultSize,6,tabChoix,0,wxRA_SPECIFY_ROWS);
-    drawTools->SetForegroundColour(wxColor(250,250,250));
+    wxString tabChoix[6] = {"Carre","Rectangle","Cercle","Ellipse","Ligne","Polygone"};
+    m_drawTools = new wxRadioBox(this, ID_RADIOBOX, labelradio, wxPoint(10,y), wxDefaultSize,6,tabChoix,0,wxRA_SPECIFY_ROWS);
+    m_drawTools->SetForegroundColour(wxColor(250,250,250));
 
 
     // Bind DrawTools ::
 
 
-
         // Other Tools
   
   y+= WIDGET_Y_STEP + WIDGET_Y_SECURE;
-  text1 = new wxStaticText(this, wxID_ANY, wxT("Taille"), wxPoint(10, y)) ;
+  text1 = new wxStaticText(this, wxID_ANY, wxT("Taille de la forme"), wxPoint(10, y)) ;
     text1->SetForegroundColour(wxColor(250,250,250));
   
-  y+= 15 ;
-  m_slider = new wxSlider(this, ID_SLIDER1, 10, 2, 100, wxPoint(10, y), wxSize(100,20)) ;
-  Bind(wxEVT_SCROLL_THUMBTRACK, &MyControlPanel::OnSlider, this, ID_SLIDER1) ;
-  
   y+= WIDGET_Y_STEP ;
-    m_checkBox = new wxCheckBox(this, ID_CHECKBOX1, "Montrer coordonnées", wxPoint(10, y), wxSize(100,20)) ;
+  m_shapeSize = new wxSlider(this, ID_SLIDER1, 10, 2, 450, wxPoint(10, y), wxSize(100,20),wxSL_MIN_MAX_LABELS) ;
+     Bind(wxEVT_SCROLL_THUMBTRACK, &MyControlPanel::OnSlider, this, ID_SLIDER1) ;
+
+  y+= WIDGET_Y_STEP;
+
+  text1 = new wxStaticText(this, wxID_ANY, wxT("Taille de la bordure"), wxPoint(10, y)) ;
+  text1->SetForegroundColour(wxColor(250,250,250));
+
+  y+= WIDGET_Y_STEP ;
+  m_borderSize = new wxSlider(this, ID_SLIDER2, 10, 2, 45, wxPoint(10, y), wxSize(100,20),wxSL_MIN_MAX_LABELS ) ;
+    m_borderSize->SetForegroundColour(wxColor(250,250,250));
+  Bind(wxEVT_SCROLL_THUMBTRACK, &MyControlPanel::OnSlider, this, ID_SLIDER2) ;
+
+  y+= WIDGET_Y_STEP  ;
+
+    m_checkBox = new wxCheckBox(this, ID_CHECKBOX1, "Montrer coordonnees", wxPoint(10, y), wxSize(100,20)) ;
     Bind(wxEVT_CHECKBOX, &MyControlPanel::OnCheckBox, this, ID_CHECKBOX1) ;
 
+    y+= WIDGET_Y_STEP;
+    m_fillShape = new wxCheckBox(this, ID_CHECKBOX2,"Forme pleine", wxPoint(10, y), wxSize(100,20)) ;
+    Bind(wxEVT_CHECKBOX, &MyControlPanel::OnCheckBox, this, ID_CHECKBOX2) ;
+
+    y+= WIDGET_Y_STEP ;
+    m_previsualizeShape = new wxCheckBox(this, ID_CHECKBOX3, "Previsualiser la forme", wxPoint(10, y), wxSize(100,20)) ;
+    Bind(wxEVT_CHECKBOX, &MyControlPanel::OnCheckBoxPrevisualize, this, ID_CHECKBOX3) ;
+
+    y+= WIDGET_Y_STEP ;
+    m_moveShape = new wxCheckBox(this, ID_CHECKBOX4, "Déplacer une forme", wxPoint(10, y), wxSize(100,20)) ;
+        Bind(wxEVT_CHECKBOX, &MyControlPanel::OnCheckBox, this, ID_CHECKBOX4) ;
 
 
 
     y+= WIDGET_Y_STEP;
 
+    text1 = new wxStaticText(this, wxID_ANY, wxT("Couleur de la forme"), wxPoint(10, y)) ;
+    text1->SetForegroundColour(wxColor(250,250,250));
+    y+= 25 ;
       // Create a wxColourPickerCtrl control
-    wxColourPickerCtrl* colourPickerCtrl = new wxColourPickerCtrl(this,ID_CLPICKER1 , wxColour(255,0,0), wxPoint(10, y), wxSize(100,20) );
-   Bind(wxEVT_COLOURPICKER_CHANGED, &MyControlPanel::OnColourChanged, this, ID_CHECKBOX1) ;
+     m_shapeColor = new wxColourPickerCtrl(this, ID_CLPICKER1 , wxColour(255, 0, 0), wxPoint(10, y), wxSize(100, 20) );
+   Bind(wxEVT_COLOURPICKER_CHANGED, &MyControlPanel::OnColourChanged, this, ID_CLPICKER1) ;
+
+    y+= WIDGET_Y_STEP;
+
+    text1 = new wxStaticText(this, wxID_ANY, wxT("Couleur de la bordure"), wxPoint(10, y)) ;
+    text1->SetForegroundColour(wxColor(250,250,250));
+    y+= 25 ;
+    m_borderColor = new wxColourPickerCtrl(this, ID_CLPICKER2 , wxColour(255, 0, 0), wxPoint(10, y), wxSize(100, 20) );
+    Bind(wxEVT_COLOURPICKER_CHANGED, &MyControlPanel::OnColourChanged, this, ID_CLPICKER2) ;
 
 }
 
@@ -84,14 +119,9 @@ MyControlPanel::MyControlPanel(wxWindow *parent) : wxPanel(parent)
     void MyControlPanel::OnColourChanged(wxColourPickerEvent &evt)
 //------------------------------------------------------------------------
 {
-     m_textCtrl->SetForegroundColour(GetColour());
-     m_textCtrl->Refresh();
-
-    MyFrame* frame = (MyFrame*)GetParent() ;
-    frame->RefreshDrawing() ;
-
-    }
-
+    MyFrame* frame = (MyFrame*) GetParent();
+    frame->RefreshDrawing();
+}
 //------------------------------------------------------------------------
 void MyControlPanel::OnButton(wxCommandEvent &event)
   //------------------------------------------------------------------------
@@ -107,14 +137,33 @@ void MyControlPanel::OnSlider(wxScrollEvent &event)
   //------------------------------------------------------------------------
 {
   MyFrame* frame = (MyFrame*)GetParent() ;
-  frame->RefreshDrawing() ;	// update the drawing panel
+  Message* m  = new Message(REFRESH);
+  notifyObserver(m);
+  delete m;
 }
 
 //------------------------------------------------------------------------
 void MyControlPanel::OnCheckBox(wxCommandEvent &event)
-  //------------------------------------------------------------------------
+//------------------------------------------------------------------------
 {
-  MyFrame* frame = (MyFrame*)GetParent() ;
-  frame->RefreshDrawing() ;	// update the drawing panel
+    MyFrame* frame = (MyFrame*)GetParent() ;
+    frame->RefreshDrawing() ;	// update the drawing panel
 }
 
+//------------------------------------------------------------------------
+void MyControlPanel::OnCheckBoxPrevisualize(wxCommandEvent &event)
+//------------------------------------------------------------------------
+{
+    Message* m = new Message(PREVISUALIZE);
+    notifyObserver(m);
+    delete m;
+}
+
+//------------------------------------------------------------------------
+void MyControlPanel::OnSelection(wxCommandEvent &event)
+//------------------------------------------------------------------------
+{
+    Message* m = new Message(SELECTION);
+    notifyObserver(m);
+    delete m;
+}

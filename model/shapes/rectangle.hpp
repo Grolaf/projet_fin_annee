@@ -18,7 +18,7 @@ class Rectangle: public Shape
     public :
 
 
-        Rectangle(int xLeftCorner, int yLeftCorner, int width, int height, std::string label);
+        Rectangle(int xLeftCorner, int yLeftCorner, int width, int height, std::string label, MyRGB color = MyRGB(0, 0, 0), MyRGB borderColor = MyRGB(0, 0, 0), int borderSize = 1, bool filled = false);
         Rectangle(Point& p, int width, int height);
         virtual ~Rectangle();
 
@@ -29,7 +29,8 @@ class Rectangle: public Shape
         int getHeight() const;
         int* getDimensions()const;
         Point& getCorner();
-
+        bool isRectangle()const {return true;};
+        bool isInside(int x, int y) const;
 
         /*************************************************/
         /*      setters    */
@@ -42,7 +43,6 @@ class Rectangle: public Shape
         /*      Usuals methods    */
 
         void Move(int x, int y);
-        bool isInside(Rectangle& r) const;
         int Surface() const;
 
         virtual void display() const;

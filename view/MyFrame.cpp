@@ -7,6 +7,7 @@
 #endif
 
 #include "../constants.hpp"
+#include "MyDrawingPanel.hpp"
 
 
 // Define constant of app
@@ -61,10 +62,20 @@ MyFrame::MyFrame(const wxString& title, const wxPoint& pos, const wxSize& size)
 
 
 
+    CreateStatusBar() ;
 
-  CreateStatusBar() ;
-  SetStatusText(wxT("click in the right panel and tune the controls of the left panel. Visit the File menu!")) ;
+   ;
   Centre() ; // Guess what it does ;-)
+}
+
+//------------------------------------------------------------------------
+void MyFrame::RefreshCoord(wxMouseEvent &event)
+//------------------------------------------------------------------------
+// called when the mouse is moved
+{
+    wxString coordinates ;
+    coordinates.sprintf(wxT("(%d,%d)"),m_drawingPanel->getMouse().x,m_drawingPanel->getMouse().y);
+    SetStatusText(coordinates);
 }
 
 //------------------------------------------------------------------------
@@ -73,6 +84,7 @@ void MyFrame::OnQuit(wxCommandEvent& WXUNUSED(event))
 {
   Close(true) ;
 }
+
 
 //------------------------------------------------------------------------
 void MyFrame::OnClose(wxCloseEvent& event)
@@ -126,4 +138,11 @@ void MyFrame::OnSize(wxSizeEvent &event)
   GetSize(&w,&h) ;	
   m_controlPanel->SetSize(wxRect(wxPoint(0,0), wxPoint(WIDGET_PANEL_WIDTH, h))) ;
   m_drawingPanel->SetSize(wxRect(wxPoint(WIDGET_PANEL_WIDTH,0), wxPoint(w, h))) ;
+}
+
+void MyFrame::RefreshDrawing()
+{
+    Message* m = new Message(REFRESH);
+    notifyObserver(m);
+    delete m;
 }

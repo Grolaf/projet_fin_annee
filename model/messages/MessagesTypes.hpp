@@ -4,7 +4,15 @@
 enum MessagesTypes
 {
     OPEN_FILE = 1,
-    SAVE_FILE
+    SAVE_FILE,
+    PAINT_RECT,
+    PAINT_CIRCLE,
+    PAINT_LINE,
+    PAINT_POLYGON,
+    REFRESH,
+    PREVISUALIZE,
+    SELECTION,
+    SELECT
 };
 
 #endif

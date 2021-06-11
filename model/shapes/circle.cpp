@@ -5,7 +5,10 @@
 
 using namespace std;
 
-Circle::Circle(int x, int y, int radius, string label): Shape(label), m_center(x, y), m_radius(radius)
+/***************************************************************************************/
+/*      Builders and Destructors        */
+
+Circle::Circle(int x, int y, int radius, string label, MyRGB color, MyRGB borderColor, int borderSize,  bool filled): Shape(label ,color, borderColor, borderSize, filled), m_center(x, y), m_radius(radius)
 {
 }
 
@@ -13,32 +16,16 @@ Circle::Circle(): Shape(), m_center()
 {
     m_radius = 0;
 }
-Circle::Circle(const Circle& c): Shape(c.GetLabel()), m_center(c.m_center), m_radius(c.m_radius)
-{
-}
-
 Circle::~Circle()
 {
 }
 
-
-Circle& Circle::operator=(const Circle& c)
-{
-    if(m_label != nullptr)
-    {
-        delete m_label;
-    }
-
-    m_label = new string(c.GetLabel());
-    m_center = c.m_center;
-    m_radius = c.m_radius;
-
-    return (*this);
-}
+/***************************************************************************************/
+/*      Usual Methods        */
 
 void Circle::display()const
 {
-    cout << "Circle " << *m_label << " : ";
+    cout << "Circle " << m_label << " : ";
     m_center.Display();
     cout << " radius = " << m_radius << " Perimeter = " << perimeter() << " Surface = " << surface() << endl; 
 }
@@ -51,4 +38,34 @@ float Circle::perimeter()const
 float Circle::surface()const
 {
     return M_PI * pow(m_radius, 2);
+}
+
+/***************************************************************************************/
+/*      Getters        */
+
+Point Circle::getCenter() const
+{
+    return m_center;
+}
+
+int Circle::getRadius() const {
+    return m_radius;
+}
+
+bool Circle::isInside(int x, int y) const
+{
+    m_center.Distance(x, y) < m_radius;
+}
+
+/***************************************************************************************/
+/*      Setters        */
+
+void Circle::setCenter(int x, int y)
+{
+    m_center.SetX(x);
+    m_center.SetY(y);
+}
+
+void Circle::setRadius(int r) {
+    m_radius = r;
 }

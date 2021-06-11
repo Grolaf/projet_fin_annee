@@ -6,11 +6,6 @@
 },
 {
   "directory": "/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee",
-  "command": "/usr/bin/c++  -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXGTK__ -isystem /usr/lib/x86_64-linux-gnu/wx/include/gtk2-unicode-3.0 -isystem /usr/include/wx-3.0   -pthread -g   -std=gnu++11 -o CMakeFiles/skeleton.dir/view/MyMenu.cpp.o -c /users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/view/MyMenu.cpp",
-  "file": "/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/view/MyMenu.cpp"
-},
-{
-  "directory": "/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee",
   "command": "/usr/bin/c++  -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXGTK__ -isystem /usr/lib/x86_64-linux-gnu/wx/include/gtk2-unicode-3.0 -isystem /usr/include/wx-3.0   -pthread -g   -std=gnu++11 -o CMakeFiles/skeleton.dir/view/MyApp.cpp.o -c /users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/view/MyApp.cpp",
   "file": "/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/view/MyApp.cpp"
 },
@@ -83,5 +78,30 @@
   "directory": "/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee",
   "command": "/usr/bin/c++  -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXGTK__ -isystem /usr/lib/x86_64-linux-gnu/wx/include/gtk2-unicode-3.0 -isystem /usr/include/wx-3.0   -pthread -g   -std=gnu++11 -o CMakeFiles/skeleton.dir/model/shapes/shape.cpp.o -c /users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/model/shapes/shape.cpp",
   "file": "/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/model/shapes/shape.cpp"
+},
+{
+  "directory": "/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee",
+  "command": "/usr/bin/c++  -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXGTK__ -isystem /usr/lib/x86_64-linux-gnu/wx/include/gtk2-unicode-3.0 -isystem /usr/include/wx-3.0   -pthread -g   -std=gnu++11 -o CMakeFiles/skeleton.dir/model/draw.cpp.o -c /users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/model/draw.cpp",
+  "file": "/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/model/draw.cpp"
+},
+{
+  "directory": "/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee",
+  "command": "/usr/bin/c++  -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXGTK__ -isystem /usr/lib/x86_64-linux-gnu/wx/include/gtk2-unicode-3.0 -isystem /usr/include/wx-3.0   -pthread -g   -std=gnu++11 -o CMakeFiles/skeleton.dir/model/MyModel.cpp.o -c /users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/model/MyModel.cpp",
+  "file": "/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/model/MyModel.cpp"
+},
+{
+  "directory": "/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee",
+  "command": "/usr/bin/c++  -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXGTK__ -isystem /usr/lib/x86_64-linux-gnu/wx/include/gtk2-unicode-3.0 -isystem /usr/include/wx-3.0   -pthread -g   -std=gnu++11 -o CMakeFiles/skeleton.dir/model/messages/MessagePaint.cpp.o -c /users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/model/messages/MessagePaint.cpp",
+  "file": "/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/model/messages/MessagePaint.cpp"
+},
+{
+  "directory": "/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee",
+  "command": "/usr/bin/c++  -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXGTK__ -isystem /usr/lib/x86_64-linux-gnu/wx/include/gtk2-unicode-3.0 -isystem /usr/include/wx-3.0   -pthread -g   -std=gnu++11 -o CMakeFiles/skeleton.dir/model/MyRGB.cpp.o -c /users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/model/MyRGB.cpp",
+  "file": "/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/model/MyRGB.cpp"
+},
+{
+  "directory": "/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee",
+  "command": "/usr/bin/c++  -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXGTK__ -isystem /usr/lib/x86_64-linux-gnu/wx/include/gtk2-unicode-3.0 -isystem /usr/include/wx-3.0   -pthread -g   -std=gnu++11 -o CMakeFiles/skeleton.dir/view/MyMenu.cpp.o -c /users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/view/MyMenu.cpp",
+  "file": "/users/info/etu-as/lebagouv/Desktop/ProjetPLOUS/projet_fin_annee/view/MyMenu.cpp"
 }
 ]

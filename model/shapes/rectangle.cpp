@@ -7,7 +7,7 @@ using namespace std;
 /***************************************************************************************/
 /*      Builders and Destructors        */
 
-Rectangle::Rectangle(int xLeftCorner, int yLeftCorner, int width, int height, string label): m_w(width), m_h(height), m_corner(xLeftCorner, yLeftCorner), Shape(label)
+Rectangle::Rectangle(int xLeftCorner, int yLeftCorner, int width, int height, string label, MyRGB color, MyRGB borderColor, int borderSize, bool filled): m_w(width), m_h(height), m_corner(xLeftCorner, yLeftCorner), Shape(label, color, borderColor, borderSize, filled)
 {
     m_rectCount++;
 }
@@ -42,9 +42,18 @@ int* Rectangle::getDimensions() const
 
     return tab;
 }
+
 Point& Rectangle::getCorner()
 {
     return m_corner;
+}
+
+bool Rectangle::isInside(int x, int y) const
+{
+    Point topLeft(m_corner);
+    Point bottomRight(m_corner.GetX() + m_w, m_corner.GetY() + m_h);
+
+    return topLeft.GetX() <= x && bottomRight.GetX() >= x && topLeft.GetY() <= y && bottomRight.GetY() >= y;
 }
 
 
@@ -73,12 +82,6 @@ void Rectangle::setCorner(Point& p)
 void Rectangle::Move(int x, int y)
 {
     m_corner.move(x, y);
-}
-bool Rectangle::isInside(Rectangle& r) const
-{
-    Point cornerR(r.getCorner());
-
-    return m_corner.GetX() >= cornerR.GetX() && m_corner.GetY() >= cornerR.GetY() && m_corner.GetX() + m_w <= cornerR.GetX() + r.getWidth() && m_corner.GetY() + m_h <= cornerR.GetY() + r.getHeight();
 }
 
 int Rectangle::Surface() const
