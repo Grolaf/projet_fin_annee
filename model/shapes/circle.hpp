@@ -12,18 +12,17 @@ class Circle : public Shape
 
     public : 
 
-        Circle(int x, int y, int radius, std::string label, MyRGB color = MyRGB(0, 0, 0), bool filled = false);
+        Circle(int x, int y, int radius, std::string label, MyRGB color = MyRGB(0, 0, 0),MyRGB borderColor = MyRGB(0, 0, 0), int borderSize = 1,  bool filled = false);
         Circle();
         virtual ~Circle();
-        Circle(const Circle& c);
-        Circle& operator=(const Circle& c);
 
 
     /*************************************************/
     /*      getters    */
         Point getCenter() const;
         int getRadius() const;
-        bool isCircle(){return true;};
+        bool isCircle()const{return true;};
+        bool isInside(int x, int y)const;
 
     /*************************************************/
     /*      setters    */

@@ -28,13 +28,15 @@ void Controler::treatMessage(Message *m)
 
         case PAINT_RECT :
             messagePaint = dynamic_cast<MessagePaint*>(m);
-            AddRect(messagePaint->getX(), messagePaint->getY(), messagePaint->getWidth(), messagePaint->getHeight(), messagePaint->getColor(), messagePaint->getFilled());
+            AddRect(messagePaint->getX(), messagePaint->getY(), messagePaint->getWidth(), messagePaint->getHeight(),
+                    messagePaint->getShapeColor(), messagePaint->getBorderColor(), messagePaint->getBorderSize(), messagePaint->getFilled());
             refreshBoard();
             break;
 
         case PAINT_CIRCLE :
             messagePaint = dynamic_cast<MessagePaint*>(m);
-            AddCircle(messagePaint->getX(), messagePaint->getY(),  messagePaint->getRadius(), messagePaint->getColor(), messagePaint->getFilled());
+            AddCircle(messagePaint->getX(), messagePaint->getY(), messagePaint->getRadius(),
+                      messagePaint->getShapeColor(), messagePaint->getBorderColor(), messagePaint->getBorderSize(),  messagePaint->getFilled());
             refreshBoard();
             break;
 
@@ -44,6 +46,15 @@ void Controler::treatMessage(Message *m)
 
         case PREVISUALIZE:
             switchPrevisualize();
+            break;
+
+        case SELECTION:
+            switchSelection();
+            break;
+
+        case SELECT:
+            messagePaint = dynamic_cast<MessagePaint*>(m);
+            selectShape(messagePaint->getX(), messagePaint->getY());
             break;
 
         default:
@@ -56,17 +67,24 @@ Controler::~Controler(){
     delete m_model;
 }
 
-void Controler::AddRect(int x, int y, int width, int height, MyRGB color, bool filled)
+/*************************************************/
+/*      setters    */
+
+void Controler::AddRect(int x, int y, int width, int height, MyRGB color,MyRGB borderColor, int borderSize,  bool filled)
 {
     // Ajout d'un rectangle pour le test
-    m_model->AddRect(x, y , width, height, color, filled);
+    m_model->AddRect(x, y , width, height, color, borderColor, borderSize,  filled);
 }
 
-void Controler::AddCircle(int x, int y, int radius, MyRGB color, bool filled)
+void Controler::AddCircle(int x, int y, int radius, MyRGB color, MyRGB borderColor, int borderSize, bool filled)
 {
     // Ajout d'un rectangle pour le test
-    m_model->AddCircle(x, y , radius, color, filled);
+    m_model->AddCircle(x, y , radius, color, borderColor, borderSize, filled);
 }
+
+/*************************************************/
+/*      Usual Methods    */
+
 void Controler::refreshBoard()
 {
     Draw* draw = m_model->GetDraw();
@@ -80,4 +98,18 @@ void Controler::refreshBoard()
 void Controler::switchPrevisualize() {
     m_frame->GetDrawingPanel()->switchPevisualize();
     refreshBoard();
+}
+void Controler::switchSelection() {
+    m_frame->GetDrawingPanel()->switchSelection();
+    refreshBoard();
+}
+
+void Controler::selectShape(int x, int y)
+{
+    Shape* shape = m_model->getSelection(x, y);
+
+    if(shape != nullptr)
+    {
+
+    }
 }

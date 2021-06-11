@@ -19,11 +19,13 @@ enum
     ID_SAVE,
     ID_BUTTON1,
     ID_SLIDER1,
+    ID_SLIDER2,
     ID_CHECKBOX1,
     ID_CHECKBOX2,
     ID_CHECKBOX3,
     ID_RADIOBOX,
-    ID_CLPICKER1
+    ID_CLPICKER1,
+    ID_CLPICKER2
 };
 MyControlPanel::MyControlPanel(wxWindow *parent) : wxPanel(parent), Observed()
   //------------------------------------------------------------------------
@@ -56,13 +58,22 @@ MyControlPanel::MyControlPanel(wxWindow *parent) : wxPanel(parent), Observed()
         // Other Tools
   
   y+= WIDGET_Y_STEP + WIDGET_Y_SECURE;
-  text1 = new wxStaticText(this, wxID_ANY, wxT("Taille"), wxPoint(10, y)) ;
+  text1 = new wxStaticText(this, wxID_ANY, wxT("Taille de la forme"), wxPoint(10, y)) ;
     text1->SetForegroundColour(wxColor(250,250,250));
   
   y+= 15 ;
-  m_slider = new wxSlider(this, ID_SLIDER1, 10, 2, 100, wxPoint(10, y), wxSize(100,20)) ;
+  m_shapeSize = new wxSlider(this, ID_SLIDER1, 10, 2, 100, wxPoint(10, y), wxSize(100,20)) ;
   Bind(wxEVT_SCROLL_THUMBTRACK, &MyControlPanel::OnSlider, this, ID_SLIDER1) ;
-  
+
+  y+= WIDGET_Y_STEP;
+
+  text1 = new wxStaticText(this, wxID_ANY, wxT("Taille de la bordure"), wxPoint(10, y)) ;
+  text1->SetForegroundColour(wxColor(250,250,250));
+
+  y+= 15 ;
+  m_borderSize = new wxSlider(this, ID_SLIDER2, 10, 2, 100, wxPoint(10, y), wxSize(100,20)) ;
+  Bind(wxEVT_SCROLL_THUMBTRACK, &MyControlPanel::OnSlider, this, ID_SLIDER2) ;
+
   y+= WIDGET_Y_STEP ;
 
     m_checkBox = new wxCheckBox(this, ID_CHECKBOX1, "Montrer coordonnees", wxPoint(10, y), wxSize(100,20)) ;
@@ -79,9 +90,20 @@ MyControlPanel::MyControlPanel(wxWindow *parent) : wxPanel(parent), Observed()
 
     y+= WIDGET_Y_STEP;
 
+    text1 = new wxStaticText(this, wxID_ANY, wxT("Couleur de la forme"), wxPoint(10, y)) ;
+    text1->SetForegroundColour(wxColor(250,250,250));
+    y+= 25 ;
       // Create a wxColourPickerCtrl control
-     m_colourPicker = new wxColourPickerCtrl(this,ID_CLPICKER1 , wxColour(255,0,0), wxPoint(10, y), wxSize(100,20) );
+     m_shapeColor = new wxColourPickerCtrl(this, ID_CLPICKER1 , wxColour(255, 0, 0), wxPoint(10, y), wxSize(100, 20) );
    Bind(wxEVT_COLOURPICKER_CHANGED, &MyControlPanel::OnColourChanged, this, ID_CLPICKER1) ;
+
+    y+= WIDGET_Y_STEP;
+
+    text1 = new wxStaticText(this, wxID_ANY, wxT("Couleur de la bordure"), wxPoint(10, y)) ;
+    text1->SetForegroundColour(wxColor(250,250,250));
+    y+= 25 ;
+    m_borderColor = new wxColourPickerCtrl(this, ID_CLPICKER2 , wxColour(255, 0, 0), wxPoint(10, y), wxSize(100, 20) );
+    Bind(wxEVT_COLOURPICKER_CHANGED, &MyControlPanel::OnColourChanged, this, ID_CLPICKER2) ;
 
 }
 
@@ -130,3 +152,11 @@ void MyControlPanel::OnCheckBoxPrevisualize(wxCommandEvent &event)
     delete m;
 }
 
+//------------------------------------------------------------------------
+void MyControlPanel::OnSelection(wxCommandEvent &event)
+//------------------------------------------------------------------------
+{
+    Message* m = new Message(SELECTION);
+    notifyObserver(m);
+    delete m;
+}

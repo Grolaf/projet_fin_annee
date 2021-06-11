@@ -10,7 +10,9 @@ enum MessagesTypes
     PAINT_LINE,
     PAINT_POLYGON,
     REFRESH,
-    PREVISUALIZE
+    PREVISUALIZE,
+    SELECTION,
+    SELECT
 };
 
 #endif

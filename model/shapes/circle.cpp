@@ -8,7 +8,7 @@ using namespace std;
 /***************************************************************************************/
 /*      Builders and Destructors        */
 
-Circle::Circle(int x, int y, int radius, string label, MyRGB color, bool filled): Shape(label ,color, filled), m_center(x, y), m_radius(radius)
+Circle::Circle(int x, int y, int radius, string label, MyRGB color, MyRGB borderColor, int borderSize,  bool filled): Shape(label ,color, borderColor, borderSize, filled), m_center(x, y), m_radius(radius)
 {
 }
 
@@ -16,22 +16,8 @@ Circle::Circle(): Shape(), m_center()
 {
     m_radius = 0;
 }
-Circle::Circle(const Circle& c): Shape(c.GetLabel()), m_center(c.m_center), m_radius(c.m_radius)
-{
-}
-
 Circle::~Circle()
 {
-}
-
-
-Circle& Circle::operator=(const Circle& c)
-{
-    m_label = c.GetLabel();
-    m_center = c.m_center;
-    m_radius = c.m_radius;
-
-    return (*this);
 }
 
 /***************************************************************************************/
@@ -64,6 +50,11 @@ Point Circle::getCenter() const
 
 int Circle::getRadius() const {
     return m_radius;
+}
+
+bool Circle::isInside(int x, int y) const
+{
+    m_center.Distance(x, y) < m_radius;
 }
 
 /***************************************************************************************/

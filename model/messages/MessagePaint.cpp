@@ -5,7 +5,7 @@
 #include "MessagePaint.hpp"
 
 
-MessagePaint::MessagePaint(MessagesTypes t, int coordinateX, int coordinateY, int size, MyRGB color, bool filled): Message(t), m_coordinateX(coordinateX), m_coordinateY(coordinateY), m_width(size), m_height(size), m_radius(size), m_color(color) , m_filled(filled) {}
+MessagePaint::MessagePaint(MessagesTypes t, int coordinateX, int coordinateY, int size, MyRGB color, MyRGB borderColor, int borderSize, bool filled): Message(t), m_coordinateX(coordinateX), m_coordinateY(coordinateY), m_width(size), m_height(size), m_radius(size), m_color(color) , m_borderColor(borderColor), m_borderSize(borderSize), m_filled(filled) {}
 
 MessagePaint::MessagePaint(MessagesTypes t, int coordinateX, int coordinateY, int width, int height, MyRGB color, bool filled) : Message(t), m_coordinateX(coordinateX), m_coordinateY(coordinateY), m_width(width), m_height(height),m_radius(width),  m_color(color), m_filled(filled){}
 
@@ -28,8 +28,14 @@ int MessagePaint::getHeight() const {
 int MessagePaint::getRadius() const {
     return m_radius;
 }
-MyRGB MessagePaint::getColor() const {
+MyRGB MessagePaint::getShapeColor() const {
     return m_color;
+}
+MyRGB MessagePaint::getBorderColor  () const {
+    return m_borderColor;
+}
+int MessagePaint::getBorderSize() const {
+    return m_borderSize;
 }
 bool MessagePaint::getFilled() const {
     return m_filled;

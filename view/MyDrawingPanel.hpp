@@ -27,25 +27,41 @@ class MyDrawingPanel: public wxPanel, public Observed
 public:
   MyDrawingPanel( wxWindow *parent ) ;
 
+  /*****  Draw functions ******/
   void PaintShapes(std::vector<Shape*> shapes);
   void PaintRect(wxPaintDC &dc, Rectangle *r);
   void PaintTriangle(wxPaintDC &dc, Triangle *t);
   void PaintCircle(wxPaintDC &dc, Circle *c);
+
+
+  /*****  Setters ******/
   void switchPevisualize(){m_previsualize = !m_previsualize;};
+  void switchSelection(){m_selection = !m_selection;};
+  void setSelectedShape(Shape* shape) { m_selectedElement = shape;};
+
+
+  /*****  Methods ******/
   void Previsualize();
 
 private:
 
-    /*****  Draw functions ******/
+  /*****  ActionFunctions ******/
   void OnMouseMove(wxMouseEvent &event) ;
   void OnMouseLeftDown(wxMouseEvent &event) ;
+
+  // A implémenter : pour pouvoir facilement prévisualiser la forme
+  void OnMouseLeft(wxMouseEvent &event);
+  void OnMouseIn(wxMouseEvent &event);
   void OnPaint(wxPaintEvent &event) ;
 
   /****** Attributes *****/
   wxPoint m_mousePoint ;
   wxPoint m_onePoint ;
 
+  Shape* m_selectedElement;
+
   bool m_previsualize;
+  bool m_selection;
 };
 
 #endif

@@ -25,6 +25,7 @@ class Draw
     /*      getters    */
 
         std::vector<Shape*> getShapes() const;
+        Shape* getSelection(int x, int y);
 
     /*************************************************/
     /*      setters    */

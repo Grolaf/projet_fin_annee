@@ -13,16 +13,15 @@ class Triangle : public Shape
 
     public : 
 
-        Triangle(const Point& p1, const Point& p2, const Point& p3, const std::string& label, MyRGB color = MyRGB(0, 0, 0), bool filled = false);
+        Triangle(const Point& p1, const Point& p2, const Point& p3, const std::string& label, MyRGB color = MyRGB(0, 0, 0), MyRGB borderColor = MyRGB(0, 0, 0), int borderSize = 1, bool filled = false);
         Triangle();
         virtual ~Triangle();
-        Triangle(const Triangle& c);
-        Triangle& operator=(const Triangle& c);
 
     /*************************************************/
     /*      getters     */
 
     bool isTriangle(){return true;};
+    bool isInside(int x, int y)const;
 
 
     /*************************************************/

@@ -36,6 +36,7 @@ MyDrawingPanel::MyDrawingPanel(wxWindow *parent) : wxPanel(parent), Observed()
   m_onePoint.y = h/2 ;
   m_mousePoint = m_onePoint ;
   m_previsualize = false;
+  m_selection = false;
 }
 
 
@@ -59,55 +60,49 @@ void MyDrawingPanel::OnMouseLeftDown(wxMouseEvent &event)
   //------------------------------------------------------------------------
   // called when the mouse left button is pressed
 {
-    MyFrame* frame =  (MyFrame*)GetParent();
-
-
-    // Chargement des paramètres dans le MyControlPanel
-    int size = frame->GetControlPanel()->GetSliderValue();
-    wxColor colorChoose = frame->GetControlPanel()->GetColour();
-    MyRGB color(colorChoose.Red(), colorChoose.Green(), colorChoose.Blue());
-    bool filled = frame->GetControlPanel()->GetCheckBoxFillShapeValue();
-
-    wxString selectedShape = frame->GetControlPanel()->GetSelectedShape();
-
-    if(selectedShape.IsSameAs("Carre") ) {
-        MessagePaint *m = new MessagePaint(PAINT_RECT, m_mousePoint.x - size / 2, m_mousePoint.y - size / 2, size,
-                                           color, filled);
+    if (m_selection) {
+        MessagePaint* m = new MessagePaint(SELECT, m_mousePoint.x, m_mousePoint.y);
         notifyObserver(m);
         delete m;
-    }
-    else if(selectedShape.IsSameAs("Rectangle"))
+    } else
     {
-        MessagePaint *m = new MessagePaint(PAINT_RECT, m_mousePoint.x - size / 2, m_mousePoint.y - size / 2, size,
-                                           color, filled);
-        notifyObserver(m);
-        delete m;
-    }
-    else if(selectedShape.IsSameAs("Cercle"))
-    {
-        MessagePaint *m = new MessagePaint(PAINT_CIRCLE, m_mousePoint.x, m_mousePoint.y, size,
-                                           color, filled);
-        notifyObserver(m);
-        delete m;
-    }
-    else if(selectedShape.IsSameAs("Ellipse"))
-    {
-        MessagePaint *m = new MessagePaint(PAINT_RECT, m_mousePoint.x - size / 2, m_mousePoint.y - size / 2, size,
-                                           color, filled);
-        notifyObserver(m);
-        delete m;
-    }
-    else if(selectedShape.IsSameAs("Ligne")) {
-        MessagePaint *m = new MessagePaint(PAINT_LINE, m_mousePoint.x - size / 2, m_mousePoint.y - size / 2, size,
-                                           color, filled);
-        notifyObserver(m);
-        delete m;
-    }
-    else if(selectedShape.IsSameAs("Polygone")) {
-        MessagePaint *m = new MessagePaint(PAINT_POLYGON, m_mousePoint.x - size / 2, m_mousePoint.y - size / 2, size,
-                                           color, filled);
-        notifyObserver(m);
-        delete m;
+        MyFrame *frame = (MyFrame *) GetParent();
+        // Chargement des paramètres dans le MyControlPanel
+        int size = frame->GetControlPanel()->GetShapeSize();
+        int borderSize = frame->GetControlPanel()->GetBorderSize();
+        wxColor colorFill = frame->GetControlPanel()->GetShapeColour();
+        MyRGB color(colorFill.Red(), colorFill.Green(), colorFill.Blue());
+        wxColor colorB = frame->GetControlPanel()->GetBorderColour();
+        MyRGB colorBorder(colorB.Red(), colorB.Green(), colorB.Blue());
+        bool filled = frame->GetControlPanel()->GetCheckBoxFillShapeValue();
+
+        wxString selectedShape = frame->GetControlPanel()->GetSelectedShape();
+
+        if (selectedShape.IsSameAs("Carre")) {
+            MessagePaint *m = new MessagePaint(PAINT_RECT, m_mousePoint.x - size / 2, m_mousePoint.y - size / 2, size,color, colorBorder, borderSize, filled);
+            notifyObserver(m);
+            delete m;
+        } else if (selectedShape.IsSameAs("Rectangle")) {
+            MessagePaint *m = new MessagePaint(PAINT_RECT, m_mousePoint.x - size / 2, m_mousePoint.y - size / 2, size,color, colorBorder, borderSize, filled);
+            notifyObserver(m);
+            delete m;
+        } else if (selectedShape.IsSameAs("Cercle")) {
+            MessagePaint *m = new MessagePaint(PAINT_CIRCLE, m_mousePoint.x, m_mousePoint.y, size,color, colorBorder, borderSize, filled);
+            notifyObserver(m);
+            delete m;
+        } else if (selectedShape.IsSameAs("Ellipse")) {
+            MessagePaint *m = new MessagePaint(PAINT_RECT, m_mousePoint.x - size / 2, m_mousePoint.y - size / 2, size, color, colorBorder, borderSize, filled);
+            notifyObserver(m);
+            delete m;
+        } else if (selectedShape.IsSameAs("Ligne")) {
+            MessagePaint *m = new MessagePaint(PAINT_LINE, m_mousePoint.x - size / 2, m_mousePoint.y - size / 2, size,color, colorBorder, borderSize, filled);
+            notifyObserver(m);
+            delete m;
+        } else if (selectedShape.IsSameAs("Polygone")) {
+            MessagePaint *m = new MessagePaint(PAINT_POLYGON, m_mousePoint.x - size / 2, m_mousePoint.y - size / 2, size,color, colorBorder, borderSize, filled);
+            notifyObserver(m);
+            delete m;
+        }
     }
 }
 
@@ -148,8 +143,8 @@ void MyDrawingPanel::PaintShapes(std::vector<Shape*> shapes) {
     Circle* c = nullptr;
     Triangle* t = nullptr;
 
+    // Dessin avec cast des formes
     for(it = shapes.begin(); it < shapes.end(); it++) {
-
        if((*it)->isRectangle())
        {
            r = dynamic_cast<Rectangle*>(*it);
@@ -160,14 +155,28 @@ void MyDrawingPanel::PaintShapes(std::vector<Shape*> shapes) {
            c = dynamic_cast<Circle*>(*it);
            PaintCircle(dc, c);
        }
+    }
 
+    if(m_selectedElement != nullptr) {
+        // Dessin de la forme selectionnée
+        if (m_selectedElement->isRectangle()) {
+            r = dynamic_cast<Rectangle *>(m_selectedElement);
+            Rectangle rect = *r;
+            rect.SetBorderColor(MyRGB(125, 125, 0));
+            rect.SetBorderSize(4);
+
+        } else if (m_selectedElement->isCircle()) {
+            c = dynamic_cast<Circle *>(m_selectedElement);
+            PaintCircle(dc, c);
+        }
     }
 }
 
 void MyDrawingPanel::PaintRect(wxPaintDC &dc, Rectangle *r) {
 
-        wxColour color(r->GetColor().red, r->GetColor().green, r->GetColor().blue);
-        dc.SetPen(color);
+        wxColour color(r->GetBorderColor().red, r->GetBorderColor().green, r->GetBorderColor().blue);
+        wxPen pen(color, r->GetBorderSize());
+        dc.SetPen(pen);
 
         if (r->isFilled()) {
             dc.SetBrush(color);
@@ -209,28 +218,31 @@ void MyDrawingPanel::Previsualize() {
 
     if (m_previsualize) {
 //Chargement des paramètres dans le controlpanel
-        int size = frame->GetControlPanel()->GetSliderValue();
-        wxColor colorChoose = frame->GetControlPanel()->GetColour();
-        MyRGB color(colorChoose.Red(), colorChoose.Green(), colorChoose.Blue());
+        int size = frame->GetControlPanel()->GetShapeSize();
+        int borderSize = frame->GetControlPanel()->GetBorderSize();
+        wxColor colorFill = frame->GetControlPanel()->GetShapeColour();
+        MyRGB color(colorFill.Red(), colorFill.Green(), colorFill.Blue());
+        wxColor colorB = frame->GetControlPanel()->GetBorderColour();
+        MyRGB colorBorder(colorB.Red(), colorB.Green(), colorB.Blue());
         bool filled = frame->GetControlPanel()->GetCheckBoxFillShapeValue();
-        dc.SetPen(colorChoose);
+        dc.SetPen(colorFill);
 
         wxString selectedShape = frame->GetControlPanel()->GetSelectedShape();
 
         // Ici on envoie chaque fois l'adresse de l'objet, puisque cela ne gêne pas qu'il soit détruit (il sert juste à la prévisualisation
         if (selectedShape.IsSameAs("Carre") || selectedShape.IsSameAs("Rectangle"))
         {
-            Rectangle r(m_mousePoint.x - size / 2, m_mousePoint.y - size / 2, size, size, "", color, filled);
+            Rectangle r(m_mousePoint.x - size / 2, m_mousePoint.y - size / 2, size, size, "", color, colorBorder, borderSize, filled);
             PaintRect(dc, &r);
         }
         else if(selectedShape.IsSameAs("Rectangle"))
         {
-            Rectangle r(m_mousePoint.x, m_mousePoint.y, size, size + size/ 3, "", color, filled);
+            Rectangle r(m_mousePoint.x, m_mousePoint.y, size, size + size/ 3, "", color,colorBorder, borderSize, filled);
             PaintRect(dc, &r);
         }
         else if (selectedShape.IsSameAs("Cercle"))
         {
-            Circle c(m_mousePoint.x, m_mousePoint.y, size, "", color, filled);
+            Circle c(m_mousePoint.x, m_mousePoint.y, size, "", color, colorBorder, borderSize, filled);
 
             PaintCircle(dc, &c);
         }

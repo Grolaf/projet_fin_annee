@@ -58,6 +58,11 @@ float Point::Distance(Point const& p) const
     return sqrt(pow(p.GetX() - this->GetX(), 2) + pow(p.GetY() - this->GetY(), 2));
 }
 
+float Point::Distance(int x, int y) const
+{
+    return sqrt(pow(x - this->GetX(), 2) + pow(y - this->GetY(), 2));
+}
+
 /***************************************************************************************************/
 /*      Getters     */
 

@@ -19,10 +19,20 @@ private :
         virtual void treatMessage(Message *m);
 
 private:
-    void AddRect(int x, int y, int width, int height, MyRGB color, bool filled);
-    void AddCircle(int x, int y,  int radius, MyRGB color, bool filled);
+
+    /*************************************/
+    /*   Setters */
+
+    void AddRect(int x, int y, int width, int height, MyRGB color, MyRGB borderColor, int borderSize,  bool filled);
+    void AddCircle(int x, int y,  int radius, MyRGB color, MyRGB borderColor, int borderSize, bool filled);
+
+    /*************************************/
+    /*   Usual Methods */
+
     void refreshBoard();
     void switchPrevisualize();
+    void switchSelection();
+    void selectShape(int x, int y);
 
 };
 

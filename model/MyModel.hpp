@@ -20,9 +20,11 @@ public:
     Draw* GetDraw();
 
     /******   Draw Functions *******/
-    void AddRect(int x, int y , int witdh, int height, MyRGB color, bool filled);
-    void AddCircle(int x, int y ,  int radius, MyRGB color, bool filled);
+    void AddRect(int x, int y , int witdh, int height, MyRGB color, MyRGB borderColor, int borderSize, bool filled);
+    void AddCircle(int x, int y ,  int radius, MyRGB color, MyRGB borderColor, int borderSize,  bool filled);
 
+    /******   Methods *******/
+    Shape* getSelection(int x, int y);
 };
 
 #endif //SKELETON_MYMODEL_HPP

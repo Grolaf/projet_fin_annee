@@ -5,7 +5,7 @@
 
 using namespace std;
 
-Triangle::Triangle(const Point& p1, const Point& p2, const Point& p3, const string& label, MyRGB color, bool filled): Shape(label, color, filled), m_p1(p1), m_p2(p2), m_p3(p3)
+Triangle::Triangle(const Point& p1, const Point& p2, const Point& p3, const string& label, MyRGB color, MyRGB borderColor, int borderSize, bool filled): Shape(label, color,borderColor, borderSize,  filled), m_p1(p1), m_p2(p2), m_p3(p3)
 {
 }
 
@@ -13,23 +13,14 @@ Triangle::Triangle(): Shape(), m_p1(0, 0), m_p2(0, 0), m_p3(0, 0)
 {
 }
 
-Triangle::Triangle(const Triangle& c): Shape(c.GetLabel()), m_p1(c.m_p1), m_p2(c.m_p2), m_p3(c.m_p3)
-{
-}
 
 Triangle::~Triangle()
 {
 }
 
-
-Triangle& Triangle::operator=(const Triangle& c)
+bool Triangle::isInside(int x, int y) const
 {
-    m_label = c.GetLabel();
-    m_p1 = c.m_p1;
-    m_p2 = c.m_p2;
-    m_p3 = c.m_p3;
-
-    return (*this);
+    throw "not implemented";
 }
 
 void Triangle::display()const

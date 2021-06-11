@@ -17,11 +17,13 @@ class MessagePaint : public Message
         int m_height;
         int m_radius;
         MyRGB m_color;
+        MyRGB m_borderColor;
+        int m_borderSize;
         bool m_filled;
 
 
     public:
-        MessagePaint(MessagesTypes t, int coordinateX, int coordinateY, int size, MyRGB color, bool filled);
+        MessagePaint(MessagesTypes t, int coordinateX, int coordinateY, int size = 0, MyRGB color = MyRGB(0, 0, 0), MyRGB borderColor = MyRGB(0, 0, 0), int borderSize = 1, bool filled = false);
         MessagePaint(MessagesTypes t, int coordinateX, int coordinateY, int width, int height, MyRGB color, bool filled);
         ~MessagePaint();
 
@@ -33,7 +35,9 @@ class MessagePaint : public Message
         int getWidth() const;
         int getHeight() const;
         int getRadius() const;
-        MyRGB getColor() const;
+        MyRGB getShapeColor() const;
+        MyRGB getBorderColor() const;
+        int getBorderSize() const;
         bool getFilled() const;
 
 };
