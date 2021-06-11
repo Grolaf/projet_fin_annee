@@ -70,6 +70,7 @@ MyControlPanel::MyControlPanel(wxWindow *parent) : wxPanel(parent)
 
 
 
+
     y+= WIDGET_Y_STEP;
 
       // Create a wxColourPickerCtrl control
