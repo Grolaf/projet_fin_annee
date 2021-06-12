@@ -25,7 +25,8 @@ enum
     ID_CHECKBOX3,
     ID_RADIOBOX,
     ID_CLPICKER1,
-    ID_CLPICKER2
+    ID_CLPICKER2,
+    ID_CHECKBOX4
 };
 MyControlPanel::MyControlPanel(wxWindow *parent) : wxPanel(parent), Observed()
   //------------------------------------------------------------------------
@@ -61,31 +62,37 @@ MyControlPanel::MyControlPanel(wxWindow *parent) : wxPanel(parent), Observed()
   text1 = new wxStaticText(this, wxID_ANY, wxT("Taille de la forme"), wxPoint(10, y)) ;
     text1->SetForegroundColour(wxColor(250,250,250));
   
-  y+= 15 ;
-  m_shapeSize = new wxSlider(this, ID_SLIDER1, 10, 2, 100, wxPoint(10, y), wxSize(100,20)) ;
-  Bind(wxEVT_SCROLL_THUMBTRACK, &MyControlPanel::OnSlider, this, ID_SLIDER1) ;
+  y+= WIDGET_Y_STEP ;
+  m_shapeSize = new wxSlider(this, ID_SLIDER1, 10, 2, 450, wxPoint(10, y), wxSize(100,20),wxSL_MIN_MAX_LABELS) ;
+     Bind(wxEVT_SCROLL_THUMBTRACK, &MyControlPanel::OnSlider, this, ID_SLIDER1) ;
 
   y+= WIDGET_Y_STEP;
 
   text1 = new wxStaticText(this, wxID_ANY, wxT("Taille de la bordure"), wxPoint(10, y)) ;
   text1->SetForegroundColour(wxColor(250,250,250));
 
-  y+= 15 ;
-  m_borderSize = new wxSlider(this, ID_SLIDER2, 10, 2, 100, wxPoint(10, y), wxSize(100,20)) ;
+  y+= WIDGET_Y_STEP ;
+  m_borderSize = new wxSlider(this, ID_SLIDER2, 10, 2, 45, wxPoint(10, y), wxSize(100,20),wxSL_MIN_MAX_LABELS ) ;
+    m_borderSize->SetForegroundColour(wxColor(250,250,250));
   Bind(wxEVT_SCROLL_THUMBTRACK, &MyControlPanel::OnSlider, this, ID_SLIDER2) ;
 
-  y+= WIDGET_Y_STEP ;
+  y+= WIDGET_Y_STEP  ;
 
     m_checkBox = new wxCheckBox(this, ID_CHECKBOX1, "Montrer coordonnees", wxPoint(10, y), wxSize(100,20)) ;
     Bind(wxEVT_CHECKBOX, &MyControlPanel::OnCheckBox, this, ID_CHECKBOX1) ;
 
-    y+= WIDGET_Y_STEP ;
+    y+= WIDGET_Y_STEP;
     m_fillShape = new wxCheckBox(this, ID_CHECKBOX2,"Forme pleine", wxPoint(10, y), wxSize(100,20)) ;
     Bind(wxEVT_CHECKBOX, &MyControlPanel::OnCheckBox, this, ID_CHECKBOX2) ;
 
     y+= WIDGET_Y_STEP ;
     m_previsualizeShape = new wxCheckBox(this, ID_CHECKBOX3, "Previsualiser la forme", wxPoint(10, y), wxSize(100,20)) ;
     Bind(wxEVT_CHECKBOX, &MyControlPanel::OnCheckBoxPrevisualize, this, ID_CHECKBOX3) ;
+
+    y+= WIDGET_Y_STEP ;
+    m_moveShape = new wxCheckBox(this, ID_CHECKBOX4, "Déplacer une forme", wxPoint(10, y), wxSize(100,20)) ;
+        Bind(wxEVT_CHECKBOX, &MyControlPanel::OnCheckBox, this, ID_CHECKBOX4) ;
+
 
 
     y+= WIDGET_Y_STEP;

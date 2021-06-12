@@ -26,7 +26,7 @@
 bool MyApp::OnInit()
 
 {
-  MyFrame *frame = new MyFrame(wxT(APP_NAME), wxDefaultPosition, wxSize(APPLICATION_WIDTH,APPLICATION_HEIGHT)) ;
+  MyFrame *frame = new MyFrame(wxT(APP_NAME), wxDefaultPosition, wxSize(APPLICATION_WIDTH,900)) ;
   Controler* controler = new Controler(frame);
   frame->setObserver(controler);
   frame->GetControlPanel()->setObserver(controler);

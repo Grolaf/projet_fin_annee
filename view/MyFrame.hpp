@@ -34,12 +34,14 @@ class MyFrame: public wxFrame, public Observed
     MyControlPanel* GetControlPanel(){return m_controlPanel ;} ;
     MyDrawingPanel* GetDrawingPanel(){return m_drawingPanel;};
     void RefreshDrawing();
-  
+    void RefreshCoord(wxMouseEvent &event);
+
 protected:
   void OnQuit(wxCommandEvent& event);
   void OnAbout(wxCommandEvent& event);
   void OnOpenFile(wxCommandEvent& WXUNUSED(event) ) ;
   void OnSaveFile(wxCommandEvent & WXUNUSED(event)) ;
+
   void OnClose(wxCloseEvent& event) ;
   void OnSize(wxSizeEvent &event) ;
 

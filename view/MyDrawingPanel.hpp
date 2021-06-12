@@ -32,6 +32,8 @@ public:
   void PaintTriangle(wxPaintDC &dc, Triangle *t);
   void PaintCircle(wxPaintDC &dc, Circle *c);
 
+    /*****  Getters ******/
+    wxPoint &getMouse (){return m_mousePoint;};
 
   /*****  Setters ******/
   void switchPevisualize(){m_previsualize = !m_previsualize;};

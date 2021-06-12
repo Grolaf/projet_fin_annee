@@ -53,6 +53,7 @@ private:
     wxCheckBox* m_checkBox ;
     wxCheckBox* m_fillShape ;
     wxCheckBox* m_previsualizeShape ;
+    wxCheckBox* m_moveShape;
     wxCheckBox* m_selection ;
     wxStaticText* text1;
     wxButton *m_button ;
