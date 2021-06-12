@@ -33,6 +33,11 @@ private:
     void switchPrevisualize();
     void switchSelection();
     void selectShape(int x, int y);
+    void deleteShape(Shape* shape);
+    void copyShape(Shape* shape);
+    void pasteShape();
+    void undo();
+    void redo();
 
 };
 

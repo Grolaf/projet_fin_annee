@@ -1,5 +1,5 @@
-#ifndef __RECTANGLE_H_INCLUDED__
-#define __RECTANGLE_H_INCLUDED__
+#ifndef __RECTANGLE_HPP_INCLUDED__
+#define __RECTANGLE_HPP_INCLUDED__
 
 #include "shape.hpp"
 #include "point.hpp"
@@ -18,7 +18,7 @@ class Rectangle: public Shape
     public :
 
 
-        Rectangle(int xLeftCorner, int yLeftCorner, int width, int height, std::string label, MyRGB color = MyRGB(0, 0, 0), MyRGB borderColor = MyRGB(0, 0, 0), int borderSize = 1, bool filled = false);
+        Rectangle(int xLeftCorner, int yLeftCorner, int width, int height, std::string label = "", MyRGB color = MyRGB(0, 0, 0), MyRGB borderColor = MyRGB(0, 0, 0), int borderSize = 1, bool filled = false);
         Rectangle(Point& p, int width, int height);
         virtual ~Rectangle();
 
@@ -29,6 +29,7 @@ class Rectangle: public Shape
         int getHeight() const;
         int* getDimensions()const;
         Point& getCorner();
+        Rectangle* getRectangleEnglobant()const;
         bool isRectangle()const {return true;};
         bool isInside(int x, int y) const;
 
@@ -42,7 +43,7 @@ class Rectangle: public Shape
         /*************************************************/
         /*      Usuals methods    */
 
-        void Move(int x, int y);
+        void move(int xTranslate, int yTranslate);
         int Surface() const;
 
         virtual void display() const;

@@ -19,7 +19,7 @@ class Draw
     public:
 
         Draw();
-        ~Draw() = default;
+        ~Draw();
 
     /*************************************************/
     /*      getters    */
@@ -30,13 +30,14 @@ class Draw
     /*************************************************/
     /*      setters    */
 
-        void addShape(Shape *s);
+        void addShape(Shape *shape);
 
-        void deleteShape();
 
     /*************************************************/
     /*      Usual Methods    */
 
+        Shape* deleteLastShape();
+        void deleteShape(Shape* shape);
 
 };
 

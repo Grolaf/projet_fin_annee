@@ -1,5 +1,4 @@
 #include <iostream>
-#include "shape.hpp"
 #include "rectangle.hpp"
 
 using namespace std;
@@ -48,6 +47,14 @@ Point& Rectangle::getCorner()
     return m_corner;
 }
 
+Rectangle* Rectangle::getRectangleEnglobant() const {
+
+    Rectangle* r = new Rectangle(m_corner.GetX(), m_corner.GetY(), m_w, m_h);
+
+    return r;
+}
+
+
 bool Rectangle::isInside(int x, int y) const
 {
     Point topLeft(m_corner);
@@ -79,9 +86,9 @@ void Rectangle::setCorner(Point& p)
 /***************************************************************************************/
 /*      Usuals methods        */
 
-void Rectangle::Move(int x, int y)
+void Rectangle::move(int xTranslate, int yTranslate)
 {
-    m_corner.move(x, y);
+    m_corner.move(xTranslate, yTranslate);
 }
 
 int Rectangle::Surface() const

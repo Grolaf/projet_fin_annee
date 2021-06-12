@@ -41,6 +41,7 @@ protected:
   void OnAbout(wxCommandEvent& event);
   void OnOpenFile(wxCommandEvent& WXUNUSED(event) ) ;
   void OnSaveFile(wxCommandEvent & WXUNUSED(event)) ;
+  void OnKeyDown(wxKeyEvent& event) {m_drawingPanel->OnKeyDown(event);};
 
   void OnClose(wxCloseEvent& event) ;
   void OnSize(wxSizeEvent &event) ;

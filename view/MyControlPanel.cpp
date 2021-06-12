@@ -17,7 +17,6 @@ enum
     ID_ABOUT,
     ID_LOAD,
     ID_SAVE,
-    ID_BUTTON1,
     ID_SLIDER1,
     ID_SLIDER2,
     ID_CHECKBOX1,
@@ -33,12 +32,9 @@ MyControlPanel::MyControlPanel(wxWindow *parent) : wxPanel(parent), Observed()
   // In this constructor, create the controls and associate each of them (bind) a method
 {
     // Position and size variable ::
-        int w, h, y ,xx;
+        int w, h, y ;
     wxString labelradio ="Choix de formes :";
     SetBackgroundColour(*wxLIGHT_GREY) ;
-
-
-
 
     // Default size fonction
 
@@ -59,8 +55,8 @@ MyControlPanel::MyControlPanel(wxWindow *parent) : wxPanel(parent), Observed()
         // Other Tools
   
   y+= WIDGET_Y_STEP + WIDGET_Y_SECURE;
-  text1 = new wxStaticText(this, wxID_ANY, wxT("Taille de la forme"), wxPoint(10, y)) ;
-    text1->SetForegroundColour(wxColor(250,250,250));
+  m_text1 = new wxStaticText(this, wxID_ANY, wxT("Taille de la forme"), wxPoint(10, y)) ;
+  m_text1->SetForegroundColour(wxColor(250,250,250));
   
   y+= WIDGET_Y_STEP ;
   m_shapeSize = new wxSlider(this, ID_SLIDER1, 10, 2, 450, wxPoint(10, y), wxSize(100,20),wxSL_MIN_MAX_LABELS) ;
@@ -68,8 +64,8 @@ MyControlPanel::MyControlPanel(wxWindow *parent) : wxPanel(parent), Observed()
 
   y+= WIDGET_Y_STEP;
 
-  text1 = new wxStaticText(this, wxID_ANY, wxT("Taille de la bordure"), wxPoint(10, y)) ;
-  text1->SetForegroundColour(wxColor(250,250,250));
+  m_text2 = new wxStaticText(this, wxID_ANY, wxT("Taille de la bordure"), wxPoint(10, y)) ;
+  m_text2->SetForegroundColour(wxColor(250,250,250));
 
   y+= WIDGET_Y_STEP ;
   m_borderSize = new wxSlider(this, ID_SLIDER2, 10, 2, 45, wxPoint(10, y), wxSize(100,20),wxSL_MIN_MAX_LABELS ) ;
@@ -90,15 +86,15 @@ MyControlPanel::MyControlPanel(wxWindow *parent) : wxPanel(parent), Observed()
     Bind(wxEVT_CHECKBOX, &MyControlPanel::OnCheckBoxPrevisualize, this, ID_CHECKBOX3) ;
 
     y+= WIDGET_Y_STEP ;
-    m_moveShape = new wxCheckBox(this, ID_CHECKBOX4, "Déplacer une forme", wxPoint(10, y), wxSize(100,20)) ;
-        Bind(wxEVT_CHECKBOX, &MyControlPanel::OnCheckBox, this, ID_CHECKBOX4) ;
+    m_moveShape = new wxCheckBox(this, ID_CHECKBOX4, "Selection", wxPoint(10, y), wxSize(100,20)) ;
+        Bind(wxEVT_CHECKBOX, &MyControlPanel::OnSelection, this, ID_CHECKBOX4) ;
 
 
 
     y+= WIDGET_Y_STEP;
 
-    text1 = new wxStaticText(this, wxID_ANY, wxT("Couleur de la forme"), wxPoint(10, y)) ;
-    text1->SetForegroundColour(wxColor(250,250,250));
+    m_text3 = new wxStaticText(this, wxID_ANY, wxT("Couleur de la forme"), wxPoint(10, y)) ;
+    m_text3->SetForegroundColour(wxColor(250,250,250));
     y+= 25 ;
       // Create a wxColourPickerCtrl control
      m_shapeColor = new wxColourPickerCtrl(this, ID_CLPICKER1 , wxColour(255, 0, 0), wxPoint(10, y), wxSize(100, 20) );
@@ -106,15 +102,30 @@ MyControlPanel::MyControlPanel(wxWindow *parent) : wxPanel(parent), Observed()
 
     y+= WIDGET_Y_STEP;
 
-    text1 = new wxStaticText(this, wxID_ANY, wxT("Couleur de la bordure"), wxPoint(10, y)) ;
-    text1->SetForegroundColour(wxColor(250,250,250));
+    m_text4 = new wxStaticText(this, wxID_ANY, wxT("Couleur de la bordure"), wxPoint(10, y)) ;
+    m_text4->SetForegroundColour(wxColor(250,250,250));
     y+= 25 ;
     m_borderColor = new wxColourPickerCtrl(this, ID_CLPICKER2 , wxColour(255, 0, 0), wxPoint(10, y), wxSize(100, 20) );
     Bind(wxEVT_COLOURPICKER_CHANGED, &MyControlPanel::OnColourChanged, this, ID_CLPICKER2) ;
 
 }
 
+MyControlPanel::~MyControlPanel() {
 
+    delete m_drawTools;
+    delete m_text1;
+    delete m_text2;
+    delete m_text3;
+    delete m_text4;
+    delete m_shapeSize;
+    delete m_borderSize;
+    delete m_checkBox;
+    delete m_fillShape;
+    delete m_previsualizeShape;
+    delete m_moveShape;
+    delete m_shapeColor;
+    delete m_borderColor;
+}
 //------------------------------------------------------------------------
     void MyControlPanel::OnColourChanged(wxColourPickerEvent &evt)
 //------------------------------------------------------------------------

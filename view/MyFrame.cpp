@@ -42,7 +42,8 @@ MyFrame::MyFrame(const wxString& title, const wxPoint& pos, const wxSize& size)
     Bind(wxEVT_MENU, &MyFrame::OnAbout, this, ID_ABOUT);
      Bind(wxEVT_CLOSE_WINDOW, &MyFrame::OnClose, this);
     Bind(wxEVT_SIZE, &MyFrame::OnSize, this);
-  
+    Bind(wxEVT_CHAR_HOOK, &MyFrame::OnKeyDown, this);
+
      SetMenuBar( menuBar );
 
   // ---------------------

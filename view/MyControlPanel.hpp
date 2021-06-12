@@ -22,6 +22,7 @@ class MyControlPanel: public wxPanel, public Observed
 {
 public:
   MyControlPanel( wxWindow *parent ) ;
+  ~MyControlPanel();
   int GetShapeSize() const{return m_shapeSize->GetValue() ;} ;
   int GetBorderSize() const{return m_borderSize->GetValue() ;} ;
   bool GetCheckBoxTextValue()const {return m_checkBox->GetValue() ;} ;
@@ -55,7 +56,10 @@ private:
     wxCheckBox* m_previsualizeShape ;
     wxCheckBox* m_moveShape;
     wxCheckBox* m_selection ;
-    wxStaticText* text1;
+    wxStaticText* m_text1;
+    wxStaticText* m_text2;
+    wxStaticText* m_text3;
+    wxStaticText* m_text4;
     wxButton *m_button ;
 
     // Option Color picker  ----------------------

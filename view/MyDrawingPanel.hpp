@@ -45,11 +45,15 @@ public:
   /*****  Methods ******/
   void Previsualize();
 
+  /*****  Public ActionFunctions ******/
+  void OnKeyDown(wxKeyEvent &event) ;
+
 private:
 
   /*****  ActionFunctions ******/
   void OnMouseMove(wxMouseEvent &event) ;
   void OnMouseLeftDown(wxMouseEvent &event) ;
+  void OnMouseLeftUp(wxMouseEvent &event) ;
 
   // A implémenter : pour pouvoir facilement prévisualiser la forme
   void OnMouseLeft(wxMouseEvent &event);
@@ -65,6 +69,7 @@ private:
 
   bool m_previsualize;
   bool m_selection;
+  bool m_moveObject;
 };
 
 #endif

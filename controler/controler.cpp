@@ -4,6 +4,7 @@
 #include "../model/messages/MessageFile.hpp"
 #include "../model/draw.hpp"
 #include "../model/messages/MessagePaint.hpp"
+#include "../model/messages/MessageShape.h"
 
 
 Controler::Controler(MyFrame* frame): Observer(), m_frame(frame)
@@ -18,6 +19,7 @@ void Controler::treatMessage(Message *m)
 {
     MessageFile* messageFile = nullptr;
     MessagePaint* messagePaint = nullptr;
+    MessageShape* messageShape = nullptr;
 
     switch (m->getType())
     {
@@ -49,15 +51,45 @@ void Controler::treatMessage(Message *m)
 
         case PREVISUALIZE:
             switchPrevisualize();
+            refreshBoard();
             break;
 
         case SELECTION:
             switchSelection();
+            refreshBoard();
             break;
 
         case SELECT:
             messagePaint = dynamic_cast<MessagePaint*>(m);
             selectShape(messagePaint->getX(), messagePaint->getY());
+            refreshBoard();
+            break;
+
+        case DELETE_SHAPE:
+            messageShape = dynamic_cast<MessageShape*>(m);
+            deleteShape(messageShape->getShape());
+            refreshBoard();
+            break;
+
+        case COPY_SHAPE :
+            messageShape = dynamic_cast<MessageShape*>(m);
+            copyShape(messageShape->getShape());
+            refreshBoard();
+            break;
+
+        case PASTE_SHAPE:
+            pasteShape();
+            refreshBoard();
+            break;
+
+        case UNDO:
+            undo();
+            refreshBoard();
+            break;
+
+        case REDO:
+            redo();
+            refreshBoard();
             break;
 
         default:
@@ -95,11 +127,9 @@ void Controler::refreshBoard()
 
 void Controler::switchPrevisualize() {
     m_frame->GetDrawingPanel()->switchPevisualize();
-    refreshBoard();
 }
 void Controler::switchSelection() {
     m_frame->GetDrawingPanel()->switchSelection();
-    refreshBoard();
 }
 
 void Controler::selectShape(int x, int y)
@@ -108,6 +138,31 @@ void Controler::selectShape(int x, int y)
 
     if(shape != nullptr)
     {
-
+        m_frame->GetDrawingPanel()->setSelectedShape(shape);
+    } else
+    {
+        m_frame->GetDrawingPanel()->setSelectedShape(nullptr);
     }
+}
+
+void Controler::deleteShape(Shape *shape)
+{
+    m_model->deleteShape(shape);
+    m_frame->GetDrawingPanel()->setSelectedShape(nullptr);
+}
+void Controler::copyShape(Shape *shape)
+{
+    m_model->setCopiedShape(shape);
+}
+void Controler::pasteShape()
+{
+    m_model->pasteCopiedShape();
+}
+void Controler::undo()
+{
+    m_model->undo();
+}
+void Controler::redo()
+{
+    m_model->redo();
 }

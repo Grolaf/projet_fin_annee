@@ -52,9 +52,11 @@ int Circle::getRadius() const {
     return m_radius;
 }
 
-bool Circle::isInside(int x, int y) const
-{
-    return m_center.Distance(x, y) < m_radius;
+Rectangle* Circle::getRectangleEnglobant() const {
+
+    Rectangle* r = new Rectangle(m_center.GetX() - m_radius, m_center.GetY() - m_radius, m_radius *  2 , m_radius * 2);
+
+    return r;
 }
 
 /***************************************************************************************/
@@ -68,4 +70,11 @@ void Circle::setCenter(int x, int y)
 
 void Circle::setRadius(int r) {
     m_radius = r;
+}
+
+/***************************************************************************************/
+/*      Methods        */
+
+void Circle::move(int xTranslate, int yTranslate) {
+    m_center.move(xTranslate, yTranslate);
 }

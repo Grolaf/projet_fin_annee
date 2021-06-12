@@ -17,11 +17,38 @@ Triangle::Triangle(): Shape(), m_p1(0, 0), m_p2(0, 0), m_p3(0, 0)
 Triangle::~Triangle()
 {
 }
+/***************************************************************************************/
+/*      Getters         */
 
-bool Triangle::isInside(int x, int y) const
+Rectangle* Triangle::getRectangleEnglobant() const
 {
-    throw "not implemented";
+    Point topLeftCorner(getMinX(), getMaxY());
+    int width = getMaxX() - getMinX();
+    int height = getMaxY() - getMinY();
+
+    Rectangle* r = new Rectangle(topLeftCorner.GetX(), topLeftCorner.GetY(), width, height);
+    return r;
 }
+
+int Triangle::getMaxX() const
+{
+    return max(max(m_p1.GetX(), m_p2.GetX()), m_p3.GetX());
+}
+int Triangle::getMaxY() const
+{
+    return max(max(m_p1.GetY(), m_p2.GetY()), m_p3.GetY());
+}
+int Triangle::getMinX() const
+{
+    return min(min(m_p1.GetX(), m_p2.GetX()), m_p3.GetX());
+}
+int Triangle::getMinY() const
+{
+    return min(min(m_p1.GetY(), m_p2.GetY()), m_p3.GetY());
+}
+
+/***************************************************************************************/
+/*      Methods         */
 
 void Triangle::display()const
 {
@@ -47,4 +74,10 @@ float Triangle::surface()const
     float cote3 = m_p3.Distance(m_p1);
     float s = (1.0/2) * (cote1 + cote2 + cote3);
     return sqrt(s * (s - cote1) * (s - cote2) * (s - cote3));
+}
+
+void Triangle::move(int xTranslate, int yTranslate) {
+    m_p1.move(xTranslate,yTranslate);
+    m_p2.move(xTranslate,yTranslate);
+    m_p3.move(xTranslate,yTranslate);
 }

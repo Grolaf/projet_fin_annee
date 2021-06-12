@@ -38,3 +38,48 @@ Shape* MyModel::getSelection(int x, int y) {
     return m_draw->getSelection(x, y);
 }
 
+void MyModel::deleteShape(Shape *shape)
+{
+    if(shape != nullptr)
+    {
+        m_draw->deleteShape(shape);
+        delete shape;
+    }
+}
+
+void MyModel::pasteCopiedShape()
+{
+    Rectangle* r;
+    Triangle* t;
+    Circle* c;
+
+    if(m_copiedShape->isRectangle())
+    {
+        r = dynamic_cast<Rectangle*>(m_copiedShape);
+        Rectangle* toPaste = new Rectangle(r->getCorner().GetX(), r->getCorner().GetY(), r->getWidth(), r->getHeight(), r->GetLabel(), r->GetColor(), r->GetBorderColor(), r->GetBorderSize(), r->isFilled());
+        m_draw->addShape(toPaste);
+    }
+    else if(m_copiedShape->isCircle())
+    {
+        c = dynamic_cast<Circle*>(m_copiedShape);
+        Circle* toPaste = new Circle(c->getCenter().GetX(),c->getCenter().GetY(),c->getRadius(), c->GetLabel(), c->GetColor(), c->GetBorderColor(), c->GetBorderSize(), c->isFilled());
+        m_draw->addShape(toPaste);
+    }
+
+}
+
+void MyModel::undo()
+{
+    Shape* undo = m_draw->deleteLastShape();
+
+    if(undo != nullptr)
+        m_undoRedoStack.push_back(undo);
+}
+
+void MyModel::redo()
+{
+    if(m_undoRedoStack.size() != 0) {
+        m_draw->addShape(m_undoRedoStack.back());
+        m_undoRedoStack.pop_back();
+    }
+}

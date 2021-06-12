@@ -12,7 +12,12 @@ enum MessagesTypes
     REFRESH,
     PREVISUALIZE,
     SELECTION,
-    SELECT
+    SELECT,
+    DELETE_SHAPE,
+    COPY_SHAPE,
+    PASTE_SHAPE,
+    UNDO,
+    REDO
 };
 
 #endif
