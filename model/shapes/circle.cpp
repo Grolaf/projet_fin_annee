@@ -54,7 +54,7 @@ int Circle::getRadius() const {
 
 bool Circle::isInside(int x, int y) const
 {
-    m_center.Distance(x, y) < m_radius;
+    return m_center.Distance(x, y) < m_radius;
 }
 
 /***************************************************************************************/

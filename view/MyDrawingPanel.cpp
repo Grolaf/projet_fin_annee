@@ -121,12 +121,13 @@ void MyDrawingPanel::OnPaint(wxPaintEvent &event)
     wxPaintDC dc(this);
 
     std::vector<Shape*>::iterator it;
+    std::vector<Shape*> shapes = m_draw->getShapes();
     Rectangle* r = nullptr;
     Circle* c = nullptr;
     Triangle* t = nullptr;
 
     // Dessin avec cast des formes
-    for(it = m_draw->getShapes().begin(); it < m_draw->getShapes().end(); it++) {
+    for(it = shapes.begin(); it < shapes.end(); it++) {
         if((*it)->isRectangle())
         {
             r = dynamic_cast<Rectangle*>(*it);
@@ -167,12 +168,13 @@ void MyDrawingPanel::OnPaint(wxPaintEvent &event)
 
 void MyDrawingPanel::PaintRect(wxPaintDC &dc, Rectangle *r) {
 
-    wxColour color(r->GetBorderColor().red, r->GetBorderColor().green, r->GetBorderColor().blue);
-    wxPen pen(color, r->GetBorderSize());
+    wxColour borderColor(r->GetBorderColor().red, r->GetBorderColor().green, r->GetBorderColor().blue);
+    wxColour shapeColor(r->GetColor().red, r->GetColor().green, r->GetColor().blue);
+    wxPen pen(borderColor, r->GetBorderSize());
     dc.SetPen(pen);
 
     if (r->isFilled()) {
-        dc.SetBrush(color);
+        dc.SetBrush(shapeColor);
     }
     else
     {
@@ -193,10 +195,14 @@ void MyDrawingPanel::PaintTriangle(wxPaintDC &dc, Triangle *t) {
 }
 void MyDrawingPanel::PaintCircle(wxPaintDC &dc, Circle *c) {
 
-    dc.SetPen(wxColor(c->GetColor().red, c->GetColor().green, c->GetColor().blue));
+    wxColour borderColor(c->GetBorderColor().red, c->GetBorderColor().green, c->GetBorderColor().blue);
+    wxColour shapeColor(c->GetColor().red, c->GetColor().green, c->GetColor().blue);
+    wxPen pen(borderColor, c->GetBorderSize());
+    dc.SetPen(pen);
+
     if(c->isFilled())
     {
-        dc.SetBrush(wxColor(c->GetColor().red, c->GetColor().green, c->GetColor().blue));
+        dc.SetBrush(shapeColor);
     } else
     {
         dc.SetBrush(*wxTRANSPARENT_BRUSH);
