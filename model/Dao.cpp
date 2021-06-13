@@ -1,30 +1,53 @@
 #include "Dao.hpp"
+#include <cstdio>
+#include <iostream>
+#include <fstream>
 
-FILE* Dao::OpenFile(wxString fileName)
+using namespace std;
+
+void Dao::LoadFile(const char* fileName, Draw* draw)
 {
+    filebuf fb;
     try{
-        FILE* f = fopen(fileName, "r");
-    }catch(exception e)
+        fb.open(fileName, ios::in | ios::binary);
+    }catch(...)
     {
         throw "Error : file not found";
     }
-    
-    return f;    
+    istream f(&fb);
+
+    try {
+        draw->read(f);
+    }
+    catch( ... )
+    {
+        throw "Error when reading draw";
+    }
+
+    fb.close();
 }
 
-bool Dao::SaveFile(wxString fileName)
+void Dao::SaveFile(const char* fileName, Draw* draw)
 {
+    filebuf fb;
     try{
-        FILE* f = 
-    }catch(exception e)
+        fb.open(fileName, ios::out | ios::binary);
+    }catch(...)
     {
         throw "Error : unable to write file";
     }
 
-    ///// TODO : write in file
-    
-    fclose(f);
+    ostream f(&fb);
 
-    return true;
+    try {
+        draw->write(f);
+    }
+    catch( ... )
+    {
+        throw "Error when writing draw";
+    }
+
+    fb.close();
+
 }
 

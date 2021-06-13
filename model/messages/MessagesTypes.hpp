@@ -1,0 +1,23 @@
+#ifndef __MESSAGESTYPES_INCLUDED__
+#define __MESSAGESTYPES_INCLUDED__
+
+enum MessagesTypes
+{
+    OPEN_FILE = 1,
+    SAVE_FILE,
+    PAINT_RECT,
+    PAINT_CIRCLE,
+    PAINT_LINE,
+    PAINT_POLYGON,
+    REFRESH,
+    PREVISUALIZE,
+    SELECTION,
+    SELECT,
+    DELETE_SHAPE,
+    COPY_SHAPE,
+    PASTE_SHAPE,
+    UNDO,
+    REDO
+};
+
+#endif
