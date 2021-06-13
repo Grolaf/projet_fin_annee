@@ -78,3 +78,39 @@ Shape* Draw::deleteLastShape()
     }
     return nullptr;
 }
+
+void Draw::write(std::ostream &file) const
+{
+   std::vector<Shape*>::const_iterator it;
+
+   size_t size = m_shapes.size();
+
+   file.write((char*)&size, sizeof(size));
+
+   for(it = m_shapes.begin(); it < m_shapes.end(); it++)
+   {
+       (*it)->write(file);
+   }
+}
+
+void Draw::read(std::istream &file)
+{
+    int typeID;
+    size_t size;
+
+    file.read((char*)&size, sizeof(size));
+
+    for(int i = 0; i < size; i++) {
+
+        file.read((char *) &typeID, sizeof(typeID));
+
+        if (typeID == Rectangle::typeID) {
+            m_shapes.push_back(Rectangle::buildFromFile(file));
+        } else if (typeID == Circle::typeID) {
+            m_shapes.push_back(Circle::buildFromFile(file));
+        } else if (typeID == Triangle::typeID) {
+            m_shapes.push_back(Triangle::buildFromFile(file));
+        }
+    }
+}
+

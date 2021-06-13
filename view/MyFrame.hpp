@@ -23,9 +23,6 @@
 #include "../view/Observed.hpp"
 #include "MyMenu.hpp"
 
-
-
-
 class MyFrame: public wxFrame, public Observed
 
 {
@@ -36,11 +33,13 @@ class MyFrame: public wxFrame, public Observed
     void RefreshDrawing();
     void RefreshCoord(wxMouseEvent &event);
 
+    void OnQuit(wxCommandEvent& event);
+    void OnAbout(wxCommandEvent& event);
+    void OnOpenFile(wxCommandEvent& WXUNUSED(event) ) ;
+    void OnSaveFile(wxCommandEvent & WXUNUSED(event)) ;
+
 protected:
-  void OnQuit(wxCommandEvent& event);
-  void OnAbout(wxCommandEvent& event);
-  void OnOpenFile(wxCommandEvent& WXUNUSED(event) ) ;
-  void OnSaveFile(wxCommandEvent & WXUNUSED(event)) ;
+
   void OnKeyDown(wxKeyEvent& event) {m_drawingPanel->OnKeyDown(event);};
 
   void OnClose(wxCloseEvent& event) ;

@@ -29,6 +29,8 @@ private:
     /*************************************/
     /*   Usual Methods */
 
+    void loadFile(std::string fileName);
+    void saveFile(std::string fileName);
     void refreshBoard();
     void switchPrevisualize();
     void switchSelection();

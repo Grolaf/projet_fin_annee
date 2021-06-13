@@ -28,6 +28,8 @@ public:
 
     /******   Methods *******/
 
+    void loadFile(std::string fileName);
+    void saveFile(std::string fileName);
     void setCopiedShape(Shape* shape) {m_copiedShape = shape;};
     Shape* getSelection(int x, int y);
     void deleteShape(Shape* shape);

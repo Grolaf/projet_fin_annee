@@ -11,9 +11,12 @@ class Circle : public Shape
         Point m_center;
         int m_radius;
 
-    public : 
 
-        Circle(int x, int y, int radius, std::string label = "", MyRGB color = MyRGB(0, 0, 0),MyRGB borderColor = MyRGB(0, 0, 0), int borderSize = 1,  bool filled = false);
+    public :
+
+        static int typeID;
+
+        Circle(int x, int y, int radius,  MyRGB color = MyRGB(0, 0, 0),MyRGB borderColor = MyRGB(0, 0, 0), int borderSize = 1,  bool filled = false);
         Circle();
         virtual ~Circle();
 
@@ -34,11 +37,16 @@ class Circle : public Shape
     /*************************************************/
     /*      Usual Methods    */
 
-        virtual void display()const;
         virtual float perimeter()const;
         virtual float surface()const;
         void move(int xTranslate, int yTranslate);
+        void write(std::ostream& file) const;
+        void read(std::istream& file);
 
+    /*************************************************/
+    /*      Class Methods    */
+
+        static Circle* buildFromFile(std::istream& file);
 };
 
 

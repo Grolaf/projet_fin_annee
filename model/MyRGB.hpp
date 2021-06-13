@@ -5,6 +5,7 @@
 #ifndef SKELETON_MYRGB_HPP
 #define SKELETON_MYRGB_HPP
 
+#include <iostream>
 
 class MyRGB {
 
@@ -18,6 +19,9 @@ public:
     MyRGB();
 
     ~MyRGB() = default;
+
+    void write(std::ostream& file) const;
+    void read(std::istream& file);
 
 
 };

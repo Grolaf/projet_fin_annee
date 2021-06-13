@@ -25,10 +25,13 @@ void Controler::treatMessage(Message *m)
     {
         case OPEN_FILE:
             messageFile = dynamic_cast<MessageFile*>(m);
-            Dao::OpenFile(messageFile->getFileName());
+            loadFile(messageFile->getFileName());
+            refreshBoard();
             break;
         case SAVE_FILE:
-            std::cout << "File saved" << std::endl;
+            messageFile = dynamic_cast<MessageFile*>(m);
+            saveFile(messageFile->getFileName());
+            refreshBoard();
             break;
 
         case PAINT_RECT :
@@ -119,6 +122,16 @@ void Controler::AddCircle(int x, int y, int radius, MyRGB color, MyRGB borderCol
 
 /*************************************************/
 /*      Usual Methods    */
+
+void Controler::loadFile(std::string fileName)
+{
+    m_model->loadFile(fileName);
+}
+
+void Controler::saveFile(std::string fileName)
+{
+    m_model->saveFile(fileName);
+}
 
 void Controler::refreshBoard()
 {

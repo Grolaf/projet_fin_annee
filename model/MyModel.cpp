@@ -3,6 +3,7 @@
 //
 
 #include "MyModel.hpp"
+#include "Dao.hpp"
 
 MyModel::MyModel()
 {
@@ -22,17 +23,27 @@ Draw* MyModel::GetDraw()
 
 void MyModel::AddRect(int x, int y , int width, int height, MyRGB color, MyRGB borderColor, int borderSize, bool filled)
 {
-    Rectangle* r = new Rectangle(x, y, width, height, "", color, borderColor, borderSize,  filled);
+    Rectangle* r = new Rectangle(x, y, width, height, color, borderColor, borderSize,  filled);
     m_draw->addShape(r);
 }
 void MyModel::AddCircle(int x, int y, int radius, MyRGB color, MyRGB borderColor, int borderSize, bool filled)
 {
-    Circle* c = new Circle(x, y, radius, "", color, borderColor, borderSize, filled);
+    Circle* c = new Circle(x, y, radius, color, borderColor, borderSize, filled);
     m_draw->addShape(c);
 }
 
 /*************************************************/
 /*      Methods    */
+
+void MyModel::loadFile(std::string fileName)
+{
+    Dao::LoadFile(fileName.c_str(), m_draw);
+}
+
+void MyModel::saveFile(std::string fileName)
+{
+    Dao::SaveFile(fileName.c_str(), m_draw);
+}
 
 Shape* MyModel::getSelection(int x, int y) {
     return m_draw->getSelection(x, y);
@@ -56,13 +67,13 @@ void MyModel::pasteCopiedShape()
     if(m_copiedShape->isRectangle())
     {
         r = dynamic_cast<Rectangle*>(m_copiedShape);
-        Rectangle* toPaste = new Rectangle(r->getCorner().GetX(), r->getCorner().GetY(), r->getWidth(), r->getHeight(), r->GetLabel(), r->GetColor(), r->GetBorderColor(), r->GetBorderSize(), r->isFilled());
+        Rectangle* toPaste = new Rectangle(r->getCorner().GetX(), r->getCorner().GetY(), r->getWidth(), r->getHeight(), r->GetColor(), r->GetBorderColor(), r->GetBorderSize(), r->isFilled());
         m_draw->addShape(toPaste);
     }
     else if(m_copiedShape->isCircle())
     {
         c = dynamic_cast<Circle*>(m_copiedShape);
-        Circle* toPaste = new Circle(c->getCenter().GetX(),c->getCenter().GetY(),c->getRadius(), c->GetLabel(), c->GetColor(), c->GetBorderColor(), c->GetBorderSize(), c->isFilled());
+        Circle* toPaste = new Circle(c->getCenter().GetX(),c->getCenter().GetY(),c->getRadius(), c->GetColor(), c->GetBorderColor(), c->GetBorderSize(), c->isFilled());
         m_draw->addShape(toPaste);
     }
 

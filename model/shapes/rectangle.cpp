@@ -6,20 +6,22 @@ using namespace std;
 /***************************************************************************************/
 /*      Builders and Destructors        */
 
-Rectangle::Rectangle(int xLeftCorner, int yLeftCorner, int width, int height, string label, MyRGB color, MyRGB borderColor, int borderSize, bool filled): m_w(width), m_h(height), m_corner(xLeftCorner, yLeftCorner), Shape(label, color, borderColor, borderSize, filled)
+Rectangle::Rectangle(int xLeftCorner, int yLeftCorner, int width, int height, MyRGB color, MyRGB borderColor, int borderSize, bool filled): m_w(width), m_h(height), m_corner(xLeftCorner, yLeftCorner), Shape(color, borderColor, borderSize, filled)
 {
-    m_rectCount++;
 }
  
 Rectangle::Rectangle(Point& p, int width, int height): m_w(width), m_h(height), m_corner(p), Shape()
 {
-    m_rectCount++;
+}
+
+Rectangle::Rectangle() : Shape()
+{
+
 }
 
 
 Rectangle::~Rectangle()
 {
-    m_rectCount--;
 }
 
 /***************************************************************************************/
@@ -96,13 +98,6 @@ int Rectangle::Surface() const
     return m_w * m_h;
 }
 
-void Rectangle::display() const
-{
-    Shape::display();
-    cout << "  Corner = ";
-    m_corner.Display();
-    cout << ". w = " << m_w << " , h = " << m_h;
-}
 
 float Rectangle::surface()const
 {
@@ -113,17 +108,36 @@ float Rectangle::perimeter()const
 {
     return (m_h + m_w) * 2;
 }
-
+void Rectangle::write(std::ostream &file) const
+{
+    file.write((char*)&typeID, sizeof(typeID));
+    Shape::write(file);
+    m_corner.write(file);
+    file.write((char*)&m_w, sizeof(m_w));
+    file.write((char*)&m_h, sizeof(m_h));
+}
+void Rectangle::read(std::istream &file)
+{
+    // Le typeid est lu par la fonction qui aiguillera l'écriture
+    Shape::read(file);
+    m_corner.read(file);
+    file.read((char*)&m_w, sizeof(m_w));
+    file.read((char*)&m_h, sizeof(m_h));
+}
 
 /***************************************************************************************/
 /*      classMethods        */
 
-int Rectangle::m_rectCount = 0;
-
-int Rectangle::GetRectCount()
+Rectangle* Rectangle::buildFromFile(std::istream &file)
 {
-    return m_rectCount;
+    Rectangle *r = new Rectangle();
+    r->read(file);
+
+    return r;
 }
+
+
+int Rectangle::typeID = 2;
 
 
 

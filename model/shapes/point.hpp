@@ -1,8 +1,13 @@
 #ifndef __POINT_HPP_INCLUDED__
 #define __POINT_HPP_INCLUDED__
+#include <iostream>
 
 class Point
 {
+    private:
+        int m_x;
+        int m_y;
+
     public:
 
         /***************************************************************************************************/
@@ -14,7 +19,6 @@ class Point
 
         ~Point();
 
-        void Display() const;
 
         /***************************************************************************************************/
         /*      Methods     */
@@ -25,6 +29,8 @@ class Point
 
         float Distance(Point const& p) const;
         float Distance(int x, int y) const;
+        void write(std::ostream& file) const;
+        void read(std::istream& file);
 
         /***************************************************************************************************/
         /*      Getters     */
@@ -41,14 +47,6 @@ class Point
         /***************************************************************************************************/
         /*      Static methods     */
 
-
-        static int GetPointCount();
-
-    private:
-        int m_x;
-        int m_y;
-
-        static int m_pointCount;
 
 };
 

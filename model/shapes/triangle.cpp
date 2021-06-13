@@ -5,7 +5,7 @@
 
 using namespace std;
 
-Triangle::Triangle(const Point& p1, const Point& p2, const Point& p3, const string& label, MyRGB color, MyRGB borderColor, int borderSize, bool filled): Shape(label, color,borderColor, borderSize,  filled), m_p1(p1), m_p2(p2), m_p3(p3)
+Triangle::Triangle(const Point& p1, const Point& p2, const Point& p3, MyRGB color, MyRGB borderColor, int borderSize, bool filled): Shape(color,borderColor, borderSize,  filled), m_p1(p1), m_p2(p2), m_p3(p3)
 {
 }
 
@@ -50,18 +50,6 @@ int Triangle::getMinY() const
 /***************************************************************************************/
 /*      Methods         */
 
-void Triangle::display()const
-{
-    cout << "Triangle " << m_label << " : ";
-    cout << " p1 = ";
-    m_p1.Display();
-    cout << ", p2 = ";
-    m_p2.Display();
-    cout << ", p3 = ";
-    m_p3.Display();
-    cout << "Perimeter = " << perimeter() << " Surface = " << surface() << endl;
-}
-
 float Triangle::perimeter()const
 {
     return m_p1.Distance(m_p2) + m_p2.Distance(m_p3) + m_p3.Distance(m_p1); 
@@ -81,3 +69,33 @@ void Triangle::move(int xTranslate, int yTranslate) {
     m_p2.move(xTranslate,yTranslate);
     m_p3.move(xTranslate,yTranslate);
 }
+
+void Triangle::write(std::ostream &file) const
+{
+    file.write((char*)&typeID, sizeof(typeID));
+    Shape::write(file);
+    m_p1.write(file);
+    m_p2.write(file);
+    m_p3.write(file);
+}
+void Triangle::read(std::istream &file)
+{
+    // Le typeid est lu par la fonction qui aiguillera l'écriture
+    Shape::read(file);
+    m_p1.read(file);
+    m_p2.read(file);
+    m_p3.read(file);
+}
+
+/***************************************************************************************/
+/*      Class Methods         */
+
+Triangle* Triangle::buildFromFile(std::istream &file)
+{
+    Triangle* t = new Triangle();
+    t->read(file);
+
+    return t;
+}
+
+int Triangle::typeID = 4;

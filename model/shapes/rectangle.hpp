@@ -12,14 +12,14 @@ class Rectangle: public Shape
         int m_w;
         int m_h;
 
-        static int m_rectCount;
-
 
     public :
 
+        static int typeID;
 
-        Rectangle(int xLeftCorner, int yLeftCorner, int width, int height, std::string label = "", MyRGB color = MyRGB(0, 0, 0), MyRGB borderColor = MyRGB(0, 0, 0), int borderSize = 1, bool filled = false);
+        Rectangle(int xLeftCorner, int yLeftCorner, int width, int height, MyRGB color = MyRGB(0, 0, 0), MyRGB borderColor = MyRGB(0, 0, 0), int borderSize = 1, bool filled = false);
         Rectangle(Point& p, int width, int height);
+        Rectangle();
         virtual ~Rectangle();
 
         /*************************************************/
@@ -46,14 +46,15 @@ class Rectangle: public Shape
         void move(int xTranslate, int yTranslate);
         int Surface() const;
 
-        virtual void display() const;
         virtual float perimeter()const;
         virtual float surface()const;
+        void write(std::ostream& file) const;
+        void read(std::istream& file);
 
         /*************************************************/
         /*      class methods    */
-        
-        static int GetRectCount();
+
+        static Rectangle* buildFromFile(std::istream& file);
 };
 
 #endif

@@ -8,7 +8,7 @@ using namespace std;
 /***************************************************************************************/
 /*      Builders and Destructors        */
 
-Circle::Circle(int x, int y, int radius, string label, MyRGB color, MyRGB borderColor, int borderSize,  bool filled): Shape(label ,color, borderColor, borderSize, filled), m_center(x, y), m_radius(radius)
+Circle::Circle(int x, int y, int radius, MyRGB color, MyRGB borderColor, int borderSize,  bool filled): Shape(color, borderColor, borderSize, filled), m_center(x, y), m_radius(radius)
 {
 }
 
@@ -23,12 +23,6 @@ Circle::~Circle()
 /***************************************************************************************/
 /*      Usual Methods        */
 
-void Circle::display()const
-{
-    cout << "Circle " << m_label << " : ";
-    m_center.Display();
-    cout << " radius = " << m_radius << " Perimeter = " << perimeter() << " Surface = " << surface() << endl; 
-}
 
 float Circle::perimeter()const
 {
@@ -78,3 +72,31 @@ void Circle::setRadius(int r) {
 void Circle::move(int xTranslate, int yTranslate) {
     m_center.move(xTranslate, yTranslate);
 }
+
+void Circle::write(std::ostream &file) const
+{
+    file.write((char*)&typeID, sizeof(typeID));
+    Shape::write(file);
+    m_center.write(file);
+    file.write((char*)&m_radius, sizeof (m_radius));
+}
+void Circle::read(std::istream &file)
+{
+    // Le typeid est lu par la fonction qui aiguillera l'écriture
+    Shape::read(file);
+    m_center.read(file);
+    file.read((char*)&m_radius, sizeof (m_radius));
+}
+
+/***************************************************************************************/
+/*      Class Methods        */
+
+Circle* Circle::buildFromFile(std::istream &file)
+{
+    Circle* c = new Circle();
+    c->read(file);
+
+    return c;
+}
+
+int Circle::typeID = 3;

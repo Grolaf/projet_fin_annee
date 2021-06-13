@@ -22,11 +22,21 @@
 #include "../view/Observed.hpp"
 
 
+class MyFrame;
 
 
 class MyMenu : public wxMenu{
 public :
-    MyMenu();
+    MyMenu(MyFrame* frame);
+
+protected:
+
+    MyFrame* m_myFrame;
+
+    void OnQuit(wxCommandEvent& event);
+    void OnAbout(wxCommandEvent& event);
+    void OnOpenFile(wxCommandEvent& WXUNUSED(event) ) ;
+    void OnSaveFile(wxCommandEvent & WXUNUSED(event)) ;
 };
 
 #endif

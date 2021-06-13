@@ -311,17 +311,17 @@ void MyDrawingPanel::Previsualize() {
     // Ici on envoie chaque fois l'adresse de l'objet, puisque cela ne gêne pas qu'il soit détruit (il sert juste à la prévisualisation
     if (selectedShape.IsSameAs("Carre") || selectedShape.IsSameAs("Rectangle"))
     {
-        Rectangle r(m_mousePoint.x - size / 2, m_mousePoint.y - size / 2, size, size, "", color, colorBorder, borderSize, filled);
+        Rectangle r(m_mousePoint.x - size / 2, m_mousePoint.y - size / 2, size, size, color, colorBorder, borderSize, filled);
         PaintRect(dc, &r);
     }
     else if(selectedShape.IsSameAs("Rectangle"))
     {
-        Rectangle r(m_mousePoint.x, m_mousePoint.y, size, size + size/ 3, "", color,colorBorder, borderSize, filled);
+        Rectangle r(m_mousePoint.x, m_mousePoint.y, size, size + size/ 3, color,colorBorder, borderSize, filled);
         PaintRect(dc, &r);
     }
     else if (selectedShape.IsSameAs("Cercle"))
     {
-        Circle c(m_mousePoint.x, m_mousePoint.y, size, "", color, colorBorder, borderSize, filled);
+        Circle c(m_mousePoint.x, m_mousePoint.y, size, color, colorBorder, borderSize, filled);
 
         PaintCircle(dc, &c);
     }

@@ -12,31 +12,19 @@ Point::Point()
 {
     m_x = 0;
     m_y = 0;
-    m_pointCount++;
-    cout << __func__ << " utilisee pour " << this << endl;
 }
 Point::Point(int coord)
 {
     m_x = coord;
     m_y = coord;
-    m_pointCount++;
-    cout << __func__ << " utilisee pour " << this << endl;
 }
 Point::Point(int x, int y)
 {
     m_x = x;
     m_y = y;
-    m_pointCount++;
-    cout << __func__ << " utilisee pour " << this << endl;
 }
 Point::~Point()
 {
-    cout << __func__ << " utilisee pour " << this << endl;
-    m_pointCount--;
-}
-void Point::Display() const
-{
-    cout << "( " <<  m_x  << " ; " << m_y << " ).";
 }
 
 /***************************************************************************************************/
@@ -61,6 +49,18 @@ float Point::Distance(Point const& p) const
 float Point::Distance(int x, int y) const
 {
     return sqrt(pow(x - this->GetX(), 2) + pow(y - this->GetY(), 2));
+}
+
+void Point::write(std::ostream &file) const
+{
+    file.write((char*)&m_x, sizeof(m_x));
+    file.write((char*)&m_y, sizeof(m_y));
+}
+
+void Point::read(std::istream &file)
+{
+    file.read((char*)&m_x, sizeof(m_x));
+    file.read((char*)&m_y, sizeof(m_y));
 }
 
 /***************************************************************************************************/
@@ -89,10 +89,3 @@ void Point::SetY(int y)
 
 /***************************************************************************************************/
 /*      Static methods     */
-
-int Point::m_pointCount = 0;
-
-int Point::GetPointCount()
-{
-    return Point::m_pointCount;
-}

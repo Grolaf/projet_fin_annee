@@ -12,9 +12,11 @@ class Triangle : public Shape
         Point m_p2;
         Point m_p3;
 
-    public : 
+    public :
 
-        Triangle(const Point& p1, const Point& p2, const Point& p3, const std::string& label = "", MyRGB color = MyRGB(0, 0, 0), MyRGB borderColor = MyRGB(0, 0, 0), int borderSize = 1, bool filled = false);
+        static int typeID;
+
+        Triangle(const Point& p1, const Point& p2, const Point& p3, MyRGB color = MyRGB(0, 0, 0), MyRGB borderColor = MyRGB(0, 0, 0), int borderSize = 1, bool filled = false);
         Triangle();
         virtual ~Triangle();
 
@@ -39,10 +41,16 @@ class Triangle : public Shape
 
     /*************************************************/
     /*      Usual Methods */
-        virtual void display()const;
+
         virtual float perimeter()const;
         virtual float surface()const;
         void move(int xTranslate, int yTranslate);
+        void write(std::ostream& file) const;
+        void read(std::istream &file);
+
+    /*************************************************/
+    /*      Usual Methods */
+        static Triangle* buildFromFile(std::istream& file);
 };
 
 

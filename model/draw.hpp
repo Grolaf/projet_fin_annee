@@ -38,6 +38,8 @@ class Draw
 
         Shape* deleteLastShape();
         void deleteShape(Shape* shape);
+        void write(std::ostream& file) const;
+        void read(std::istream& file);
 
 };
 

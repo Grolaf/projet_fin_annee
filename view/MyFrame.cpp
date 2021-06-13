@@ -12,16 +12,6 @@
 
 // Define constant of app
 
-enum
-{
-    ID_QUIT = 1,
-    ID_ABOUT,
-    ID_LOAD,
-    ID_SAVE,
-    ID_BUTTON1,
-    ID_SLIDER1,
-    ID_CHECKBOX1
-};
 
 MyFrame::MyFrame(const wxString& title, const wxPoint& pos, const wxSize& size)
   : wxFrame((wxFrame *)NULL, -1, title, pos, size), Observed()
@@ -29,17 +19,13 @@ MyFrame::MyFrame(const wxString& title, const wxPoint& pos, const wxSize& size)
   // The constructor of the main frame that creates the menu stuffs and the 2 panels
 {
     // create menu that will contain menu itemsfilemenu = new MyMenu();
-    filemenu = new MyMenu();
+    filemenu = new MyMenu(this);
 
   wxMenuBar *menuBar = new wxMenuBar();
     menuBar->SetBackgroundColour(wxColor(221, 223, 231));
 
     menuBar->Append(filemenu, wxT("&File"));
-  
-    Bind(wxEVT_MENU, &MyFrame::OnOpenFile, this, ID_LOAD);
-    Bind(wxEVT_MENU, &MyFrame::OnSaveFile, this, ID_SAVE);
-    Bind(wxEVT_MENU, &MyFrame::OnQuit, this, ID_QUIT);
-    Bind(wxEVT_MENU, &MyFrame::OnAbout, this, ID_ABOUT);
+
      Bind(wxEVT_CLOSE_WINDOW, &MyFrame::OnClose, this);
     Bind(wxEVT_SIZE, &MyFrame::OnSize, this);
     Bind(wxEVT_CHAR_HOOK, &MyFrame::OnKeyDown, this);
@@ -121,7 +107,7 @@ void MyFrame::OnOpenFile(wxCommandEvent& WXUNUSED(event) )
 void MyFrame::OnSaveFile(wxCommandEvent & WXUNUSED(event))
   //------------------------------------------------------------------------
 {
-  std::string filename = std::string(wxSaveFileSelector("Save file as", "*.txt", "data").c_str());
+  std::string filename = std::string(wxSaveFileSelector("Save file as", "*.bin", "data").c_str());
   if ( !filename.empty() )
   {
     MessageFile* m = new MessageFile(SAVE_FILE, filename);
