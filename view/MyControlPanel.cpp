@@ -21,8 +21,8 @@ MyControlPanel::MyControlPanel(wxWindow *parent) : wxPanel(parent), Observed()
   // View DrawTools ::
 
     y = WIDGET_Y0 ;
-    wxString tabChoix[6] = {"Carre","Rectangle","Cercle","Ellipse","Ligne","Polygone"};
-    m_drawTools = new wxRadioBox(this, ID_RADIOBOX, labelradio, wxPoint(10,y), wxDefaultSize,6,tabChoix,0,wxRA_SPECIFY_ROWS);
+    wxString tabChoix[2] = {"Carre","Cercle"};
+    m_drawTools = new wxRadioBox(this, ID_RADIOBOX, labelradio, wxPoint(10,y), wxDefaultSize,2,tabChoix,0,wxRA_SPECIFY_ROWS);
     m_drawTools->SetForegroundColour(wxColor(250,250,250));
 
 

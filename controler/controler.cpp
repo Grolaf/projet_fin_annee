@@ -142,6 +142,8 @@ void Controler::switchPrevisualize() {
     m_frame->GetDrawingPanel()->switchPevisualize();
 }
 void Controler::switchSelection() {
+    if(m_frame->GetDrawingPanel()->getPrevisualize())
+        m_frame->GetDrawingPanel()->switchPevisualize();
     m_frame->GetDrawingPanel()->switchSelection();
 }
 

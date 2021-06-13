@@ -86,7 +86,7 @@ void MyFrame::OnClose(wxCloseEvent& event)
 void MyFrame::OnAbout(wxCommandEvent& WXUNUSED(event))
   //------------------------------------------------------------------------
 {
-  wxMessageBox(wxT("How to .. \n\n- use 2 panels (one for controls, one for drawings)\n- manage basic events (so that controls impact drawings)\n\n... with wxWidgets (3.0.2)\n\nPascal Bertolino UGA - GIPSA-lab, Grenoble - France\npascal.bertolino@gipsa-lab.fr"),
+  wxMessageBox(wxT("How to .. \n\n- CTRL-C = copy\n- CTRL-V = paste\n - CTRL-Z = undo (do not work for deleted shapes)\n- CTRL-Y = redo (do not work for deleted shapes)\n\n Antoine Barrier\n Vincent Le Bagousse"),
                APP_NAME, wxOK | wxICON_INFORMATION ) ;
 }
 

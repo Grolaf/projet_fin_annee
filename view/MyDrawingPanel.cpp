@@ -62,12 +62,9 @@ void MyDrawingPanel::OnMouseMove(wxMouseEvent &event)
     m_mousePoint.x = event.m_x;
     m_mousePoint.y = event.m_y;
 
-    if (m_previsualize)
-    {
-        Message *m = new Message(REFRESH);
-        notifyObserver(m);
-        delete m;
-    }
+    Message *m = new Message(REFRESH);
+    notifyObserver(m);
+    delete m;
 }
 //------------------------------------------------------------------------
 void MyDrawingPanel::OnMouseLeftUp(wxMouseEvent &event)
@@ -107,27 +104,31 @@ void MyDrawingPanel::OnMouseLeftDown(wxMouseEvent &event)
             MessagePaint *m = new MessagePaint(PAINT_RECT, m_mousePoint.x - size / 2, m_mousePoint.y - size / 2, size,color, colorBorder, borderSize, filled);
             notifyObserver(m);
             delete m;
-        } else if (selectedShape.IsSameAs("Rectangle")) {
-            MessagePaint *m = new MessagePaint(PAINT_RECT, m_mousePoint.x - size / 2, m_mousePoint.y - size / 2, size,color, colorBorder, borderSize, filled);
-            notifyObserver(m);
-            delete m;
         } else if (selectedShape.IsSameAs("Cercle")) {
             MessagePaint *m = new MessagePaint(PAINT_CIRCLE, m_mousePoint.x, m_mousePoint.y, size,color, colorBorder, borderSize, filled);
             notifyObserver(m);
             delete m;
-        } else if (selectedShape.IsSameAs("Ellipse")) {
-            MessagePaint *m = new MessagePaint(PAINT_RECT, m_mousePoint.x - size / 2, m_mousePoint.y - size / 2, size, color, colorBorder, borderSize, filled);
-            notifyObserver(m);
-            delete m;
-        } else if (selectedShape.IsSameAs("Ligne")) {
-            MessagePaint *m = new MessagePaint(PAINT_LINE, m_mousePoint.x - size / 2, m_mousePoint.y - size / 2, size,color, colorBorder, borderSize, filled);
-            notifyObserver(m);
-            delete m;
-        } else if (selectedShape.IsSameAs("Polygone")) {
-            MessagePaint *m = new MessagePaint(PAINT_POLYGON, m_mousePoint.x - size / 2, m_mousePoint.y - size / 2, size,color, colorBorder, borderSize, filled);
-            notifyObserver(m);
-            delete m;
         }
+
+        // Formes non implémentées
+
+        // else if (selectedShape.IsSameAs("Rectangle")) {
+        //    MessagePaint *m = new MessagePaint(PAINT_RECT, m_mousePoint.x - size / 2, m_mousePoint.y - size / 2, size,color, colorBorder, borderSize, filled);
+        //    notifyObserver(m);
+        //    delete m;
+        //} else if (selectedShape.IsSameAs("Ellipse")) {
+        //    MessagePaint *m = new MessagePaint(PAINT_ELLIPSE, m_mousePoint.x - size / 2, m_mousePoint.y - size / 2, size, color, colorBorder, borderSize, filled);
+        //    notifyObserver(m);
+        //    delete m;
+        //} else if (selectedShape.IsSameAs("Ligne")) {
+        //    MessagePaint *m = new MessagePaint(PAINT_LINE, m_mousePoint.x - size / 2, m_mousePoint.y - size / 2, size,color, colorBorder, borderSize, filled);
+        //    notifyObserver(m);
+        //    delete m;
+        //} else if (selectedShape.IsSameAs("Polygone")) {
+        //    MessagePaint *m = new MessagePaint(PAINT_POLYGON, m_mousePoint.x - size / 2, m_mousePoint.y - size / 2, size,color, colorBorder, borderSize, filled);
+        //    notifyObserver(m);
+        //    delete m;
+        //}
     }
 }
 
@@ -235,16 +236,16 @@ void MyDrawingPanel::OnPaint(wxPaintEvent &event)
         delete r;
     }
 
+
+    if(m_previsualize)
+        Previsualize();
+
     if (check)
     {
         wxString coordinates ;
         coordinates.sprintf(wxT("(%d,%d)"), m_mousePoint.x, m_mousePoint.y) ;
         dc.DrawText(coordinates, wxPoint(m_mousePoint.x, m_mousePoint.y+20)) ;
     }
-
-    if(m_previsualize)
-        Previsualize();
-
 }
 
 void MyDrawingPanel::PaintRect(wxPaintDC &dc, Rectangle *r) {

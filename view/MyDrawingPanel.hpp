@@ -34,6 +34,7 @@ public:
 
     /*****  Getters ******/
     wxPoint &getMouse (){return m_mousePoint;};
+    bool getPrevisualize()const{return m_previsualize;};
 
   /*****  Setters ******/
   void switchPevisualize(){m_previsualize = !m_previsualize;};
